@@ -1,0 +1,29 @@
+name: Generate visual baselines
+
+# One-click helper: regenerates the screenshot baselines INSIDE the exact
+# Playwright container CI uses, then uploads them as an artifact.
+# Run this (Actions tab -> "Generate visual baselines" -> Run workflow) whenever
+# the visual job fails due to environment/render differences, then download the
+# "visual-baselines" artifact and commit its contents over tests/.
+on:
+  workflow_dispatch:
+
+jobs:
+  baselines:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.56.0-noble
+    steps:
+      - uses: actions/checkout@v5
+      - name: Ensure python (for docs build)
+        run: python3 --version || (apt-get update && apt-get install -y python3)
+      - run: npm ci
+      - run: npm run build && npm run build:docs
+      - name: Regenerate baselines in this container
+        run: npm run test:visual:update
+      - name: Upload regenerated baselines
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-baselines
+          path: tests/
+          retention-days: 7
