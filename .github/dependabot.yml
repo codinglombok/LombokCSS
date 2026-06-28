@@ -9,9 +9,18 @@ updates:
     groups:
       dev-dependencies:
         patterns: ["*"]
+    ignore:
+      # @playwright/test is pinned to match the Docker image tag in
+      # .github/workflows/visual.yml AND the committed screenshot baselines.
+      # Upgrading requires bumping the container tag + regenerating baselines
+      # in that image, so it must be done manually, not by Dependabot.
+      - dependency-name: "@playwright/test"
 
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
       interval: weekly
     labels: [dependencies, ci]
+    groups:
+      github-actions:
+        patterns: ["*"]
