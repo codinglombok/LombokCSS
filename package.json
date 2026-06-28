@@ -49,9 +49,9 @@
     "test:visual:update": "playwright test --update-snapshots"
   },
   "devDependencies": {
-    "@playwright/test": "1.56.0",
+    "@playwright/test": "1.61.1",
     "lightningcss-cli": "^1.29.0",
-    "prettier": "3.8.5"
+    "prettier": "3.9.1"
   },
   "keywords": [
     "css",
