@@ -1,0 +1,15 @@
+{
+  "name": "lombokcss/lombokcss",
+  "description": "Token-first component CSS framework. One markup, five design styles, dark mode + RTL. ~9.7KB gzipped.",
+  "type": "library",
+  "license": "MIT",
+  "keywords": ["css", "framework", "components", "ui", "design-tokens", "theming", "rtl", "dark-mode"],
+  "homepage": "https://github.com/codinglombok/lombokcss",
+  "support": {
+    "issues": "https://github.com/codinglombok/lombokcss/issues",
+    "source": "https://github.com/codinglombok/lombokcss"
+  },
+  "require": {
+    "php": ">=7.4"
+  }
+}

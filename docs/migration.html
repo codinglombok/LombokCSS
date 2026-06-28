@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" data-style="modern-corporate-flat" data-theme="light" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Migration from Bootstrap · LombokCSS</title>
+<link rel="stylesheet" href="assets/lombok.min.css">
+<link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+<div class="docs">
+  <aside class="docs-aside">
+    <a class="docs-brand" data-page="index.html">LombokCSS</a>
+
+<div class="docs-navtitle">Guide</div>
+<nav class="docs-nav">
+  <a data-page="index.html">Overview</a>
+  <a data-page="getting-started.html">Getting started</a>
+  <a data-page="migration.html" class="is-active">Migration from Bootstrap</a>
+  <a data-page="theming.html">Theming &amp; styles</a>
+</nav>
+<div class="docs-navtitle">Reference</div>
+<nav class="docs-nav">
+  <a data-page="components.html">Components</a>
+  <a data-page="forms.html">Forms</a>
+  <a data-page="utilities.html">Utilities</a>
+</nav>
+
+  </aside>
+  <div class="docs-main">
+    <header class="docs-top">
+      <button class="btn btn-ghost btn-sm docs-burger" aria-label="Menu">☰</button>
+      <div class="seg" role="radiogroup" aria-label="Design style">
+        <button data-style-set="modern-corporate-flat">Corporate</button>
+        <button data-style-set="resonant-stark">Stark</button>
+        <button data-style-set="neo-brutalism">Brutalism</button>
+        <button data-style-set="semantic-minimalist">Minimal</button>
+        <button data-style-set="glassmorphism">Glass</button>
+      </div>
+      <div class="docs-toggles">
+        <label class="switch"><span class="text-sm">Dark</span><input type="checkbox" id="dk"><span class="track"></span></label>
+        <label class="switch"><span class="text-sm">RTL</span><input type="checkbox" id="rt"><span class="track"></span></label>
+      </div>
+    </header>
+    <main class="docs-content">
+
+<h1>Migration from Bootstrap</h1>
+<p class="lead">LombokCSS covers the same component surface as Bootstrap, so most migrations are a class rename plus dropping the Sass/JS bundle. This page maps the concepts and the classes.</p>
+
+<h2>Mental model differences</h2>
+<p>Three things change how you think:</p>
+<ul>
+  <li><strong>Theming is runtime, not build-time.</strong> Bootstrap recompiles Sass variables; LombokCSS reads CSS custom properties, and a whole look is one <code>data-style</code> attribute — no build step to re-theme.</li>
+  <li><strong>Utilities are first-class.</strong> Like Bootstrap 5 utilities, but you can also drop into a Tailwind-ish flow (<code>flex items-center gap-4</code>) without leaving the framework.</li>
+  <li><strong>Less JavaScript.</strong> Accordions and modals are native (<code>&lt;details&gt;</code>, <code>&lt;dialog&gt;</code>); the optional 2&nbsp;KB script only wires dropdowns, tabs, toasts, carousels, drawers and table sort.</li>
+</ul>
+
+<h2>Class map</h2>
+<div class="table-wrap">
+<table class="table table-striped">
+  <thead><tr><th>Bootstrap</th><th>LombokCSS</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td><code>btn btn-primary</code></td><td><code>btn btn-primary</code></td><td>Same. Variants: <code>btn-secondary/outline/soft/ghost/link/danger</code>.</td></tr>
+    <tr><td><code>btn-lg / btn-sm</code></td><td><code>btn-lg / btn-sm</code></td><td>Same names.</td></tr>
+    <tr><td><code>btn-group</code></td><td><code>btn-group</code></td><td>Same.</td></tr>
+    <tr><td><code>card / card-body / card-title</code></td><td><code>card / card-body / card-title</code></td><td>Same; also <code>card-header/footer/text</code>.</td></tr>
+    <tr><td><code>badge bg-primary</code></td><td><code>badge badge-primary</code></td><td>Pill: <code>badge-pill</code>.</td></tr>
+    <tr><td><code>alert alert-success</code></td><td><code>alert alert-success</code></td><td>Same.</td></tr>
+    <tr><td><code>form-control</code></td><td><code>input</code> / <code>textarea</code></td><td>Or go classless — bare inputs are styled.</td></tr>
+    <tr><td><code>form-select</code></td><td><code>select</code></td><td>Same idea.</td></tr>
+    <tr><td><code>form-check / form-check-input</code></td><td><code>check</code> + native input</td><td>Themed via <code>accent-color</code>.</td></tr>
+    <tr><td><code>form-switch</code></td><td><code>switch</code></td><td>Markup differs slightly (see Forms).</td></tr>
+    <tr><td><code>is-invalid / invalid-feedback</code></td><td><code>is-invalid / error-text</code></td><td>Plus native <code>:user-invalid</code> with zero JS.</td></tr>
+    <tr><td><code>input-group / input-group-text</code></td><td><code>input-group / input-addon</code></td><td>Same concept.</td></tr>
+    <tr><td><code>navbar / navbar-nav / nav-link</code></td><td><code>navbar / navbar-nav</code> + <code>a</code></td><td>Mobile toggle: <code>navbar-toggle</code>.</td></tr>
+    <tr><td><code>nav nav-tabs</code></td><td><code>tabs</code></td><td>Use ARIA <code>role="tab"</code>.</td></tr>
+    <tr><td><code>accordion</code></td><td><code>accordion</code> + <code>&lt;details&gt;</code></td><td>Native, no JS.</td></tr>
+    <tr><td><code>dropdown / dropdown-menu / dropdown-item</code></td><td><code>dropdown / dropdown-menu / dropdown-item</code></td><td>Toggle via <code>data-dropdown-toggle</code>.</td></tr>
+    <tr><td><code>modal</code> (+ JS)</td><td><code>dialog.modal</code> + <code>modal-card</code></td><td>Native <code>&lt;dialog&gt;</code>; open with <code>data-modal-open</code>.</td></tr>
+    <tr><td><code>toast</code></td><td><code>Lombok.toast()</code></td><td>JS helper creates the region.</td></tr>
+    <tr><td><code>offcanvas</code></td><td><code>drawer</code> + <code>drawer-overlay</code></td><td><code>data-drawer-open</code>.</td></tr>
+    <tr><td><code>breadcrumb / pagination</code></td><td><code>breadcrumb / pagination</code></td><td>Same.</td></tr>
+    <tr><td><code>list-group / list-group-item</code></td><td><code>list-group / list-group-item</code></td><td>Same.</td></tr>
+    <tr><td><code>progress / progress-bar</code></td><td><code>progress &gt; .bar</code></td><td>Width via inline <code>inline-size</code>.</td></tr>
+    <tr><td><code>spinner-border</code></td><td><code>spinner</code></td><td>Same idea.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Grid &amp; layout</h2>
+<p>Replace the 12-column row/col grid with CSS grid utilities (or flex). It is terser and needs no <code>.row</code> wrapper.</p>
+<div class="example">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3" style="inline-size:100%">
+  <div class="card"><div class="card-body" style="padding:12px">col</div></div>
+  <div class="card"><div class="card-body" style="padding:12px">col</div></div>
+  <div class="card"><div class="card-body" style="padding:12px">col</div></div>
+</div>
+</div>
+<pre><code>&lt;!-- Bootstrap --&gt;
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-md-4&quot;&gt;…&lt;/div&gt;
+  &lt;div class=&quot;col-md-4&quot;&gt;…&lt;/div&gt;
+  &lt;div class=&quot;col-md-4&quot;&gt;…&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- LombokCSS --&gt;
+&lt;div class=&quot;grid grid-cols-1 md:grid-cols-3 gap-3&quot;&gt;
+  &lt;div&gt;…&lt;/div&gt;&lt;div&gt;…&lt;/div&gt;&lt;div&gt;…&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+
+<h2>Theming</h2>
+<p>Drop the Sass pipeline. Override CSS variables instead, and pick a look with <code>data-style</code>.</p>
+<pre><code>// Bootstrap (build-time Sass)
+$primary: #e11d48;
+@import "bootstrap";
+
+/* LombokCSS (runtime CSS variables) */
+:root { --lc-accent:#e11d48; --lc-radius:4px; }
+&lt;html data-style="resonant-stark" data-theme="dark"&gt;</code></pre>
+
+<h2>JavaScript</h2>
+<p>Bootstrap's <code>data-bs-*</code> attributes and JS plugins become small <code>data-*</code> hooks (or native elements):</p>
+<pre><code>&lt;!-- Bootstrap --&gt;
+&lt;button data-bs-toggle="modal" data-bs-target="#m"&gt;Open&lt;/button&gt;
+
+&lt;!-- LombokCSS --&gt;
+&lt;button data-modal-open="m"&gt;Open&lt;/button&gt;
+&lt;dialog class="modal" id="m"&gt;…&lt;/dialog&gt;</code></pre>
+
+<h2>Step-by-step</h2>
+<ol>
+  <li>Swap the stylesheet/script links for <code>lombok.min.css</code> (+ optional <code>lombok.js</code>).</li>
+  <li>Rename component classes using the table above (most are identical).</li>
+  <li>Replace <code>.row/.col-*</code> with <code>grid grid-cols-* / col-span-*</code> or flex utilities.</li>
+  <li>Convert <code>data-bs-*</code> triggers to the <code>data-*</code> hooks (modal, dropdown, drawer) or native elements.</li>
+  <li>Move Sass variable overrides to CSS custom properties on <code>:root</code>; choose a <code>data-style</code>.</li>
+  <li>Delete the Bootstrap + Popper bundles.</li>
+</ol>
+
+<h2>Gotchas</h2>
+<ul>
+  <li><strong>No jQuery/Popper.</strong> Tooltips/popovers are CSS/JS-light; positioning is simpler and may need tweaks for edge cases.</li>
+  <li><strong>Utilities aren't 1:1.</strong> LombokCSS ships a focused utility set; check the Utilities page for exact names (e.g. spacing uses a token scale).</li>
+  <li><strong>Logical properties.</strong> If you had LTR-only overrides using <code>left/right</code>, switch to <code>inline-start/inline-end</code> to keep RTL working.</li>
+  <li><strong>Color modes.</strong> Dark mode is <code>data-theme</code> (or OS), not a separate stylesheet.</li>
+</ul>
+
+    </main>
+  </div>
+</div>
+<div class="toast-region" aria-live="polite"></div>
+<script src="assets/lombok.js"></script>
+<script src="assets/docs.js"></script>
+</body>
+</html>

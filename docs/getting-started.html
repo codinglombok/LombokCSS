@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" data-style="modern-corporate-flat" data-theme="light" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting started · LombokCSS</title>
+<link rel="stylesheet" href="assets/lombok.min.css">
+<link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+<div class="docs">
+  <aside class="docs-aside">
+    <a class="docs-brand" data-page="index.html">LombokCSS</a>
+
+<div class="docs-navtitle">Guide</div>
+<nav class="docs-nav">
+  <a data-page="index.html">Overview</a>
+  <a data-page="getting-started.html" class="is-active">Getting started</a>
+  <a data-page="migration.html">Migration from Bootstrap</a>
+  <a data-page="theming.html">Theming &amp; styles</a>
+</nav>
+<div class="docs-navtitle">Reference</div>
+<nav class="docs-nav">
+  <a data-page="components.html">Components</a>
+  <a data-page="forms.html">Forms</a>
+  <a data-page="utilities.html">Utilities</a>
+</nav>
+
+  </aside>
+  <div class="docs-main">
+    <header class="docs-top">
+      <button class="btn btn-ghost btn-sm docs-burger" aria-label="Menu">☰</button>
+      <div class="seg" role="radiogroup" aria-label="Design style">
+        <button data-style-set="modern-corporate-flat">Corporate</button>
+        <button data-style-set="resonant-stark">Stark</button>
+        <button data-style-set="neo-brutalism">Brutalism</button>
+        <button data-style-set="semantic-minimalist">Minimal</button>
+        <button data-style-set="glassmorphism">Glass</button>
+      </div>
+      <div class="docs-toggles">
+        <label class="switch"><span class="text-sm">Dark</span><input type="checkbox" id="dk"><span class="track"></span></label>
+        <label class="switch"><span class="text-sm">RTL</span><input type="checkbox" id="rt"><span class="track"></span></label>
+      </div>
+    </header>
+    <main class="docs-content">
+
+<h1>Getting started</h1>
+
+<h2>Install</h2>
+<p>LombokCSS is plain CSS + an optional plain-JS file, so it works with every
+package manager, bundler and framework. Pick whichever fits your stack.</p>
+
+<h3>Package managers (npm registry)</h3>
+<p>npm, Yarn and pnpm all read the same package — use whichever you have.</p>
+<pre><code>npm install lombokcss
+yarn add lombokcss
+pnpm add lombokcss</code></pre>
+<p>Then import the CSS once (and the optional JS for interactive components):</p>
+<pre><code>import "lombokcss/dist/lombok.min.css";
+import "lombokcss/dist/lombok.js"; // optional</code></pre>
+
+<h3>CDN (jsDelivr / unpkg)</h3>
+<pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lombokcss@0.1.0/dist/lombok.min.css"&gt;
+&lt;script defer src="https://cdn.jsdelivr.net/npm/lombokcss@0.1.0/dist/lombok.js"&gt;&lt;/script&gt;
+&lt;!-- or unpkg: https://unpkg.com/lombokcss@0.1.0/dist/lombok.min.css --&gt;</code></pre>
+
+<h3>Composer (PHP / Packagist)</h3>
+<pre><code>composer require codinglombok/lombokcss
+&lt;!-- then reference vendor/codinglombok/lombokcss/dist/lombok.min.css --&gt;</code></pre>
+
+<h3>RubyGems (Rails / Sprockets)</h3>
+<pre><code># Gemfile
+gem "lombokcss"
+
+# config/initializers/assets.rb
+Rails.application.config.assets.paths &lt;&lt; Lombokcss.assets_path
+# app/assets/stylesheets/application.css  ->  *= require lombok.min</code></pre>
+
+<h3>Direct download</h3>
+<p>Grab <code>dist/lombok.min.css</code> (and optional <code>dist/lombok.js</code>) and link them.</p>
+
+<h2>Bundler & framework integrations</h2>
+<p>Because it ships standard <code>.css</code> and <code>.js</code>, there is no special plugin to install.</p>
+
+<h3>Vite</h3>
+<pre><code>// main.js
+import "lombokcss/dist/lombok.min.css";
+import "lombokcss/dist/lombok.js";</code></pre>
+
+<h3>Webpack</h3>
+<pre><code>// requires css-loader + style-loader (or MiniCssExtractPlugin) in your config
+import "lombokcss/dist/lombok.min.css";
+import "lombokcss/dist/lombok.js";</code></pre>
+
+<h3>Parcel</h3>
+<pre><code>// Parcel handles CSS imports out of the box
+import "lombokcss/dist/lombok.min.css";</code></pre>
+
+<h3>Vue (and React, Svelte, etc.)</h3>
+<p>Import the CSS once in your entry file, then use the classes in templates.</p>
+<pre><code>// main.js (Vue entry)
+import { createApp } from "vue";
+import App from "./App.vue";
+import "lombokcss/dist/lombok.min.css";
+import "lombokcss/dist/lombok.js";
+createApp(App).mount("#app");
+
+&lt;!-- App.vue --&gt;
+&lt;button class="btn btn-primary"&gt;Save&lt;/button&gt;</code></pre>
+<p>Set the style globally on <code>&lt;html&gt;</code>:
+<code>document.documentElement.dataset.style = "neo-brutalism"</code>.</p>
+
+<blockquote><strong>Bower</strong> is included for legacy setups
+(<code>bower install lombokcss</code>) but Bower is deprecated — prefer npm/Yarn/pnpm.</blockquote>
+
+<h2>File structure</h2>
+<pre><code>src/
+  variables.css   token architecture (the contract)
+  core.css        reset + base element styles (classless mode)
+  themes.css      token values per design style
+  components.css  components (read tokens only)
+  utilities.css   atomic utilities + responsive prefixes
+dist/
+  lombok.css      bundled, readable
+  lombok.min.css  bundled + minified (ship this)
+  lombok.js       optional interactive behaviors</code></pre>
+
+<h2>Classless mode</h2>
+<p>Plain semantic HTML is styled with zero classes — good for prose and prototypes.</p>
+<div class="example">
+<div style="max-inline-size:32rem">
+  <h3 style="margin-top:0">A heading</h3>
+  <p>A paragraph with a <a href="#">link</a>, some <code>inline code</code> and a <kbd>⌘</kbd><kbd>K</kbd> shortcut.</p>
+  <blockquote>Tokens are the contract; styles are signatures on it.</blockquote>
+</div>
+</div>
+<pre><code>&lt;h3&gt;A heading&lt;/h3&gt;
+&lt;p&gt;A paragraph with a &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt;, some &lt;code&gt;inline code&lt;/code&gt;
+   and a &lt;kbd&gt;⌘&lt;/kbd&gt;&lt;kbd&gt;K&lt;/kbd&gt; shortcut.&lt;/p&gt;
+&lt;blockquote&gt;Tokens are the contract; styles are signatures on it.&lt;/blockquote&gt;</code></pre>
+
+<h2>Build process</h2>
+<p>The dist files are produced with Lightning CSS:</p>
+<pre><code>cat src/variables.css src/core.css src/themes.css \
+    src/components.css src/utilities.css > dist/lombok.css
+npx lightningcss --minify --bundle dist/lombok.css -o dist/lombok.min.css</code></pre>
+<p>PostCSS equivalent: <code>postcss-import</code> + <code>autoprefixer</code> + <code>cssnano</code>. To shrink further, ship <code>utilities.css</code> only if you use utility classes, purge unused classes against your templates, and drop styles you don't use from <code>themes.css</code>.</p>
+
+<h2>Browser support &amp; accessibility</h2>
+<p>Modern CSS with graceful fallbacks: <code>:has()</code>, <code>:user-invalid</code>, <code>accent-color</code>, <code>backdrop-filter</code> (opaque fallback via <code>@supports</code>), logical properties, native <code>&lt;dialog&gt;</code>/<code>&lt;details&gt;</code>. Components ship with visible focus rings, ARIA hooks and respect <code>prefers-reduced-motion</code>.</p>
+
+    </main>
+  </div>
+</div>
+<div class="toast-region" aria-live="polite"></div>
+<script src="assets/lombok.js"></script>
+<script src="assets/docs.js"></script>
+</body>
+</html>

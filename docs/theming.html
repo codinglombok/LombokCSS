@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-style="modern-corporate-flat" data-theme="light" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Theming & styles · LombokCSS</title>
+<link rel="stylesheet" href="assets/lombok.min.css">
+<link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+<div class="docs">
+  <aside class="docs-aside">
+    <a class="docs-brand" data-page="index.html">LombokCSS</a>
+
+<div class="docs-navtitle">Guide</div>
+<nav class="docs-nav">
+  <a data-page="index.html">Overview</a>
+  <a data-page="getting-started.html">Getting started</a>
+  <a data-page="migration.html">Migration from Bootstrap</a>
+  <a data-page="theming.html" class="is-active">Theming &amp; styles</a>
+</nav>
+<div class="docs-navtitle">Reference</div>
+<nav class="docs-nav">
+  <a data-page="components.html">Components</a>
+  <a data-page="forms.html">Forms</a>
+  <a data-page="utilities.html">Utilities</a>
+</nav>
+
+  </aside>
+  <div class="docs-main">
+    <header class="docs-top">
+      <button class="btn btn-ghost btn-sm docs-burger" aria-label="Menu">☰</button>
+      <div class="seg" role="radiogroup" aria-label="Design style">
+        <button data-style-set="modern-corporate-flat">Corporate</button>
+        <button data-style-set="resonant-stark">Stark</button>
+        <button data-style-set="neo-brutalism">Brutalism</button>
+        <button data-style-set="semantic-minimalist">Minimal</button>
+        <button data-style-set="glassmorphism">Glass</button>
+      </div>
+      <div class="docs-toggles">
+        <label class="switch"><span class="text-sm">Dark</span><input type="checkbox" id="dk"><span class="track"></span></label>
+        <label class="switch"><span class="text-sm">RTL</span><input type="checkbox" id="rt"><span class="track"></span></label>
+      </div>
+    </header>
+    <main class="docs-content">
+
+<h1>Theming &amp; styles</h1>
+<p class="lead">Components read only semantic tokens. A "design style" is just a different set of values for those tokens — switching it never touches component CSS or your HTML.</p>
+
+<h2>The token contract</h2>
+<p>Every component references variables like these. Override them anywhere to customize.</p>
+<pre><code>--lc-bg, --lc-surface, --lc-surface-2     /* backgrounds */
+--lc-text, --lc-text-muted, --lc-text-faint
+--lc-border, --lc-border-strong, --lc-border-width
+--lc-accent, --lc-accent-hover, --lc-accent-text, --lc-accent-soft
+--lc-radius-sm, --lc-radius, --lc-radius-lg, --lc-radius-full
+--lc-shadow-sm, --lc-shadow, --lc-shadow-lg, --lc-shadow-hard
+--lc-blur                                  /* glass backdrop-filter */
+--lc-space-1 … --lc-space-12, --lc-text-xs … --lc-text-4xl</code></pre>
+
+<h2>The five styles</h2>
+<p>Set <code>data-style</code> on <code>&lt;html&gt;</code> (or any element, to scope it). These previews each pin one style locally:</p>
+<div class="example" style="align-items:stretch">
+<div data-style="modern-corporate-flat" style="flex:1 1 220px;border-radius:12px;overflow:hidden;border:1px solid var(--lc-border)"><div style="background:var(--lc-bg);padding:16px;display:flex;flex-direction:column;gap:10px"><strong style="color:var(--lc-text)">Corporate Flat</strong><button class="btn btn-primary btn-sm">Button</button><div class="card"><div class="card-body" style="padding:12px"><span class="badge badge-primary">badge</span> <span style="color:var(--lc-text-muted);font-size:13px">card surface</span></div></div></div></div>
+<div data-style="resonant-stark" style="flex:1 1 220px;border-radius:12px;overflow:hidden;border:1px solid var(--lc-border)"><div style="background:var(--lc-bg);padding:16px;display:flex;flex-direction:column;gap:10px"><strong style="color:var(--lc-text)">Resonant Stark</strong><button class="btn btn-primary btn-sm">Button</button><div class="card"><div class="card-body" style="padding:12px"><span class="badge badge-primary">badge</span> <span style="color:var(--lc-text-muted);font-size:13px">card surface</span></div></div></div></div>
+<div data-style="neo-brutalism" style="flex:1 1 220px;border-radius:12px;overflow:hidden;border:1px solid var(--lc-border)"><div style="background:var(--lc-bg);padding:16px;display:flex;flex-direction:column;gap:10px"><strong style="color:var(--lc-text)">Neo-Brutalism</strong><button class="btn btn-primary btn-sm">Button</button><div class="card"><div class="card-body" style="padding:12px"><span class="badge badge-primary">badge</span> <span style="color:var(--lc-text-muted);font-size:13px">card surface</span></div></div></div></div>
+<div data-style="semantic-minimalist" style="flex:1 1 220px;border-radius:12px;overflow:hidden;border:1px solid var(--lc-border)"><div style="background:var(--lc-bg);padding:16px;display:flex;flex-direction:column;gap:10px"><strong style="color:var(--lc-text)">Minimalist</strong><button class="btn btn-primary btn-sm">Button</button><div class="card"><div class="card-body" style="padding:12px"><span class="badge badge-primary">badge</span> <span style="color:var(--lc-text-muted);font-size:13px">card surface</span></div></div></div></div>
+<div data-style="glassmorphism" style="flex:1 1 220px;border-radius:12px;overflow:hidden;border:1px solid var(--lc-border)"><div style="background:var(--lc-bg);padding:16px;display:flex;flex-direction:column;gap:10px"><strong style="color:var(--lc-text)">Glassmorphism</strong><button class="btn btn-primary btn-sm">Button</button><div class="card"><div class="card-body" style="padding:12px"><span class="badge badge-primary">badge</span> <span style="color:var(--lc-text-muted);font-size:13px">card surface</span></div></div></div></div>
+</div>
+<pre><code>&lt;html data-style="neo-brutalism"&gt;        &lt;!-- thick borders, hard shadows --&gt;
+&lt;html data-style="glassmorphism"&gt;        &lt;!-- frosted glass over a gradient --&gt;
+&lt;html data-style="resonant-stark"&gt;       &lt;!-- Linear-style dark --&gt;</code></pre>
+
+<h2>Dark mode</h2>
+<p>An independent axis that composes with any style. Three modes:</p>
+<pre><code>&lt;html data-theme="dark"&gt;    &lt;!-- force dark --&gt;
+&lt;html data-theme="light"&gt;   &lt;!-- force light --&gt;
+&lt;html&gt;                       &lt;!-- follow the OS setting --&gt;</code></pre>
+
+<h2>RTL</h2>
+<p>Set the document direction; all components use logical properties and mirror automatically.</p>
+<pre><code>&lt;html dir="rtl" lang="ar"&gt;</code></pre>
+
+<h2>Make your own style</h2>
+<p>Add a token block — no component edits required.</p>
+<pre><code>[data-style="sunset"] {
+  --lc-bg:#1a0f0f; --lc-surface:#2a1818; --lc-text:#ffe;
+  --lc-accent:#ff7849; --lc-radius:14px;
+  --lc-shadow:0 8px 24px rgba(0,0,0,.4);
+}</code></pre>
+
+    </main>
+  </div>
+</div>
+<div class="toast-region" aria-live="polite"></div>
+<script src="assets/lombok.js"></script>
+<script src="assets/docs.js"></script>
+</body>
+</html>

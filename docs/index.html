@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-style="modern-corporate-flat" data-theme="light" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overview · LombokCSS</title>
+<link rel="stylesheet" href="assets/lombok.min.css">
+<link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+<div class="docs">
+  <aside class="docs-aside">
+    <a class="docs-brand" data-page="index.html">LombokCSS</a>
+
+<div class="docs-navtitle">Guide</div>
+<nav class="docs-nav">
+  <a data-page="index.html" class="is-active">Overview</a>
+  <a data-page="getting-started.html">Getting started</a>
+  <a data-page="migration.html">Migration from Bootstrap</a>
+  <a data-page="theming.html">Theming &amp; styles</a>
+</nav>
+<div class="docs-navtitle">Reference</div>
+<nav class="docs-nav">
+  <a data-page="components.html">Components</a>
+  <a data-page="forms.html">Forms</a>
+  <a data-page="utilities.html">Utilities</a>
+</nav>
+
+  </aside>
+  <div class="docs-main">
+    <header class="docs-top">
+      <button class="btn btn-ghost btn-sm docs-burger" aria-label="Menu">☰</button>
+      <div class="seg" role="radiogroup" aria-label="Design style">
+        <button data-style-set="modern-corporate-flat">Corporate</button>
+        <button data-style-set="resonant-stark">Stark</button>
+        <button data-style-set="neo-brutalism">Brutalism</button>
+        <button data-style-set="semantic-minimalist">Minimal</button>
+        <button data-style-set="glassmorphism">Glass</button>
+      </div>
+      <div class="docs-toggles">
+        <label class="switch"><span class="text-sm">Dark</span><input type="checkbox" id="dk"><span class="track"></span></label>
+        <label class="switch"><span class="text-sm">RTL</span><input type="checkbox" id="rt"><span class="track"></span></label>
+      </div>
+    </header>
+    <main class="docs-content">
+
+<h1>LombokCSS</h1>
+<p class="lead">A token-first component framework. Drop a class, get a working component — then re-skin the whole page by changing one attribute.</p>
+<p>Use the controls at the top to switch design style, dark mode and RTL. Every example on these pages reacts live, and your selection follows you between pages.</p>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+  <div class="card"><div class="card-body"><h3 class="card-title">Component-based</h3><p class="card-text">Ready-made buttons, cards, forms, modals, navbars and more.</p></div></div>
+  <div class="card"><div class="card-body"><h3 class="card-title">Token-driven</h3><p class="card-text">Five design styles + dark + RTL, all from CSS variables.</p></div></div>
+  <div class="card"><div class="card-body"><h3 class="card-title">Tiny</h3><p class="card-text">~9.5&nbsp;KB gzipped for the full build. JS is optional.</p></div></div>
+</div>
+
+<h2>Quick start</h2>
+<p>Drop in the CDN links and start writing markup:</p>
+<pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lombokcss/dist/lombok.min.css"&gt;
+&lt;script defer src="https://cdn.jsdelivr.net/npm/lombokcss/dist/lombok.js"&gt;&lt;/script&gt;</code></pre>
+<div class="example">
+<button class="btn btn-primary">Primary</button>
+<button class="btn btn-outline">Outline</button>
+<span class="badge badge-success">live</span>
+</div>
+<pre><code>&lt;button class=&quot;btn btn-primary&quot;&gt;Primary&lt;/button&gt;
+&lt;button class=&quot;btn btn-outline&quot;&gt;Outline&lt;/button&gt;
+&lt;span class=&quot;badge badge-success&quot;&gt;live&lt;/span&gt;</code></pre>
+
+<h2>Three pillars</h2>
+<p>Component classes give you Bootstrap-style speed. Utility classes give you Tailwind-style control. The token layer keeps the whole thing Pico-small and lets a single <code>data-style</code> attribute restyle everything without touching your HTML.</p>
+
+    </main>
+  </div>
+</div>
+<div class="toast-region" aria-live="polite"></div>
+<script src="assets/lombok.js"></script>
+<script src="assets/docs.js"></script>
+</body>
+</html>

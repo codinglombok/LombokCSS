@@ -1,0 +1,18 @@
+# dependencies
+node_modules/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# build scratch (keep dist/ committed — CI verifies it)
+*.tmp
+
+# python cache (build_docs.py)
+__pycache__/
+*.pyc
+
+# playwright artifacts (baselines under tests/**-snapshots ARE committed)
+test-results/
+playwright-report/

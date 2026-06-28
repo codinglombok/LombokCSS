@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" data-style="modern-corporate-flat" data-theme="light" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forms · LombokCSS</title>
+<link rel="stylesheet" href="assets/lombok.min.css">
+<link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+<div class="docs">
+  <aside class="docs-aside">
+    <a class="docs-brand" data-page="index.html">LombokCSS</a>
+
+<div class="docs-navtitle">Guide</div>
+<nav class="docs-nav">
+  <a data-page="index.html">Overview</a>
+  <a data-page="getting-started.html">Getting started</a>
+  <a data-page="migration.html">Migration from Bootstrap</a>
+  <a data-page="theming.html">Theming &amp; styles</a>
+</nav>
+<div class="docs-navtitle">Reference</div>
+<nav class="docs-nav">
+  <a data-page="components.html">Components</a>
+  <a data-page="forms.html" class="is-active">Forms</a>
+  <a data-page="utilities.html">Utilities</a>
+</nav>
+
+  </aside>
+  <div class="docs-main">
+    <header class="docs-top">
+      <button class="btn btn-ghost btn-sm docs-burger" aria-label="Menu">☰</button>
+      <div class="seg" role="radiogroup" aria-label="Design style">
+        <button data-style-set="modern-corporate-flat">Corporate</button>
+        <button data-style-set="resonant-stark">Stark</button>
+        <button data-style-set="neo-brutalism">Brutalism</button>
+        <button data-style-set="semantic-minimalist">Minimal</button>
+        <button data-style-set="glassmorphism">Glass</button>
+      </div>
+      <div class="docs-toggles">
+        <label class="switch"><span class="text-sm">Dark</span><input type="checkbox" id="dk"><span class="track"></span></label>
+        <label class="switch"><span class="text-sm">RTL</span><input type="checkbox" id="rt"><span class="track"></span></label>
+      </div>
+    </header>
+    <main class="docs-content">
+
+<h1>Forms</h1>
+<p class="lead">A complete guide to inputs, controls, layout, sizing, states and validation. Every example reacts to the style / dark / RTL controls above.</p>
+
+<h2>Anatomy of a field</h2>
+<p>Wrap each control in <code>.field</code>. Pair it with <code>.label</code>, optional <code>.help</code> text, and a hidden <code>.error-text</code> that appears on invalid input. <code>.field</code> stacks these with consistent spacing.</p>
+<div class="example">
+<div class="field" style="inline-size:100%;max-inline-size:420px">
+  <label class="label" for="fa">Full name</label>
+  <input class="input" id="fa" placeholder="Jane Doe">
+  <span class="help">As it appears on your ID.</span>
+</div>
+</div>
+<pre><code>&lt;div class=&quot;field&quot;&gt;
+  &lt;label class=&quot;label&quot; for=&quot;name&quot;&gt;Full name&lt;/label&gt;
+  &lt;input class=&quot;input&quot; id=&quot;name&quot; placeholder=&quot;Jane Doe&quot;&gt;
+  &lt;span class=&quot;help&quot;&gt;As it appears on your ID.&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+
+<h2>Text inputs</h2>
+<p>The <code>.input</code> class works on every text-like type. Bare <code>&lt;input&gt;</code> is also styled in classless mode.</p>
+<div class="example">
+<div style="display:grid;gap:10px;inline-size:100%;max-inline-size:420px">
+  <input class="input" type="text" placeholder="Text">
+  <input class="input" type="email" placeholder="Email">
+  <input class="input" type="password" placeholder="Password">
+  <input class="input" type="number" placeholder="Number">
+  <input class="input" type="date">
+  <input class="input" type="search" placeholder="Search">
+</div>
+</div>
+<pre><code>&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;Text&quot;&gt;
+&lt;input class=&quot;input&quot; type=&quot;email&quot; placeholder=&quot;Email&quot;&gt;
+&lt;input class=&quot;input&quot; type=&quot;date&quot;&gt;</code></pre>
+
+
+<h2>Textarea &amp; Select</h2>
+<div class="example">
+<div style="display:grid;gap:10px;inline-size:100%;max-inline-size:420px">
+  <textarea class="textarea" placeholder="Your message…"></textarea>
+  <select class="select"><option>Choose a plan</option><option>Free</option><option>Pro</option><option>Team</option></select>
+</div>
+</div>
+<pre><code>&lt;textarea class=&quot;textarea&quot; placeholder=&quot;Your message…&quot;&gt;&lt;/textarea&gt;
+&lt;select class=&quot;select&quot;&gt;
+  &lt;option&gt;Free&lt;/option&gt;&lt;option&gt;Pro&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+
+
+<h2>Sizes</h2>
+<p>Add <code>.input-sm</code> / <code>.input-lg</code> (and <code>.select-sm</code> / <code>.select-lg</code>).</p>
+<div class="example">
+<div style="display:grid;gap:10px;inline-size:100%;max-inline-size:420px">
+  <input class="input input-sm" placeholder="Small">
+  <input class="input" placeholder="Default">
+  <input class="input input-lg" placeholder="Large">
+</div>
+</div>
+<pre><code>&lt;input class=&quot;input input-sm&quot; placeholder=&quot;Small&quot;&gt;
+&lt;input class=&quot;input&quot; placeholder=&quot;Default&quot;&gt;
+&lt;input class=&quot;input input-lg&quot; placeholder=&quot;Large&quot;&gt;</code></pre>
+
+
+<h2>States</h2>
+<p>Disabled and read-only are handled natively; valid / invalid use the validation hooks below.</p>
+<div class="example">
+<div style="display:grid;gap:10px;inline-size:100%;max-inline-size:420px">
+  <input class="input" value="Disabled" disabled>
+  <input class="input" value="Read-only" readonly>
+  <input class="input is-valid" value="Looks good">
+  <input class="input is-invalid" value="Something off">
+</div>
+</div>
+<pre><code>&lt;input class=&quot;input&quot; value=&quot;Disabled&quot; disabled&gt;
+&lt;input class=&quot;input&quot; value=&quot;Read-only&quot; readonly&gt;
+&lt;input class=&quot;input is-valid&quot; value=&quot;Looks good&quot;&gt;
+&lt;input class=&quot;input is-invalid&quot; value=&quot;Something off&quot;&gt;</code></pre>
+
+
+<h2>Checkbox, Radio &amp; Switch</h2>
+<p>Native controls themed with <code>accent-color</code>, so they match every style automatically.</p>
+<div class="example">
+<div style="display:grid;gap:8px">
+  <div class="check"><input type="checkbox" id="fc1" checked><label for="fc1">Subscribe to updates</label></div>
+  <div class="check"><input type="checkbox" id="fc2"><label for="fc2">Enable two-factor auth</label></div>
+  <div class="check"><input type="radio" name="plan" id="fr1" checked><label for="fr1">Monthly</label></div>
+  <div class="check"><input type="radio" name="plan" id="fr2"><label for="fr2">Yearly</label></div>
+  <label class="switch mt-2"><span>Email notifications</span><input type="checkbox" checked><span class="track"></span></label>
+</div>
+</div>
+<pre><code>&lt;div class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; id=&quot;c1&quot;&gt;&lt;label for=&quot;c1&quot;&gt;Subscribe&lt;/label&gt;&lt;/div&gt;
+&lt;div class=&quot;check&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;plan&quot; id=&quot;r1&quot;&gt;&lt;label for=&quot;r1&quot;&gt;Monthly&lt;/label&gt;&lt;/div&gt;
+&lt;label class=&quot;switch&quot;&gt;&lt;span&gt;Notifications&lt;/span&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;span class=&quot;track&quot;&gt;&lt;/span&gt;&lt;/label&gt;</code></pre>
+
+
+<h2>File upload</h2>
+<div class="example">
+<input type="file">
+</div>
+<pre><code>&lt;input type=&quot;file&quot;&gt;</code></pre>
+
+
+<h2>Input group</h2>
+<p>Join inputs with leading/trailing addons or buttons using <code>.input-group</code> + <code>.input-addon</code>. Radii and borders are handled on the ends, and it mirrors correctly in RTL.</p>
+<div class="example">
+<div style="display:grid;gap:10px;inline-size:100%;max-inline-size:420px">
+  <div class="input-group"><span class="input-addon">@</span><input class="input" placeholder="username"></div>
+  <div class="input-group"><span class="input-addon">https://</span><input class="input" placeholder="site.com"></div>
+  <div class="input-group"><input class="input" placeholder="Search…"><button class="btn btn-primary">Go</button></div>
+  <div class="input-group"><input class="input" value="1,250.00"><span class="input-addon">USD</span></div>
+</div>
+</div>
+<pre><code>&lt;div class=&quot;input-group&quot;&gt;
+  &lt;span class=&quot;input-addon&quot;&gt;@&lt;/span&gt;
+  &lt;input class=&quot;input&quot; placeholder=&quot;username&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;input-group&quot;&gt;
+  &lt;input class=&quot;input&quot; placeholder=&quot;Search…&quot;&gt;
+  &lt;button class=&quot;btn btn-primary&quot;&gt;Go&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+
+<h2>Validation</h2>
+<p>LombokCSS layers two validation systems so you can use whichever fits:</p>
+<h3>1. Native, zero-JS</h3>
+<p>With <code>required</code> / <code>type</code> constraints, the browser sets <code>:user-invalid</code> after the user interacts. <code>.field:has(:user-invalid)</code> reveals the <code>.error-text</code> and hides <code>.help</code> automatically — no script. Type a bad email and click away:</p>
+<div class="example">
+<form style="inline-size:100%;max-inline-size:420px">
+  <div class="field">
+    <label class="label" for="fv1">Email</label>
+    <input class="input" id="fv1" type="email" required placeholder="you@example.com">
+    <span class="help">We never share it.</span>
+    <span class="error-text">Please enter a valid email address.</span>
+  </div>
+  <div class="field">
+    <label class="label" for="fv2">Password</label>
+    <input class="input" id="fv2" type="password" required minlength="8" placeholder="At least 8 characters">
+    <span class="help">Minimum 8 characters.</span>
+    <span class="error-text">Password is too short.</span>
+  </div>
+  <button class="btn btn-primary" type="submit">Create account</button>
+</form>
+</div>
+<pre><code>&lt;div class=&quot;field&quot;&gt;
+  &lt;label class=&quot;label&quot; for=&quot;email&quot;&gt;Email&lt;/label&gt;
+  &lt;input class=&quot;input&quot; id=&quot;email&quot; type=&quot;email&quot; required&gt;
+  &lt;span class=&quot;help&quot;&gt;We never share it.&lt;/span&gt;
+  &lt;span class=&quot;error-text&quot;&gt;Please enter a valid email address.&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+<h3>2. Manual hook</h3>
+<p>When validating in JS (e.g. server response), toggle <code>.is-invalid</code> / <code>.is-valid</code> on the control, or <code>.is-invalid</code> on the <code>.field</code> to force the error text open.</p>
+<pre><code>// after a failed server check
+field.classList.add("is-invalid");      // shows .error-text
+input.classList.add("is-invalid");      // red border + focus ring
+// on success
+input.classList.replace("is-invalid", "is-valid");</code></pre>
+<div class="example">
+<div class="field is-invalid" style="inline-size:100%;max-inline-size:420px">
+  <label class="label" for="fv3">Coupon code</label>
+  <input class="input is-invalid" id="fv3" value="EXPIRED2023">
+  <span class="help">Enter a promo code.</span>
+  <span class="error-text">This coupon has expired.</span>
+</div>
+</div>
+<pre><code>&lt;div class=&quot;field is-invalid&quot;&gt;
+  &lt;input class=&quot;input is-invalid&quot; value=&quot;EXPIRED2023&quot;&gt;
+  &lt;span class=&quot;error-text&quot;&gt;This coupon has expired.&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+
+<h2>Form layout</h2>
+<p>Compose multi-column forms with the grid utilities — no special form-grid classes needed.</p>
+<div class="example">
+<form class="grid grid-cols-1 md:grid-cols-2 gap-4" style="inline-size:100%">
+  <div class="field"><label class="label" for="fl1">First name</label><input class="input" id="fl1"></div>
+  <div class="field"><label class="label" for="fl2">Last name</label><input class="input" id="fl2"></div>
+  <div class="field col-span-full"><label class="label" for="fl3">Address</label><input class="input" id="fl3"></div>
+  <div class="field"><label class="label" for="fl4">City</label><input class="input" id="fl4"></div>
+  <div class="field"><label class="label" for="fl5">Postal code</label><input class="input" id="fl5"></div>
+</form>
+</div>
+<pre><code>&lt;form class=&quot;grid grid-cols-1 md:grid-cols-2 gap-4&quot;&gt;
+  &lt;div class=&quot;field&quot;&gt;…first name…&lt;/div&gt;
+  &lt;div class=&quot;field&quot;&gt;…last name…&lt;/div&gt;
+  &lt;div class=&quot;field col-span-full&quot;&gt;…address…&lt;/div&gt;
+&lt;/form&gt;</code></pre>
+
+
+<h2>Accessibility notes</h2>
+<p>Always pair a <code>&lt;label for&gt;</code> with each control (or wrap the control in the label). Inputs show a visible <code>:focus-visible</code> ring derived from <code>--lc-ring</code>. For custom error messaging, link the message with <code>aria-describedby</code> and set <code>aria-invalid="true"</code> when you toggle the manual hook.</p>
+
+    </main>
+  </div>
+</div>
+<div class="toast-region" aria-live="polite"></div>
+<script src="assets/lombok.js"></script>
+<script src="assets/docs.js"></script>
+</body>
+</html>

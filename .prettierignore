@@ -1,0 +1,9 @@
+# generated output — do not format
+dist/
+docs/
+package-lock.json
+node_modules/
+
+# playwright artifacts (baselines under tests/**-snapshots ARE committed)
+test-results/
+playwright-report/

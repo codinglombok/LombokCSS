@@ -1,0 +1,11 @@
+{
+  "name": "lombokcss",
+  "description": "Token-first component CSS framework. One markup, five design styles, dark mode + RTL.",
+  "main": "dist/lombok.min.css",
+  "license": "MIT",
+  "homepage": "https://github.com/codinglombok/lombokcss",
+  "keywords": ["css", "framework", "components", "design-tokens", "theming", "rtl", "dark-mode"],
+  "authors": ["LombokCSS contributors"],
+  "moduleType": ["globals"],
+  "ignore": ["node_modules", "docs", "examples", "tests", "scripts", ".github", "*.config.js", "build_docs.py"]
+}

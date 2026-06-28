@@ -1,0 +1,72 @@
+{
+  "name": "lombokcss",
+  "version": "0.1.0",
+  "description": "Token-first component CSS framework. One markup, five design styles (Corporate Flat, Resonant Stark, Neo-Brutalism, Semantic Minimalist, Glassmorphism), dark mode + RTL. ~9.7KB gzipped.",
+  "license": "MIT",
+  "author": "LombokCSS contributors",
+  "homepage": "https://github.com/codinglombok/lombokcss#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codinglombok/lombokcss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/codinglombok/lombokcss/issues"
+  },
+  "type": "module",
+  "style": "dist/lombok.min.css",
+  "main": "dist/lombok.js",
+  "unpkg": "dist/lombok.min.css",
+  "jsdelivr": "dist/lombok.min.css",
+  "sideEffects": true,
+  "exports": {
+    ".": "./dist/lombok.js",
+    "./css": "./dist/lombok.min.css",
+    "./css-full": "./dist/lombok.css",
+    "./js": "./dist/lombok.js",
+    "./src/*": "./src/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build:css": "cat src/variables.css src/core.css src/themes.css src/components.css src/utilities.css > dist/lombok.css && lightningcss --minify --bundle dist/lombok.css -o dist/lombok.min.css",
+    "build:js": "cp src/lombok.js dist/lombok.js",
+    "build:docs": "python3 build_docs.py && cp dist/lombok.min.css docs/assets/lombok.min.css && cp dist/lombok.js docs/assets/lombok.js",
+    "build": "npm run build:css && npm run build:js",
+    "size": "echo \"CSS $(gzip -c dist/lombok.min.css | wc -c) B gzip | JS $(gzip -c dist/lombok.js | wc -c) B gzip\"",
+    "size:check": "node scripts/size-check.mjs",
+    "prepublishOnly": "npm run build && npm run size:check",
+    "format": "prettier --write \"src/**/*.{css,js}\" \"scripts/**/*.mjs\" \"tests/**/*.js\" \"*.{json,md}\" \"*.config.js\"",
+    "format:check": "prettier --check \"src/**/*.{css,js}\" \"scripts/**/*.mjs\" \"tests/**/*.js\" \"*.{json,md}\" \"*.config.js\"",
+    "test:visual": "playwright test",
+    "test:visual:update": "playwright test --update-snapshots"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.0",
+    "lightningcss-cli": "^1.29.0",
+    "prettier": "3.8.5"
+  },
+  "keywords": [
+    "css",
+    "framework",
+    "components",
+    "ui",
+    "design-tokens",
+    "theming",
+    "dark-mode",
+    "rtl",
+    "glassmorphism",
+    "neo-brutalism",
+    "utility-classes",
+    "classless",
+    "lightweight",
+    "design-system"
+  ]
+}

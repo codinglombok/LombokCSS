@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" data-style="modern-corporate-flat" data-theme="light" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Utilities · LombokCSS</title>
+<link rel="stylesheet" href="assets/lombok.min.css">
+<link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+<div class="docs">
+  <aside class="docs-aside">
+    <a class="docs-brand" data-page="index.html">LombokCSS</a>
+
+<div class="docs-navtitle">Guide</div>
+<nav class="docs-nav">
+  <a data-page="index.html">Overview</a>
+  <a data-page="getting-started.html">Getting started</a>
+  <a data-page="migration.html">Migration from Bootstrap</a>
+  <a data-page="theming.html">Theming &amp; styles</a>
+</nav>
+<div class="docs-navtitle">Reference</div>
+<nav class="docs-nav">
+  <a data-page="components.html">Components</a>
+  <a data-page="forms.html">Forms</a>
+  <a data-page="utilities.html" class="is-active">Utilities</a>
+</nav>
+
+  </aside>
+  <div class="docs-main">
+    <header class="docs-top">
+      <button class="btn btn-ghost btn-sm docs-burger" aria-label="Menu">☰</button>
+      <div class="seg" role="radiogroup" aria-label="Design style">
+        <button data-style-set="modern-corporate-flat">Corporate</button>
+        <button data-style-set="resonant-stark">Stark</button>
+        <button data-style-set="neo-brutalism">Brutalism</button>
+        <button data-style-set="semantic-minimalist">Minimal</button>
+        <button data-style-set="glassmorphism">Glass</button>
+      </div>
+      <div class="docs-toggles">
+        <label class="switch"><span class="text-sm">Dark</span><input type="checkbox" id="dk"><span class="track"></span></label>
+        <label class="switch"><span class="text-sm">RTL</span><input type="checkbox" id="rt"><span class="track"></span></label>
+      </div>
+    </header>
+    <main class="docs-content">
+
+<h1>Utilities</h1>
+<p class="lead">Atomic helpers for fine-tuning without writing CSS. All use logical properties, so they are RTL-safe.</p>
+
+<h2>Layout</h2>
+<pre><code>.flex .inline-flex .grid .inline-grid .block .inline-block .hidden
+.flex-row .flex-col .flex-wrap .flex-1 .flex-none
+.items-{start|center|end|stretch|baseline}
+.justify-{start|center|end|between|around|evenly}
+.grid-cols-{1..6,12}  .col-span-{1..12,full}</code></pre>
+<div class="example">
+<div class="grid grid-cols-3 gap-2" style="inline-size:100%">
+  <div class="card"><div class="card-body" style="padding:12px">1</div></div>
+  <div class="card"><div class="card-body" style="padding:12px">2</div></div>
+  <div class="card"><div class="card-body" style="padding:12px">3</div></div>
+</div>
+</div>
+<pre><code>&lt;div class=&quot;grid grid-cols-3 gap-2&quot; style=&quot;inline-size:100%&quot;&gt;
+  &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot; style=&quot;padding:12px&quot;&gt;1&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot; style=&quot;padding:12px&quot;&gt;2&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot; style=&quot;padding:12px&quot;&gt;3&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+
+<h2>Spacing</h2>
+<pre><code>.p-{0..8}  .px-* .py-* .pt-4 .pb-4
+.m-{0,1,2,4} .m-auto .mx-auto .my-* .mt-* .mb-* .ms-auto .me-auto
+.gap-{0..6,8,10,12}  .gap-x-* .gap-y-*</code></pre>
+
+<h2>Sizing</h2>
+<pre><code>.w-full .w-auto .w-fit .w-screen
+.h-full .h-screen .min-h-screen
+.max-w-{xs|sm|md|lg|xl|2xl|7xl}</code></pre>
+
+<h2>Typography</h2>
+<pre><code>.text-{xs|sm|base|lg|xl|2xl|3xl}
+.font-{light|normal|medium|semibold|bold}
+.text-{start|center|end|justify}  .leading-* .tracking-*
+.uppercase .capitalize .truncate .font-mono</code></pre>
+<div class="example">
+<div style="inline-size:100%">
+  <p class="text-2xl font-bold mb-0">Display</p>
+  <p class="text-sm text-muted mb-0">Muted caption</p>
+  <p class="truncate" style="max-inline-size:220px">This very long line will be truncated with an ellipsis when it overflows its box.</p>
+</div>
+</div>
+<pre><code>&lt;div style=&quot;inline-size:100%&quot;&gt;
+  &lt;p class=&quot;text-2xl font-bold mb-0&quot;&gt;Display&lt;/p&gt;
+  &lt;p class=&quot;text-sm text-muted mb-0&quot;&gt;Muted caption&lt;/p&gt;
+  &lt;p class=&quot;truncate&quot; style=&quot;max-inline-size:220px&quot;&gt;This very long line will be truncated with an ellipsis when it overflows its box.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+
+<h2>Colors</h2>
+<pre><code>.text-{primary|muted|faint|success|warning|danger|info}
+.bg-{bg|surface|surface-2|primary|soft}
+.bg-{success|warning|danger|info}          /* solid */
+.bg-{success|warning|danger|info}-soft     /* tinted */
+.border .border-strong .border-{primary|success|warning|danger|info}</code></pre>
+<div class="example">
+<span class="badge bg-success">bg-success</span>
+<span class="badge bg-warning">bg-warning</span>
+<span class="badge bg-danger">bg-danger</span>
+<span class="badge bg-info">bg-info</span>
+<span class="badge bg-success-soft">success-soft</span>
+<span class="badge bg-danger-soft">danger-soft</span>
+</div>
+<pre><code>&lt;span class=&quot;badge bg-success&quot;&gt;bg-success&lt;/span&gt;
+&lt;span class=&quot;badge bg-warning&quot;&gt;bg-warning&lt;/span&gt;
+&lt;span class=&quot;badge bg-danger&quot;&gt;bg-danger&lt;/span&gt;
+&lt;span class=&quot;badge bg-info&quot;&gt;bg-info&lt;/span&gt;
+&lt;span class=&quot;badge bg-success-soft&quot;&gt;success-soft&lt;/span&gt;
+&lt;span class=&quot;badge bg-danger-soft&quot;&gt;danger-soft&lt;/span&gt;</code></pre>
+
+
+<h2>Radius, shadow &amp; effects</h2>
+<pre><code>.rounded-{none|sm|md|lg|full}
+.shadow-{none|sm|md|lg}  .backdrop-blur
+.opacity-{50|75}  .transition</code></pre>
+<div class="example">
+<div class="bg-surface border rounded-lg shadow p-4">rounded-lg + shadow</div>
+<div class="bg-surface border rounded-full p-4">rounded-full</div>
+</div>
+<pre><code>&lt;div class=&quot;bg-surface border rounded-lg shadow p-4&quot;&gt;rounded-lg + shadow&lt;/div&gt;
+&lt;div class=&quot;bg-surface border rounded-full p-4&quot;&gt;rounded-full&lt;/div&gt;</code></pre>
+
+
+<h2>Position &amp; misc</h2>
+<pre><code>.relative .absolute .fixed .sticky  .inset-0 .top-0 .start-0 .end-0
+.z-{10|20|30|50}  .overflow-{hidden|auto|x-auto}
+.cursor-pointer .select-none .sr-only .aspect-square .aspect-video</code></pre>
+
+<h2>Responsive prefixes</h2>
+<p>Mobile-first breakpoints. Prefix any layout utility: <code>sm:</code> 640px, <code>md:</code> 768px, <code>lg:</code> 1024px, <code>xl:</code> 1280px.</p>
+<pre><code>&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"&gt; … &lt;/div&gt;</code></pre>
+<p>Covered per breakpoint: display, flex direction/wrap, items/justify, <code>grid-cols-1..6,12</code>, <code>col-span-1..6,full</code>, <code>gap-*</code>, and text alignment. Resize the window to see it react:</p>
+<div class="example">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2" style="inline-size:100%">
+  <div class="card"><div class="card-body" style="padding:12px">A</div></div>
+  <div class="card"><div class="card-body" style="padding:12px">B</div></div>
+  <div class="card"><div class="card-body" style="padding:12px">C</div></div>
+  <div class="card"><div class="card-body" style="padding:12px">D</div></div>
+</div>
+</div>
+<pre><code>&lt;div class=&quot;grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2&quot; style=&quot;inline-size:100%&quot;&gt;
+  &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot; style=&quot;padding:12px&quot;&gt;A&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot; style=&quot;padding:12px&quot;&gt;B&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot; style=&quot;padding:12px&quot;&gt;C&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot; style=&quot;padding:12px&quot;&gt;D&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+    </main>
+  </div>
+</div>
+<div class="toast-region" aria-live="polite"></div>
+<script src="assets/lombok.js"></script>
+<script src="assets/docs.js"></script>
+</body>
+</html>

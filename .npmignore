@@ -1,0 +1,17 @@
+# The "files" field in package.json is the source of truth for what gets
+# published (dist/, src/, README.md, LICENSE). This file is a redundant
+# safety net so dev-only assets never leak into the npm tarball.
+/docs
+/examples
+/scripts
+/.github
+/.gitignore
+build_docs.py
+*.log
+*.tmp
+.DS_Store
+__pycache__/
+
+# playwright artifacts (baselines under tests/**-snapshots ARE committed)
+test-results/
+playwright-report/
