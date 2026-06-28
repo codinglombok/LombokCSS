@@ -1,0 +1,34 @@
+name: Visual regression
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  visual:
+    runs-on: ubuntu-latest
+    # Pinned to match the committed screenshot baselines (Chromium build 1194).
+    # Bump this tag and the @playwright/test version together, then refresh
+    # baselines with `npm run test:visual:update` inside the same image.
+    container:
+      image: mcr.microsoft.com/playwright:v1.56.0-noble
+    steps:
+      - uses: actions/checkout@v5
+      - name: Ensure python (for docs build)
+        run: python3 --version || (apt-get update && apt-get install -y python3)
+      - run: npm ci
+      # Rebuild CSS/JS and docs so tested pages reflect current src/
+      - run: npm run build && npm run build:docs
+      - name: Run visual tests
+        run: npm run test:visual
+      - name: Upload diff report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 14
