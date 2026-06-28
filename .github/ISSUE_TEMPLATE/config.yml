@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question / discussion
+    url: https://github.com/codinglombok/lombokcss/discussions
+    about: Ask usage questions or share ideas here.
+  - name: Security report
+    url: https://github.com/codinglombok/lombokcss/security/advisories/new
+    about: Report a vulnerability privately (see SECURITY.md).

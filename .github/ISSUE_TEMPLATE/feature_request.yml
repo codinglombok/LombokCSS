@@ -1,0 +1,23 @@
+name: Feature request
+description: Suggest a component, utility, or improvement
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / use case
+      description: What are you trying to do that LombokCSS makes hard today?
+    validations: { required: true }
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: API/markup you'd expect (class names, tokens, etc.).
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Fits the project constraints?
+      options:
+        - label: Can be expressed with tokens only (no per-style component CSS)
+        - label: RTL-safe (logical properties)
+        - label: Keeps the bundle within the size budget
