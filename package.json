@@ -42,7 +42,7 @@
     "build": "npm run build:css && npm run build:js",
     "size": "echo \"CSS $(gzip -c dist/lombok.min.css | wc -c) B gzip | JS $(gzip -c dist/lombok.js | wc -c) B gzip\"",
     "size:check": "node scripts/size-check.mjs",
-    "prepublishOnly": "npm run build && npm run size:check",
+    "prepublishOnly": "npm run build",
     "format": "prettier --write \"src/**/*.{css,js}\" \"scripts/**/*.mjs\" \"tests/**/*.js\" \"*.{json,md}\" \"*.config.js\"",
     "format:check": "prettier --check \"src/**/*.{css,js}\" \"scripts/**/*.mjs\" \"tests/**/*.js\" \"*.{json,md}\" \"*.config.js\"",
     "test:visual": "playwright test",

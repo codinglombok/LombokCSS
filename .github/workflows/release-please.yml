@@ -23,10 +23,10 @@ jobs:
       # created by GITHUB_TOKEN do not trigger other workflows.
       - uses: actions/checkout@v7
         if: ${{ steps.release.outputs.release_created }}
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         if: ${{ steps.release.outputs.release_created }}
         with:
-          node-version: 20
+          node-version: 22
           registry-url: https://registry.npmjs.org
           cache: npm
       - if: ${{ steps.release.outputs.release_created }}
