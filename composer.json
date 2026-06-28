@@ -1,5 +1,5 @@
 {
-  "name": "lombokcss/lombokcss",
+  "name": "codinglombok/lombokcss",
   "description": "Token-first component CSS framework. One markup, five design styles, dark mode + RTL. ~9.7KB gzipped.",
   "type": "library",
   "license": "MIT",
@@ -13,3 +13,4 @@
     "php": ">=7.4"
   }
 }
+
