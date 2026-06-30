@@ -21,7 +21,7 @@ jobs:
       # --- Publish to npm only when this run created a release ---
       # Done here (not in a separate release-triggered workflow) because events
       # created by GITHUB_TOKEN do not trigger other workflows.
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v5
         if: ${{ steps.release.outputs.release_created }}
       - uses: actions/setup-node@v5
         if: ${{ steps.release.outputs.release_created }}
@@ -33,7 +33,14 @@ jobs:
         run: npm ci
       - if: ${{ steps.release.outputs.release_created }}
         run: npm run build
-      - if: ${{ steps.release.outputs.release_created }}
-        run: npm publish --provenance --access public
+      - name: Publish to npm (skip if version already exists)
+        if: ${{ steps.release.outputs.release_created }}
+        run: |
+          VER=$(node -p "require('./package.json').version")
+          if npm view "lombokcss@$VER" version >/dev/null 2>&1; then
+            echo "lombokcss@$VER already on npm — skipping publish."
+          else
+            npm publish --provenance --access public
+          fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

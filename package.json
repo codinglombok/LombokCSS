@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Token-first component CSS framework. One markup, five design styles (Corporate Flat, Resonant Stark, Neo-Brutalism, Semantic Minimalist, Glassmorphism), dark mode + RTL. ~9.7KB gzipped.",
   "license": "MIT",
-  "author": "LombokCSS contributors",
+  "author": "codinglombok",
   "homepage": "https://github.com/codinglombok/lombokcss#readme",
   "repository": {
     "type": "git",
