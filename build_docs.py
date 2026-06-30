@@ -44,7 +44,7 @@ def shell(active_file, title, content):
 <body>
 <div class="docs">
   <aside class="docs-aside">
-    <a class="docs-brand" data-page="index.html">🏝️ LombokCSS</a>
+    <a class="docs-brand" data-page="index.html">LombokCSS</a>
     {nav}
   </aside>
   <div class="docs-main">
