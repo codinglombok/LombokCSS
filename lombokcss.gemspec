@@ -5,7 +5,7 @@ require_relative "lib/lombokcss/version"
 Gem::Specification.new do |spec|
   spec.name        = "lombokcss"
   spec.version     = Lombokcss::VERSION
-  spec.authors     = ["LombokCSS contributors"]
+  spec.authors     = ["codinglombok"]
   spec.summary     = "Token-first component CSS framework. One markup, five design styles, dark + RTL."
   spec.description = "LombokCSS compiled assets packaged as a RubyGem for Rails/Sprockets and Ruby projects."
   spec.homepage    = "https://github.com/codinglombok/lombokcss"
