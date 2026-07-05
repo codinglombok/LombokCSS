@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" data-style="modern-corporate-flat" data-theme="light" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accessibility · LombokCSS — switch the look, not the HTML</title>
+<meta name="description" content="Switch the look, not the HTML. LombokCSS is a token-first component CSS framework: one markup, five design styles, dark mode and RTL, in ~9.7 KB.">
+<meta property="og:title" content="LombokCSS — switch the look, not the HTML">
+<meta property="og:description" content="One markup, five design styles, dark mode & RTL. A token-first component framework in ~9.7 KB.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://raw.githubusercontent.com/codinglombok/LombokCSS/main/docs/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LombokCSS — switch the look, not the HTML">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/codinglombok/LombokCSS/main/docs/assets/social-preview.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#3b82f6">
+<link rel="stylesheet" href="assets/lombok.min.css">
+<link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+<div class="docs">
+  <aside class="docs-aside no-print">
+    <a class="docs-brand" data-page="index.html">LombokCSS</a>
+    <div class="docs-tagline" style="margin:-4px 0 14px;font-size:12px;line-height:1.35;color:var(--lc-text-muted)">Switch the look, not the HTML.</div>
+    
+<div class="docs-navtitle">Guide</div>
+<nav class="docs-nav">
+  <a data-page="index.html">Overview</a>
+  <a data-page="getting-started.html">Getting started</a>
+  <a data-page="migration.html">Migration from Bootstrap</a>
+  <a data-page="theming.html">Theming &amp; styles</a>
+</nav>
+<div class="docs-navtitle">Reference</div>
+<nav class="docs-nav">
+  <a data-page="components.html">Components</a>
+  <a data-page="forms.html">Forms</a>
+  <a data-page="utilities.html">Utilities</a>
+  <a data-page="accessibility.html" class="is-active">Accessibility</a>
+</nav>
+
+  </aside>
+  <div class="docs-main">
+    <header class="docs-top no-print">
+      <button class="btn btn-ghost btn-sm docs-burger" aria-label="Menu">☰</button>
+      <div class="seg" role="radiogroup" aria-label="Design style">
+        <button data-style-set="modern-corporate-flat">Corporate</button>
+        <button data-style-set="resonant-stark">Stark</button>
+        <button data-style-set="neo-brutalism">Brutalism</button>
+        <button data-style-set="semantic-minimalist">Minimal</button>
+        <button data-style-set="glassmorphism">Glass</button>
+      </div>
+      <div class="docs-toggles">
+        <label class="switch"><span class="text-sm">Dark</span><input type="checkbox" id="dk"><span class="track"></span></label>
+        <label class="switch"><span class="text-sm">RTL</span><input type="checkbox" id="rt"><span class="track"></span></label>
+      </div>
+    </header>
+    <main class="docs-content">
+
+<h1>Accessibility</h1>
+<p class="lead">Accessibility is built into the components, not bolted on. This page documents what LombokCSS handles for you and the small things you still own.</p>
+
+<h2>Focus visibility</h2>
+<p>Every interactive element shows a clear <code>:focus-visible</code> ring drawn from <code>--lc-ring</code>, so keyboard users always see where they are. The ring appears for keyboard/AT focus and stays out of the way for mouse clicks. Tab through the controls below:</p>
+<div class="example">
+<button class="btn btn-primary">Button</button>
+<a href="#" class="btn btn-outline">Link button</a>
+<input class="input" style="max-inline-size:220px" placeholder="Input">
+<select class="select" style="max-inline-size:160px"><option>Select</option></select>
+</div>
+<pre><code>&lt;button class=&quot;btn btn-primary&quot;&gt;Button&lt;/button&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-outline&quot;&gt;Link button&lt;/a&gt;
+&lt;input class=&quot;input&quot; style=&quot;max-inline-size:220px&quot; placeholder=&quot;Input&quot;&gt;
+&lt;select class=&quot;select&quot; style=&quot;max-inline-size:160px&quot;&gt;&lt;option&gt;Select&lt;/option&gt;&lt;/select&gt;</code></pre>
+
+<p>The ring uses <code>:focus-visible</code> (not <code>:focus</code>), and honours a custom color per style — override <code>--lc-ring</code> to match your brand.</p>
+
+<h2>Keyboard &amp; native semantics</h2>
+<p>Overlay and disclosure components lean on native elements so keyboard behaviour comes for free:</p>
+<ul>
+  <li><strong>Modal</strong> uses <code>&lt;dialog&gt;</code> — <kbd>Esc</kbd> closes it and focus is trapped by the browser.</li>
+  <li><strong>Accordion</strong> uses <code>&lt;details&gt;/&lt;summary&gt;</code> — toggled with <kbd>Enter</kbd>/<kbd>Space</kbd>, no JS required.</li>
+  <li><strong>Dropdown</strong> closes on <kbd>Esc</kbd> and toggles <code>aria-expanded</code>.</li>
+  <li><strong>Tabs</strong> expect <code>role="tablist"/"tab"/"tabpanel"</code> and manage <code>aria-selected</code> + panel visibility.</li>
+  <li><strong>Sortable tables</strong> reflect state in <code>aria-sort</code> on the header cells.</li>
+</ul>
+
+<h2>Reduced motion</h2>
+<p>All transitions and animations (spinners, toasts, carousels, skeletons) are wrapped in <code>@media (prefers-reduced-motion: reduce)</code>. If a visitor asks their OS to reduce motion, LombokCSS stops animating automatically — you don't need to do anything.</p>
+<pre><code>@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}</code></pre>
+
+<h2>Colour &amp; contrast</h2>
+<p>Component colours are driven by semantic tokens, and every built-in style — including dark mode and the intrinsically dark <code>resonant-stark</code> — ships status colours (<code>--lc-success</code>, <code>--lc-danger</code>, …) with matching readable text and soft backgrounds, so alerts, badges and soft buttons meet WCAG AA contrast in both light and dark. When you author a custom style, keep the same discipline: dark styles must override the status <code>*-soft</code> and <code>*-text</code> tokens.</p>
+
+<h2>Transparency fallback</h2>
+<p>The <code>glassmorphism</code> style uses <code>backdrop-filter</code> guarded by <code>@supports</code>: browsers without it get an opaque, fully legible surface instead of an unreadable blur.</p>
+
+<h2>RTL &amp; internationalisation</h2>
+<p>Layout is written with logical properties (<code>margin-inline</code>, <code>inset-inline-start</code>, <code>border-start-start-radius</code>), so setting <code>dir="rtl"</code> mirrors everything correctly — including component internals like dropdown alignment and the drawer slide direction. No separate RTL stylesheet needed.</p>
+
+<h2>Classless &amp; semantic HTML</h2>
+<p>Plain, well-structured HTML is styled out of the box, which nudges you toward semantic markup (real <code>&lt;button&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;table&gt;</code>, headings) — the foundation of an accessible page.</p>
+
+<h2>What you still own</h2>
+<p>LombokCSS handles presentation; you provide meaning:</p>
+<ul>
+  <li>Give every form control a <code>&lt;label&gt;</code> (or <code>aria-label</code>), and link help/error text with <code>aria-describedby</code>.</li>
+  <li>Add <code>alt</code> text to images and accessible names to icon-only buttons (<code>aria-label</code>).</li>
+  <li>Set <code>aria-current</code> on the active nav/pagination item, and provide <code>aria-live</code> for toasts if you need announcements.</li>
+  <li>Preserve a logical heading order and don't rely on colour alone to convey status — pair it with text or an icon.</li>
+  <li>Test with a keyboard and a screen reader; the components give you the hooks, your content gives them meaning.</li>
+</ul>
+
+    </main>
+  </div>
+</div>
+<div class="toast-region" aria-live="polite"></div>
+<script src="assets/lombok.js"></script>
+<script src="assets/docs.js"></script>
+</body>
+</html>

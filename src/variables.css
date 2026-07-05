@@ -7,6 +7,7 @@
    ========================================================================== */
 
 :root {
+  color-scheme: light;
   /* ---- Color primitives (raw palette) ---- */
   --lc-white: #ffffff;
   --lc-black: #0a0a0a;
@@ -113,6 +114,7 @@
    ========================================================================== */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --lc-bg:           #0f1115;
     --lc-surface:      #171a21;
     --lc-surface-2:    #1f242d;
@@ -132,6 +134,7 @@
   }
 }
 [data-theme="dark"] {
+  color-scheme: dark;
   --lc-bg:           #0f1115;
   --lc-surface:      #171a21;
   --lc-surface-2:    #1f242d;

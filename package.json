@@ -36,7 +36,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "build:css": "cat src/variables.css src/core.css src/themes.css src/components.css src/utilities.css > dist/lombok.css && lightningcss --minify --bundle dist/lombok.css -o dist/lombok.min.css",
+    "build:css": "cat src/variables.css src/core.css src/themes.css src/components.css src/utilities.css src/print.css > dist/lombok.css && lightningcss --minify --bundle dist/lombok.css -o dist/lombok.min.css",
     "build:js": "cp src/lombok.js dist/lombok.js",
     "build:docs": "python3 build_docs.py && cp dist/lombok.min.css docs/assets/lombok.min.css && cp dist/lombok.js docs/assets/lombok.js",
     "build": "npm run build:css && npm run build:js",
@@ -51,7 +51,7 @@
   "devDependencies": {
     "@playwright/test": "1.56.0",
     "lightningcss-cli": "^1.29.0",
-    "prettier": "3.9.1"
+    "prettier": "3.8.5"
   },
   "keywords": [
     "css",

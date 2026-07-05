@@ -1,0 +1,14 @@
+{
+  "name": "LombokCSS",
+  "short_name": "LombokCSS",
+  "description": "Switch the look, not the HTML.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0a0c11",
+  "theme_color": "#3b82f6",
+  "icons": [
+    { "src": "assets/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "assets/icon-192.png", "type": "image/png", "sizes": "192x192", "purpose": "any maskable" },
+    { "src": "assets/icon-512.png", "type": "image/png", "sizes": "512x512", "purpose": "any maskable" }
+  ]
+}

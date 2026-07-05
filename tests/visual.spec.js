@@ -37,6 +37,20 @@ for (const style of STYLES) {
   });
 }
 
+// 1c) Alerts must ALSO stay readable in dark mode for every style
+//     (guards the neo-brutalism/semantic-minimalist dark-contrast regression).
+for (const style of STYLES) {
+  test(`alerts · ${style} · dark`, async ({ page }) => {
+    await page.goto(`${docs("components.html")}?style=${style}&theme=dark&dir=ltr`);
+    const block = page
+      .locator(".docs-content .example")
+      .filter({ has: page.locator(".alert") })
+      .first();
+    await block.scrollIntoViewIfNeeded();
+    await expect(block).toHaveScreenshot(`alerts-${style}-dark.png`);
+  });
+}
+
 // 2) Dark mode + RTL on the default style.
 test("buttons · corporate dark", async ({ page }) => {
   await page.goto(`${docs("components.html")}?style=modern-corporate-flat&theme=dark&dir=ltr`);

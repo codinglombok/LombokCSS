@@ -14,7 +14,7 @@ jobs:
     container:
       image: mcr.microsoft.com/playwright:v1.56.0-noble
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v5
       - name: Ensure python (for docs build)
         run: python3 --version || (apt-get update && apt-get install -y python3)
       - run: npm ci
@@ -22,7 +22,7 @@ jobs:
       - name: Regenerate baselines in this container
         run: npm run test:visual:update
       - name: Upload regenerated baselines
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: visual-baselines
           path: tests/
