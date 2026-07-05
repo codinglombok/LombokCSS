@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Add a built-in **print stylesheet**: ink-friendly high-contrast output, hidden interactive chrome, page-break hygiene, and `.no-print`/`.print-only` helpers.
+
+- Fix dark-mode contrast for `neo-brutalism` and `semantic-minimalist`: their dark variants now override status `*-soft`/`*-text` and `--lc-accent-soft-text` (alerts, soft buttons, and badges were unreadable).
+
 ## 0.1.0
 - Initial release.
 - Token-first architecture; components read semantic tokens only.

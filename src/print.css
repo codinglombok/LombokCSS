@@ -1,0 +1,56 @@
+/* ============================================================
+   Print styles
+   Token-first: remap tokens to ink-friendly, high-contrast values
+   (overriding any data-style / data-theme), then tidy the chrome so
+   pages and PDFs are always legible. Utilities: .no-print, .print-only.
+   ============================================================ */
+
+.print-only { display: none; }
+
+@media print {
+  /* Force a light, high-contrast palette regardless of the active style/theme.
+     html[data-style]/html[data-theme] (0,1,1) outrank the [data-style] blocks. */
+  :root,
+  html[data-style],
+  html[data-theme] {
+    --lc-bg: #fff; --lc-surface: #fff; --lc-surface-2: #fff;
+    --lc-text: #000; --lc-text-muted: #333; --lc-text-faint: #555;
+    --lc-border: #bbb; --lc-border-strong: #888;
+    --lc-accent: #111; --lc-accent-hover: #000; --lc-accent-active: #000;
+    --lc-accent-text: #fff; --lc-accent-soft: #eee; --lc-accent-soft-text: #000;
+    --lc-success: #137a3a; --lc-danger: #b42318; --lc-warning: #8a6100; --lc-info: #0b5cad;
+    --lc-success-soft: #fff; --lc-danger-soft: #fff; --lc-warning-soft: #fff; --lc-info-soft: #fff;
+    --lc-success-text: #0f5c2c; --lc-danger-text: #8a1c14; --lc-warning-text: #6b4b00; --lc-info-text: #0a4a86;
+    --lc-shadow-sm: none; --lc-shadow: none; --lc-shadow-lg: none; --lc-shadow-hard: none;
+    --lc-blur: none; --lc-bg-gradient: none; --lc-ring: transparent;
+  }
+
+  html, body { background: #fff !important; color: #000 !important; }
+  *, *::before, *::after { box-shadow: none !important; text-shadow: none !important; }
+
+  /* Let content flow: no sticky/fixed chrome on paper */
+  .navbar, .sidebar { position: static !important; }
+
+  /* Hide purely interactive or decorative chrome */
+  .navbar-toggle, .drawer, .drawer-overlay, dialog.modal, .toast-region,
+  .tooltip, .popover, .dropdown-menu, .carousel-nav, .carousel-dots,
+  .spinner, .skeleton, .no-print { display: none !important; }
+  .print-only { display: revert !important; }
+
+  /* Keep structure readable in ink */
+  .card, .alert { border: 1px solid #ccc !important; }
+  .table th, .table td { border: 1px solid #ccc !important; }
+  thead { display: table-header-group; }
+
+  /* Reveal link targets (skip buttons/badges) */
+  a { text-decoration: underline; }
+  a:not(.btn):not(.badge)[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: .85em; color: #555; word-break: break-all;
+  }
+
+  /* Page-break hygiene */
+  h1, h2, h3, h4 { break-after: avoid; }
+  p, li, blockquote { orphans: 3; widows: 3; }
+  img, pre, blockquote, table, tr, .card, .alert { break-inside: avoid; }
+}

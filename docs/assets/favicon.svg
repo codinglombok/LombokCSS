@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="LombokCSS">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4f8cff"/>
+      <stop offset=".5" stop-color="#5b6cff"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".38"/>
+      <stop offset=".5" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eaf0ff"/>
+    </linearGradient>
+  </defs>
+  <!-- badge -->
+  <rect x="3" y="3" width="58" height="58" rx="16" fill="url(#bg)"/>
+  <!-- top gloss highlight -->
+  <rect x="3" y="3" width="58" height="58" rx="16" fill="url(#gloss)"/>
+  <!-- inner hairline border -->
+  <rect x="3.75" y="3.75" width="56.5" height="56.5" rx="15.25" fill="none"
+        stroke="#ffffff" stroke-opacity=".22" stroke-width="1.5"/>
+  <!-- L monogram, rounded terminals -->
+  <rect x="21.5" y="16.5" width="9" height="31" rx="4.5" fill="url(#ink)"/>
+  <rect x="21.5" y="38.5" width="24" height="9" rx="4.5" fill="url(#ink)"/>
+  <!-- accent spark -->
+  <circle cx="43" cy="21" r="4.3" fill="#7ef0ff"/>
+  <circle cx="43" cy="21" r="4.3" fill="#ffffff" fill-opacity=".15"/>
+</svg>

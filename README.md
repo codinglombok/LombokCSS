@@ -1,5 +1,7 @@
 # LombokCSS
 
+> **Switch the look, not the HTML.**
+
 [![CI](https://github.com/codinglombok/lombokcss/actions/workflows/ci.yml/badge.svg)](https://github.com/codinglombok/lombokcss/actions/workflows/ci.yml)
 [![Deploy docs](https://github.com/codinglombok/lombokcss/actions/workflows/pages.yml/badge.svg)](https://github.com/codinglombok/lombokcss/actions/workflows/pages.yml)
 [![npm version](https://img.shields.io/npm/v/lombokcss.svg)](https://www.npmjs.com/package/lombokcss)
@@ -7,6 +9,10 @@
 [![jsDelivr hits](https://img.shields.io/jsdelivr/npm/hm/lombokcss.svg)](https://www.jsdelivr.com/package/npm/lombokcss)
 [![gzip size](https://img.shields.io/badge/gzip-9.7%20KB-success.svg)](#)
 [![license](https://img.shields.io/npm/l/lombokcss.svg)](LICENSE)
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/codinglombok/LombokCSS/main/docs/assets/preview.png" alt="LombokCSS — the same markup rendered in five design styles" width="100%">
+</p>
 
 
 A modern, **token-first** component CSS framework. Drop a class, get a working
@@ -238,7 +244,6 @@ Everything is a CSS variable. Override on `:root` (or a scope) to customize:
     <tbody><tr><td>Nadia</td><td>49</td></tr></tbody>
   </table>
 </div>
-```
 
 <!-- Carousel (CSS-only, scroll-snap) -->
 <div class="carousel"><div class="carousel-track">

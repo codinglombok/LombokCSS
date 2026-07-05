@@ -7,6 +7,7 @@
    ========================================================================== */
 
 :root {
+  color-scheme: light;
   /* ---- Color primitives (raw palette) ---- */
   --lc-white: #ffffff;
   --lc-black: #0a0a0a;
@@ -113,6 +114,7 @@
    ========================================================================== */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --lc-bg:           #0f1115;
     --lc-surface:      #171a21;
     --lc-surface-2:    #1f242d;
@@ -132,6 +134,7 @@
   }
 }
 [data-theme="dark"] {
+  color-scheme: dark;
   --lc-bg:           #0f1115;
   --lc-surface:      #171a21;
   --lc-surface-2:    #1f242d;
@@ -293,6 +296,7 @@ pre code { background: none; border: 0; padding: 0; }
    2) resonant-stark  (Linear-style) — intrinsically dark, high contrast.
    -------------------------------------------------------------------------- */
 [data-style="resonant-stark"] {
+  color-scheme: dark;
   --lc-bg:#08090c;
   --lc-surface:#101218;
   --lc-surface-2:#171a22;
@@ -352,6 +356,11 @@ pre code { background: none; border: 0; padding: 0; }
   --lc-border:#fdf6e3; --lc-border-strong:#fdf6e3;
   --lc-shadow-sm:3px 3px 0 #fdf6e3; --lc-shadow:5px 5px 0 #fdf6e3; --lc-shadow-lg:8px 8px 0 #fdf6e3;
   --lc-shadow-hard:5px 5px 0 #fdf6e3; --lc-accent-soft:#3a2a1c;
+  --lc-accent-soft-text:#fdf6e3;
+  --lc-success-soft:#11271b; --lc-success-text:#6ee7a0;
+  --lc-warning-soft:#2a1f0d; --lc-warning-text:#fbbf24;
+  --lc-danger-soft:#2a1414;  --lc-danger-text:#fca5a5;
+  --lc-info-soft:#0c2530;    --lc-info-text:#67d3f7;
 }
 
 /* --------------------------------------------------------------------------
@@ -380,6 +389,11 @@ pre code { background: none; border: 0; padding: 0; }
   --lc-bg:#16150f; --lc-surface:#1d1c15; --lc-surface-2:#26241b;
   --lc-text:#ece9df; --lc-text-muted:#a7a394; --lc-text-faint:#777262;
   --lc-border:#2c2a20; --lc-border-strong:#3a3729; --lc-accent-soft:#163029;
+  --lc-accent-soft-text:#7fd8c4;
+  --lc-success-soft:#11271b; --lc-success-text:#6ee7a0;
+  --lc-warning-soft:#2a1f0d; --lc-warning-text:#fbbf24;
+  --lc-danger-soft:#2a1414;  --lc-danger-text:#fca5a5;
+  --lc-info-soft:#0c2530;    --lc-info-text:#67d3f7;
 }
 
 /* --------------------------------------------------------------------------
@@ -1198,4 +1212,60 @@ dialog.modal::backdrop { background: rgba(8,10,18,.55); backdrop-filter: blur(2p
 .xl\:gap-6{gap:var(--lc-space-6)}
 .xl\:gap-8{gap:var(--lc-space-8)}
 .xl\:text-start{text-align:start}.xl\:text-center{text-align:center}.xl\:text-end{text-align:end}
+}
+/* ============================================================
+   Print styles
+   Token-first: remap tokens to ink-friendly, high-contrast values
+   (overriding any data-style / data-theme), then tidy the chrome so
+   pages and PDFs are always legible. Utilities: .no-print, .print-only.
+   ============================================================ */
+
+.print-only { display: none; }
+
+@media print {
+  /* Force a light, high-contrast palette regardless of the active style/theme.
+     html[data-style]/html[data-theme] (0,1,1) outrank the [data-style] blocks. */
+  :root,
+  html[data-style],
+  html[data-theme] {
+    --lc-bg: #fff; --lc-surface: #fff; --lc-surface-2: #fff;
+    --lc-text: #000; --lc-text-muted: #333; --lc-text-faint: #555;
+    --lc-border: #bbb; --lc-border-strong: #888;
+    --lc-accent: #111; --lc-accent-hover: #000; --lc-accent-active: #000;
+    --lc-accent-text: #fff; --lc-accent-soft: #eee; --lc-accent-soft-text: #000;
+    --lc-success: #137a3a; --lc-danger: #b42318; --lc-warning: #8a6100; --lc-info: #0b5cad;
+    --lc-success-soft: #fff; --lc-danger-soft: #fff; --lc-warning-soft: #fff; --lc-info-soft: #fff;
+    --lc-success-text: #0f5c2c; --lc-danger-text: #8a1c14; --lc-warning-text: #6b4b00; --lc-info-text: #0a4a86;
+    --lc-shadow-sm: none; --lc-shadow: none; --lc-shadow-lg: none; --lc-shadow-hard: none;
+    --lc-blur: none; --lc-bg-gradient: none; --lc-ring: transparent;
+  }
+
+  html, body { background: #fff !important; color: #000 !important; }
+  *, *::before, *::after { box-shadow: none !important; text-shadow: none !important; }
+
+  /* Let content flow: no sticky/fixed chrome on paper */
+  .navbar, .sidebar { position: static !important; }
+
+  /* Hide purely interactive or decorative chrome */
+  .navbar-toggle, .drawer, .drawer-overlay, dialog.modal, .toast-region,
+  .tooltip, .popover, .dropdown-menu, .carousel-nav, .carousel-dots,
+  .spinner, .skeleton, .no-print { display: none !important; }
+  .print-only { display: revert !important; }
+
+  /* Keep structure readable in ink */
+  .card, .alert { border: 1px solid #ccc !important; }
+  .table th, .table td { border: 1px solid #ccc !important; }
+  thead { display: table-header-group; }
+
+  /* Reveal link targets (skip buttons/badges) */
+  a { text-decoration: underline; }
+  a:not(.btn):not(.badge)[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: .85em; color: #555; word-break: break-all;
+  }
+
+  /* Page-break hygiene */
+  h1, h2, h3, h4 { break-after: avoid; }
+  p, li, blockquote { orphans: 3; widows: 3; }
+  img, pre, blockquote, table, tr, .card, .alert { break-inside: avoid; }
 }

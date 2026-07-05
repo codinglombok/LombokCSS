@@ -9,6 +9,7 @@ PAGES = [
     ("components.html",      "Components"),
     ("forms.html",           "Forms"),
     ("utilities.html",       "Utilities"),
+    ("accessibility.html",   "Accessibility"),
 ]
 
 NAV = """
@@ -24,6 +25,7 @@ NAV = """
   <a data-page="components.html">Components</a>
   <a data-page="forms.html">Forms</a>
   <a data-page="utilities.html">Utilities</a>
+  <a data-page="accessibility.html">Accessibility</a>
 </nav>
 """
 
@@ -37,18 +39,31 @@ def shell(active_file, title, content):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{title} · LombokCSS</title>
+<title>{title} · LombokCSS — switch the look, not the HTML</title>
+<meta name="description" content="Switch the look, not the HTML. LombokCSS is a token-first component CSS framework: one markup, five design styles, dark mode and RTL, in ~9.7 KB.">
+<meta property="og:title" content="LombokCSS — switch the look, not the HTML">
+<meta property="og:description" content="One markup, five design styles, dark mode & RTL. A token-first component framework in ~9.7 KB.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://raw.githubusercontent.com/codinglombok/LombokCSS/main/docs/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LombokCSS — switch the look, not the HTML">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/codinglombok/LombokCSS/main/docs/assets/social-preview.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#3b82f6">
 <link rel="stylesheet" href="assets/lombok.min.css">
 <link rel="stylesheet" href="assets/docs.css">
 </head>
 <body>
 <div class="docs">
-  <aside class="docs-aside">
+  <aside class="docs-aside no-print">
     <a class="docs-brand" data-page="index.html">LombokCSS</a>
+    <div class="docs-tagline" style="margin:-4px 0 14px;font-size:12px;line-height:1.35;color:var(--lc-text-muted)">Switch the look, not the HTML.</div>
     {nav}
   </aside>
   <div class="docs-main">
-    <header class="docs-top">
+    <header class="docs-top no-print">
       <button class="btn btn-ghost btn-sm docs-burger" aria-label="Menu">☰</button>
       <div class="seg" role="radiogroup" aria-label="Design style">
         <button data-style-set="modern-corporate-flat">Corporate</button>
@@ -83,7 +98,7 @@ def ex(example_html, code=None):
 # ---------------------------------------------------------------- OVERVIEW
 overview = """
 <h1>LombokCSS</h1>
-<p class="lead">A token-first component framework. Drop a class, get a working component — then re-skin the whole page by changing one attribute.</p>
+<p class="lead"><strong>Switch the look, not the HTML.</strong> A token-first component framework: drop a class, get a working component — then re-skin the whole page by changing one attribute.</p>
 <p>Use the controls at the top to switch design style, dark mode and RTL. Every example on these pages reacts live, and your selection follows you between pages.</p>
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
@@ -547,6 +562,64 @@ utilities = """
 <p>Covered per breakpoint: display, flex direction/wrap, items/justify, <code>grid-cols-1..6,12</code>, <code>col-span-1..6,full</code>, <code>gap-*</code>, and text alignment. Resize the window to see it react:</p>
 """ + ex('<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2" style="inline-size:100%">\n  <div class="card"><div class="card-body" style="padding:12px">A</div></div>\n  <div class="card"><div class="card-body" style="padding:12px">B</div></div>\n  <div class="card"><div class="card-body" style="padding:12px">C</div></div>\n  <div class="card"><div class="card-body" style="padding:12px">D</div></div>\n</div>')
 
+accessibility = """
+<h1>Accessibility</h1>
+<p class="lead">Accessibility is built into the components, not bolted on. This page documents what LombokCSS handles for you and the small things you still own.</p>
+
+<h2>Focus visibility</h2>
+<p>Every interactive element shows a clear <code>:focus-visible</code> ring drawn from <code>--lc-ring</code>, so keyboard users always see where they are. The ring appears for keyboard/AT focus and stays out of the way for mouse clicks. Tab through the controls below:</p>
+""" + ex('<button class="btn btn-primary">Button</button>\n<a href="#" class="btn btn-outline">Link button</a>\n<input class="input" style="max-inline-size:220px" placeholder="Input">\n<select class="select" style="max-inline-size:160px"><option>Select</option></select>') + """
+<p>The ring uses <code>:focus-visible</code> (not <code>:focus</code>), and honours a custom color per style — override <code>--lc-ring</code> to match your brand.</p>
+
+<h2>Keyboard &amp; native semantics</h2>
+<p>Overlay and disclosure components lean on native elements so keyboard behaviour comes for free:</p>
+<ul>
+  <li><strong>Modal</strong> uses <code>&lt;dialog&gt;</code> — <kbd>Esc</kbd> closes it and focus is trapped by the browser.</li>
+  <li><strong>Accordion</strong> uses <code>&lt;details&gt;/&lt;summary&gt;</code> — toggled with <kbd>Enter</kbd>/<kbd>Space</kbd>, no JS required.</li>
+  <li><strong>Dropdown</strong> closes on <kbd>Esc</kbd> and toggles <code>aria-expanded</code>.</li>
+  <li><strong>Tabs</strong> expect <code>role="tablist"/"tab"/"tabpanel"</code> and manage <code>aria-selected</code> + panel visibility.</li>
+  <li><strong>Sortable tables</strong> reflect state in <code>aria-sort</code> on the header cells.</li>
+</ul>
+
+<h2>Reduced motion</h2>
+<p>All transitions and animations (spinners, toasts, carousels, skeletons) are wrapped in <code>@media (prefers-reduced-motion: reduce)</code>. If a visitor asks their OS to reduce motion, LombokCSS stops animating automatically — you don't need to do anything.</p>
+<pre><code>@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}</code></pre>
+
+<h2>Colour &amp; contrast</h2>
+<p>Component colours are driven by semantic tokens, and every built-in style — including dark mode and the intrinsically dark <code>resonant-stark</code> — ships status colours (<code>--lc-success</code>, <code>--lc-danger</code>, …) with matching readable text and soft backgrounds, so alerts, badges and soft buttons meet WCAG AA contrast in both light and dark. When you author a custom style, keep the same discipline: dark styles must override the status <code>*-soft</code> and <code>*-text</code> tokens.</p>
+
+<h2>Transparency fallback</h2>
+<p>The <code>glassmorphism</code> style uses <code>backdrop-filter</code> guarded by <code>@supports</code>: browsers without it get an opaque, fully legible surface instead of an unreadable blur.</p>
+
+<h2>RTL &amp; internationalisation</h2>
+<p>Layout is written with logical properties (<code>margin-inline</code>, <code>inset-inline-start</code>, <code>border-start-start-radius</code>), so setting <code>dir="rtl"</code> mirrors everything correctly — including component internals like dropdown alignment and the drawer slide direction. No separate RTL stylesheet needed.</p>
+
+<h2>Classless &amp; semantic HTML</h2>
+<p>Plain, well-structured HTML is styled out of the box, which nudges you toward semantic markup (real <code>&lt;button&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;table&gt;</code>, headings) — the foundation of an accessible page.</p>
+
+<h2>What you still own</h2>
+<p>LombokCSS handles presentation; you provide meaning:</p>
+<ul>
+  <li>Give every form control a <code>&lt;label&gt;</code> (or <code>aria-label</code>), and link help/error text with <code>aria-describedby</code>.</li>
+  <li>Add <code>alt</code> text to images and accessible names to icon-only buttons (<code>aria-label</code>).</li>
+  <li>Set <code>aria-current</code> on the active nav/pagination item, and provide <code>aria-live</code> for toasts if you need announcements.</li>
+  <li>Preserve a logical heading order and don't rely on colour alone to convey status — pair it with text or an icon.</li>
+  <li>Test with a keyboard and a screen reader; the components give you the hooks, your content gives them meaning.</li>
+</ul>
+"""
+
+utilities += """
+<h2>Printing</h2>
+<p>A built-in print stylesheet makes any page print (or export to PDF) cleanly: components switch to a high-contrast, ink-friendly palette — white background, black text, no shadows, blur or gradients — regardless of the active <code>data-style</code> or dark mode, and purely interactive chrome (dropdown menus, toasts, spinners, drawers) is hidden. Two helpers give you control:</p>
+<ul>
+  <li><code>.no-print</code> — hide an element only when printing.</li>
+  <li><code>.print-only</code> — show an element only when printing.</li>
+</ul>
+<p>External link targets are appended in parentheses so URLs survive on paper. Try your browser&#39;s print preview on any page.</p>
+"""
+
 CONTENT = {
     "index.html": ("Overview", overview),
     "getting-started.html": ("Getting started", getting),
@@ -555,8 +628,22 @@ CONTENT = {
     "components.html": ("Components", components),
     "forms.html": ("Forms", forms),
     "utilities.html": ("Utilities", utilities),
+    "accessibility.html": ("Accessibility", accessibility),
 }
+
+import os, shutil
+
+os.makedirs("docs/assets", exist_ok=True)
 
 for fname, (title, content) in CONTENT.items():
     open("docs/" + fname, "w").write(shell(fname, title, content))
     print("wrote docs/" + fname)
+
+# Copy the built framework assets so docs/ is self-contained (Pages + local).
+# docs.css / docs.js are hand-authored assets that already live in docs/assets/.
+for src in ("dist/lombok.min.css", "dist/lombok.js"):
+    if os.path.exists(src):
+        shutil.copy(src, "docs/assets/" + os.path.basename(src))
+        print("copied " + src + " -> docs/assets/")
+    else:
+        print("WARNING: %s missing — run `npm run build` first" % src)
