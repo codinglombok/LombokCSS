@@ -36,8 +36,8 @@
     "node": ">=18"
   },
   "scripts": {
-    "build:css": "cat src/variables.css src/core.css src/themes.css src/components.css src/utilities.css src/print.css > dist/lombok.css && lightningcss --minify --bundle dist/lombok.css -o dist/lombok.min.css",
-    "build:js": "cp src/lombok.js dist/lombok.js",
+    "build:css": "node scripts/build-css.mjs",
+    "build:js": "node -e \"require('node:fs').copyFileSync('src/lombok.js','dist/lombok.js')\"",
     "build:docs": "python3 build_docs.py && cp dist/lombok.min.css docs/assets/lombok.min.css && cp dist/lombok.js docs/assets/lombok.js",
     "build": "npm run build:css && npm run build:js",
     "size": "echo \"CSS $(gzip -c dist/lombok.min.css | wc -c) B gzip | JS $(gzip -c dist/lombok.js | wc -c) B gzip\"",
