@@ -7,6 +7,7 @@
 - Fix dark-mode contrast for `neo-brutalism` and `semantic-minimalist`: their dark variants now override status `*-soft`/`*-text` and `--lc-accent-soft-text` (alerts, soft buttons, and badges were unreadable).
 
 ## 0.1.0
+
 - Initial release.
 - Token-first architecture; components read semantic tokens only.
 - Five design styles via `data-style`: modern-corporate-flat, resonant-stark,

@@ -14,14 +14,14 @@ distribution. Commands assume the org/user **`codinglombok`** and repo
 
 ## 0. Prerequisites
 
-| Tool | Why | Check |
-|------|-----|-------|
-| Git | version control | `git --version` |
-| GitHub account | hosting | — |
-| GitHub CLI (`gh`) | optional, easiest repo creation | `gh --version` |
-| Node.js ≥ 18 | build + publish | `node -v` |
-| npm account | npm publishing (optional) | `npm whoami` |
-| Docker | refresh visual baselines to match CI (optional) | `docker --version` |
+| Tool              | Why                                             | Check              |
+| ----------------- | ----------------------------------------------- | ------------------ |
+| Git               | version control                                 | `git --version`    |
+| GitHub account    | hosting                                         | —                  |
+| GitHub CLI (`gh`) | optional, easiest repo creation                 | `gh --version`     |
+| Node.js ≥ 18      | build + publish                                 | `node -v`          |
+| npm account       | npm publishing (optional)                       | `npm whoami`       |
+| Docker            | refresh visual baselines to match CI (optional) | `docker --version` |
 
 One-time identity config (if you've never set it):
 
@@ -74,6 +74,7 @@ Conventional Commit prefixes you'll use most: `feat:` (minor bump),
 ## 3. Create the GitHub repo and push
 
 **Option A — GitHub CLI (recommended):**
+
 ```bash
 gh auth login                     # once
 gh repo create codinglombok/lombokcss \
@@ -82,6 +83,7 @@ gh repo create codinglombok/lombokcss \
 ```
 
 **Option B — web UI:**
+
 1. github.com → **New repository** → owner `codinglombok`, name `lombokcss`,
    **Public**, do **not** add README/license (the project already has them).
 2. Connect & push:
@@ -102,18 +104,22 @@ After pushing, the **CI** and **Visual regression** workflows run on the
 Repo → **Settings**:
 
 ### About / discoverability
+
 - Add a **Description** and **Website** (your Pages URL, step 6).
 - Add **Topics**: `css`, `framework`, `design-system`, `design-tokens`,
   `components`, `dark-mode`, `rtl`, `glassmorphism`, `neo-brutalism`.
 - Upload a **Social preview** image (Settings → General) for nice link cards.
 
 ### Actions permissions (required for automation)
+
 Settings → **Actions → General**:
+
 - **Workflow permissions:** "Read and write permissions".
 - Tick **"Allow GitHub Actions to create and approve pull requests"**
   (release-please opens its release PR with this).
 
 ### Branch protection (Settings → Branches → Add rule, branch `main`)
+
 - ✅ Require a pull request before merging.
 - ✅ Require status checks to pass → select **CI** and **Visual regression**.
 - ✅ Require branches to be up to date before merging.
@@ -121,6 +127,7 @@ Settings → **Actions → General**:
 - Keep it light if you're solo; you can still allow yourself to merge.
 
 ### Features
+
 - Enable **Issues** and **Discussions** (the issue template config links to
   Discussions). Disable **Wiki/Projects** if unused.
 
@@ -207,15 +214,15 @@ Manual fallback (rarely needed): Actions → **Publish to npm (manual fallback)*
 
 ## 10. Troubleshooting (common open-source gotchas)
 
-| Symptom | Cause / fix |
-|---------|-------------|
-| release-please never opens a PR | Enable "Allow GitHub Actions to create and approve pull requests" + read/write workflow permissions (step 4). Also: commits must be Conventional Commits. |
-| Release created but nothing published | Ensure `NPM_TOKEN` secret exists and the publish steps in `release-please.yml` are gated on `release_created` (they are). |
-| `npm publish` 402 / 403 | For a scoped name you need `--access public` (set). For 403, the name may be taken or the token lacks publish rights. |
-| Provenance fails | Repo must be **public**, publish must run **in Actions**, job needs `id-token: write` (set). |
-| CI fails on "dist is out of date" | Run `npm run build` and commit `dist/`. |
-| Pages 404 | Set **Settings → Pages → Source: GitHub Actions** once. |
-| Visual tests fail after a browser bump | Bump the container tag in `visual.yml` **and** the `@playwright/test` version together, then regenerate baselines in that image. |
+| Symptom                                | Cause / fix                                                                                                                                               |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| release-please never opens a PR        | Enable "Allow GitHub Actions to create and approve pull requests" + read/write workflow permissions (step 4). Also: commits must be Conventional Commits. |
+| Release created but nothing published  | Ensure `NPM_TOKEN` secret exists and the publish steps in `release-please.yml` are gated on `release_created` (they are).                                 |
+| `npm publish` 402 / 403                | For a scoped name you need `--access public` (set). For 403, the name may be taken or the token lacks publish rights.                                     |
+| Provenance fails                       | Repo must be **public**, publish must run **in Actions**, job needs `id-token: write` (set).                                                              |
+| CI fails on "dist is out of date"      | Run `npm run build` and commit `dist/`.                                                                                                                   |
+| Pages 404                              | Set **Settings → Pages → Source: GitHub Actions** once.                                                                                                   |
+| Visual tests fail after a browser bump | Bump the container tag in `visual.yml` **and** the `@playwright/test` version together, then regenerate baselines in that image.                          |
 
 ---
 
