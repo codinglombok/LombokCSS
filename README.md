@@ -14,7 +14,6 @@
   <img src="https://raw.githubusercontent.com/codinglombok/LombokCSS/main/docs/assets/preview.png" alt="LombokCSS — the same markup rendered in five design styles" width="100%">
 </p>
 
-
 A modern, **token-first** component CSS framework. Drop a class, get a working
 component — like Bootstrap. Re-theme everything by changing **one attribute** —
 like a design system. Ships at **~9.7 KB gzipped** (full build, minified).
@@ -35,9 +34,15 @@ style means overriding hundreds of rules. LombokCSS inverts that:
 
 ```html
 <!-- same markup, five identities -->
-<html data-style="neo-brutalism">      <!-- thick borders, hard shadows -->
-<html data-style="glassmorphism">       <!-- frosted glass -->
-<html data-style="resonant-stark">       <!-- Linear-style dark -->
+<html data-style="neo-brutalism">
+  <!-- thick borders, hard shadows -->
+  <html data-style="glassmorphism">
+    <!-- frosted glass -->
+    <html data-style="resonant-stark">
+      <!-- Linear-style dark -->
+    </html>
+  </html>
+</html>
 ```
 
 Dark mode (`data-theme`) and RTL (`dir`) are **independent** axes that compose
@@ -48,24 +53,28 @@ with any style.
 ## Install
 
 **CDN (jsDelivr)** — fastest start:
+
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lombokcss/dist/lombok.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lombokcss/dist/lombok.min.css" />
 <script defer src="https://cdn.jsdelivr.net/npm/lombokcss/dist/lombok.js"></script>
 ```
 
 **npm:**
+
 ```bash
 npm install lombokcss
 # or: yarn add lombokcss   /   pnpm add lombokcss
 ```
+
 ```js
 import "lombokcss/dist/lombok.min.css";
 import "lombokcss/dist/lombok.js"; // optional, only for interactive components
 ```
 
 Pin a version for production (jsDelivr):
+
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lombokcss@0.1.0/dist/lombok.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lombokcss@0.1.0/dist/lombok.min.css" />
 ```
 
 **Download:** grab `dist/lombok.min.css` (+ optional `dist/lombok.js`) and link them directly.
@@ -74,8 +83,6 @@ The JS is **optional**. Accordions, modals and `<dialog>` work natively without
 it; the script only adds dropdown/tab/toast/table-sort/navbar-toggle behavior.
 
 ---
-
-
 
 **Other registries.** Also distributed via Composer (`composer require codinglombok/lombokcss`),
 RubyGems (`gem "lombokcss"` → `Lombokcss.assets_path` for Sprockets), and Bower
@@ -107,6 +114,7 @@ dist/
 ```
 
 ### Token layers
+
 1. **Primitives & scale** — spacing, font sizes, raw palette.
 2. **Semantic tokens** — `--lc-surface`, `--lc-text`, `--lc-border`, `--lc-accent`, `--lc-radius`, `--lc-shadow`, `--lc-blur`, status colors. **Components only ever reference these.**
 3. **Style presets** (`[data-style="…"]`) re-map the semantic tokens.
@@ -121,13 +129,13 @@ on — no per-component glass code.
 
 ## The five design styles
 
-| `data-style`              | Character |
-|---------------------------|-----------|
-| `modern-corporate-flat`   | Clean, flat, neutral + one brand color, medium radius, soft shadows (default) |
-| `resonant-stark`          | Linear-style dark: high contrast, subtle borders, tight type, violet accent |
-| `neo-brutalism`           | Thick black borders, hard offset shadows, bold blocks, zero radius |
-| `semantic-minimalist`     | Minimal, neutral, generous spacing, serif display, readability-first |
-| `glassmorphism`           | Frosted glass over a gradient; translucent surfaces, glowing borders (with opaque fallback) |
+| `data-style`            | Character                                                                                   |
+| ----------------------- | ------------------------------------------------------------------------------------------- |
+| `modern-corporate-flat` | Clean, flat, neutral + one brand color, medium radius, soft shadows (default)               |
+| `resonant-stark`        | Linear-style dark: high contrast, subtle borders, tight type, violet accent                 |
+| `neo-brutalism`         | Thick black borders, hard offset shadows, bold blocks, zero radius                          |
+| `semantic-minimalist`   | Minimal, neutral, generous spacing, serif display, readability-first                        |
+| `glassmorphism`         | Frosted glass over a gradient; translucent surfaces, glowing borders (with opaque fallback) |
 
 ---
 
@@ -137,31 +145,44 @@ Everything is a CSS variable. Override on `:root` (or a scope) to customize:
 
 ```css
 :root {
-  --lc-accent: #e11d48;          /* brand color            */
+  --lc-accent: #e11d48; /* brand color            */
   --lc-accent-hover: #be123c;
-  --lc-radius: 4px;              /* tighter corners        */
+  --lc-radius: 4px; /* tighter corners        */
   --lc-font-sans: "Inter", system-ui, sans-serif;
-  --lc-space-4: 1.1rem;          /* rescale spacing        */
+  --lc-space-4: 1.1rem; /* rescale spacing        */
 }
 ```
 
 **Dark mode** — three ways, they all work together:
+
 ```html
-<html data-theme="dark">   <!-- force dark           -->
-<html data-theme="light">  <!-- force light           -->
-<html>                      <!-- follows the OS setting -->
+<html data-theme="dark">
+  <!-- force dark           -->
+  <html data-theme="light">
+    <!-- force light           -->
+    <html>
+      <!-- follows the OS setting -->
+    </html>
+  </html>
+</html>
 ```
 
 **RTL** — set the document direction; all components use logical properties:
+
 ```html
-<html dir="rtl" lang="ar">
+<html dir="rtl" lang="ar"></html>
 ```
 
 **Make your own style** — add a token block, no component edits:
+
 ```css
 [data-style="sunset"] {
-  --lc-bg:#1a0f0f; --lc-surface:#2a1818; --lc-text:#ffe;
-  --lc-accent:#ff7849; --lc-radius:14px; --lc-shadow:0 8px 24px rgba(0,0,0,.4);
+  --lc-bg: #1a0f0f;
+  --lc-surface: #2a1818;
+  --lc-text: #ffe;
+  --lc-accent: #ff7849;
+  --lc-radius: 14px;
+  --lc-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 ```
 
@@ -190,15 +211,22 @@ Everything is a CSS variable. Override on `:root` (or a scope) to customize:
 <form>
   <div class="field">
     <label class="label" for="e">Email</label>
-    <input class="input" id="e" type="email" required>
+    <input class="input" id="e" type="email" required />
     <span class="help">We never share it.</span>
     <span class="error-text">Enter a valid email.</span>
   </div>
-  <label class="switch"><span>Notify me</span><input type="checkbox"><span class="track"></span></label>
+  <label class="switch"
+    ><span>Notify me</span><input type="checkbox" /><span class="track"></span
+  ></label>
 </form>
 
 <!-- Alert / Badge -->
-<div class="alert alert-success"><div><div class="alert-title">Saved</div>All good.</div></div>
+<div class="alert alert-success">
+  <div>
+    <div class="alert-title">Saved</div>
+    All good.
+  </div>
+</div>
 <span class="badge badge-primary">new</span>
 
 <!-- Tabs (JS) -->
@@ -211,7 +239,10 @@ Everything is a CSS variable. Override on `:root` (or a scope) to customize:
 
 <!-- Accordion (native, no JS) -->
 <div class="accordion">
-  <details open><summary>Q</summary><div class="accordion-body">A</div></details>
+  <details open>
+    <summary>Q</summary>
+    <div class="accordion-body">A</div>
+  </details>
 </div>
 
 <!-- Dropdown (JS) -->
@@ -228,7 +259,9 @@ Everything is a CSS variable. Override on `:root` (or a scope) to customize:
 <button class="btn btn-primary" data-modal-open="m">Open</button>
 <dialog class="modal" id="m">
   <div class="modal-card">
-    <div class="modal-header">Title <button class="btn btn-ghost btn-icon btn-sm" data-modal-close>✕</button></div>
+    <div class="modal-header">
+      Title <button class="btn btn-ghost btn-icon btn-sm" data-modal-close>✕</button>
+    </div>
     <div class="modal-body">Body</div>
     <div class="modal-footer"><button class="btn btn-primary" data-modal-close>OK</button></div>
   </div>
@@ -240,21 +273,35 @@ Everything is a CSS variable. Override on `:root` (or a scope) to customize:
 <!-- Sortable table (JS: click headers) -->
 <div class="table-wrap">
   <table class="table table-hover">
-    <thead><tr><th aria-sort="none">Name</th><th aria-sort="none">MRR</th></tr></thead>
-    <tbody><tr><td>Nadia</td><td>49</td></tr></tbody>
+    <thead>
+      <tr>
+        <th aria-sort="none">Name</th>
+        <th aria-sort="none">MRR</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Nadia</td>
+        <td>49</td>
+      </tr>
+    </tbody>
   </table>
 </div>
 
 <!-- Carousel (CSS-only, scroll-snap) -->
-<div class="carousel"><div class="carousel-track">
-  <div class="carousel-slide is-third card">…</div>
-  <div class="carousel-slide is-third card">…</div>
-</div></div>
+<div class="carousel">
+  <div class="carousel-track">
+    <div class="carousel-slide is-third card">…</div>
+    <div class="carousel-slide is-third card">…</div>
+  </div>
+</div>
 
 <!-- Drawer / Offcanvas (JS) -->
 <button class="btn" data-drawer-open="nav">Menu</button>
 <aside class="drawer" id="nav">
-  <div class="drawer-header">Menu <button class="btn btn-ghost btn-icon btn-sm" data-drawer-close>✕</button></div>
+  <div class="drawer-header">
+    Menu <button class="btn btn-ghost btn-icon btn-sm" data-drawer-close>✕</button>
+  </div>
   <div class="drawer-body">…</div>
 </aside>
 <div class="drawer-overlay" id="nav-overlay"></div>
@@ -262,7 +309,10 @@ Everything is a CSS variable. Override on `:root` (or a scope) to customize:
 <!-- Popover (JS) -->
 <div class="popover">
   <button class="btn btn-outline" data-popover-toggle aria-expanded="false">Info ▾</button>
-  <div class="popover-panel"><div class="popover-title">Title</div><p>Rich content.</p></div>
+  <div class="popover-panel">
+    <div class="popover-title">Title</div>
+    <p>Rich content.</p>
+  </div>
 </div>
 
 <!-- Sidebar -->
@@ -274,7 +324,11 @@ Everything is a CSS variable. Override on `:root` (or a scope) to customize:
 
 <!-- Timeline -->
 <ul class="timeline">
-  <li><div class="timeline-time">09:00</div><div class="timeline-title">Event</div><p>Detail.</p></li>
+  <li>
+    <div class="timeline-time">09:00</div>
+    <div class="timeline-title">Event</div>
+    <p>Detail.</p>
+  </li>
 </ul>
 ```
 
@@ -283,6 +337,7 @@ Other components included: `navbar` (+ mobile toggle), `breadcrumb`,
 `stat`, `list-group`, `steps`, CSS-only tooltip (`data-tip="…"`), `kbd`, `code`/`pre`.
 
 ### Utilities
+
 Layout (`flex`, `grid`, `items-*`, `justify-*`, `gap-*`, `grid-cols-1..12`),
 spacing (`p-*`, `m-*`, logical), sizing (`w-full`, `max-w-*`, `min-h-screen`),
 type (`text-sm..3xl`, `font-*`, `text-start/center/end`), color
@@ -290,6 +345,7 @@ type (`text-sm..3xl`, `font-*`, `text-start/center/end`), color
 responsive prefixes `sm: md: lg: xl:` (e.g. `md:grid-cols-3`).
 
 ### Classless mode
+
 Plain semantic HTML is styled with zero classes — headings, paragraphs, links,
 lists, `blockquote`, `table`, form inputs, `code`/`pre`/`kbd`. Good for prose
 and quick prototypes.
@@ -312,6 +368,7 @@ npx lightningcss --minify --bundle dist/lombok.css -o dist/lombok.min.css
 PostCSS equivalent: `postcss-import` + `autoprefixer` + `cssnano`.
 
 ### Shrinking further
+
 - **Split core vs full:** ship `variables + core + themes + components` and add
   `utilities.css` only if you use utility classes.
 - **Purge unused utilities** with your bundler's CSS purge step keyed on your
@@ -321,6 +378,7 @@ PostCSS equivalent: `postcss-import` + `autoprefixer` + `cssnano`.
 ---
 
 ## Browser support & accessibility
+
 Modern CSS used with graceful fallbacks: `:has()`, `:user-invalid`,
 `accent-color`, `backdrop-filter` (opaque fallback via `@supports`), logical
 properties, native `<dialog>`/`<details>`. Components ship with visible
@@ -366,6 +424,7 @@ budget, so a broken or oversized build can never be published.
   secret (an npm automation token); provenance uses the workflow's OIDC token.
 
 Release flow:
+
 ```bash
 npm version patch        # or minor / major — bumps package.json + git tag
 git push --follow-tags
@@ -373,6 +432,7 @@ git push --follow-tags
 ```
 
 **Manual:**
+
 ```bash
 npm run build
 npm publish --access public
@@ -390,4 +450,5 @@ repo **Settings → Pages → Source: GitHub Actions**. Site goes live at
 Need help? See **[SUPPORT.md](SUPPORT.md)**.
 
 ## License
+
 MIT.

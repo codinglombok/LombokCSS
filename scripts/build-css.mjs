@@ -28,7 +28,7 @@ const LAYERS = [
 mkdirSync(join(root, "dist"), { recursive: true });
 
 const bundle = LAYERS.map((f) =>
-  readFileSync(join(root, "src", f), "utf8").replace(/\r\n/g, "\n")
+  readFileSync(join(root, "src", f), "utf8").replace(/\r\n/g, "\n"),
 ).join("");
 
 const outCss = join(root, "dist", "lombok.css");
@@ -42,7 +42,7 @@ if (bundle.length === 0) {
 execFileSync(
   "npx",
   ["lightningcss", "--minify", "--bundle", outCss, "-o", join(root, "dist", "lombok.min.css")],
-  { stdio: "inherit", shell: process.platform === "win32" }
+  { stdio: "inherit", shell: process.platform === "win32" },
 );
 
 console.log(`build-css: dist/lombok.css ${bundle.length} B OK`);

@@ -35,20 +35,21 @@
   "engines": {
     "node": ">=18"
   },
-"scripts": {
-  "build:css": "node scripts/build-css.mjs",
-  "build:js": "node -e \"require('node:fs').copyFileSync('src/lombok.js','dist/lombok.js')\"",
-  "build:docs": "python3 build_docs.py && cp dist/lombok.min.css docs/assets/lombok.min.css && cp dist/lombok.js docs/assets/lombok.js",
-  "build": "npm run build:css && npm run build:js",
-  "size": "echo \"CSS $(gzip -c dist/lombok.min.css | wc -c) B gzip | JS $(gzip -c dist/lombok.js | wc -c) B gzip\"",
-  "size:check": "node scripts/size-check.mjs",
-  "prepublishOnly": "npm run build",
-  "format": "prettier --write \"src/**/*.{css,js}\" \"scripts/**/*.mjs\" \"tests/**/*.js\" \"*.{json,md}\" \"*.config.js\"",
-  "format:check": "prettier --check \"src/**/*.{css,js}\" \"scripts/**/*.mjs\" \"tests/**/*.js\" \"*.{json,md}\" \"*.config.js\"",
-  "lint": "npm run format:check",
-  "test:visual": "playwright test",
-  "test:visual:update": "playwright test --update-snapshots"
-},  
+  "scripts": {
+    "build:css": "node scripts/build-css.mjs",
+    "build:js": "node -e \"require('node:fs').copyFileSync('src/lombok.js','dist/lombok.js')\"",
+    "build:docs": "python3 build_docs.py && cp dist/lombok.min.css docs/assets/lombok.min.css && cp dist/lombok.js docs/assets/lombok.js",
+    "build": "npm run build:css && npm run build:js",
+    "size": "echo \"CSS $(gzip -c dist/lombok.min.css | wc -c) B gzip | JS $(gzip -c dist/lombok.js | wc -c) B gzip\"",
+    "size:check": "node scripts/size-check.mjs",
+    "prepublishOnly": "npm run build",
+    "format": "prettier --write \"src/**/*.{css,js}\" \"scripts/**/*.mjs\" \"tests/**/*.js\" \"*.{json,md}\" \"*.config.js\"",
+    "format:check": "prettier --check \"src/**/*.{css,js}\" \"scripts/**/*.mjs\" \"tests/**/*.js\" \"*.{json,md}\" \"*.config.js\"",
+    "test:visual": "playwright test",
+    "test:visual:update": "playwright test --update-snapshots",
+    "lint": "npm run format:check",
+    "test": "npm run size:check"
+  },
   "devDependencies": {
     "@playwright/test": "1.56.0",
     "lightningcss-cli": "^1.29.0",
