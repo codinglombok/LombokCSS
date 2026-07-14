@@ -35,8 +35,6 @@
   "engines": {
     "node": ">=18"
   },
-  
-
 "scripts": {
   "build:css": "node scripts/build-css.mjs",
   "build:js": "node -e \"require('node:fs').copyFileSync('src/lombok.js','dist/lombok.js')\"",
@@ -50,10 +48,7 @@
   "lint": "npm run format:check",
   "test:visual": "playwright test",
   "test:visual:update": "playwright test --update-snapshots"
-}
-
-
-  
+},  
   "devDependencies": {
     "@playwright/test": "1.56.0",
     "lightningcss-cli": "^1.29.0",
@@ -74,5 +69,5 @@
     "classless",
     "lightweight",
     "design-system"
-  ]
+  ],
 }
