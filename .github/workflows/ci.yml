@@ -19,7 +19,7 @@ jobs:
           node-version: '22'
           cache: 'npm'
       - name: Install
-        run: npm ci || npm install
+        run: npm ci
       - name: Lint
         run: npm run lint
       - name: Test
@@ -42,7 +42,7 @@ jobs:
           echo "### Bundle sizes" >> "$GITHUB_STEP_SUMMARY"
           echo '| file | raw | gzip |' >> "$GITHUB_STEP_SUMMARY"
           echo '| --- | --- | --- |' >> "$GITHUB_STEP_SUMMARY"
-          for f in dist/lombok-charts.esm.min.js dist/lombok-charts.umd.min.js; do
+          for f in dist/lombok.min.css dist/lombok.js; do
             raw=$(du -k "$f" | cut -f1)
             gz=$(gzip -c "$f" | wc -c | awk '{printf "%.1f", $1/1024}')
             echo "| $f | ${raw} KB | ${gz} KB |" >> "$GITHUB_STEP_SUMMARY"
