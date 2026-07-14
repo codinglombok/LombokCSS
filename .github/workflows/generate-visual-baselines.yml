@@ -1,5 +1,7 @@
 name: Generate visual baselines
-
+permissions:
+  contents: read
+  pull-requests: write
 # One-click helper: regenerates the screenshot baselines INSIDE the exact
 # Playwright container CI uses, then uploads them as an artifact.
 # Run this (Actions tab -> "Generate visual baselines" -> Run workflow) whenever
