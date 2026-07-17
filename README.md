@@ -10,9 +10,9 @@
 [![gzip size](https://img.shields.io/badge/gzip-9.7%20KB-success.svg)](#)
 [![license](https://img.shields.io/npm/l/lombokcss.svg)](LICENSE)
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/codinglombok/LombokCSS/main/docs/assets/preview.png" alt="LombokCSS — the same markup rendered in five design styles" width="100%">
-</p>
+
+[![LombokCSS Preview](docs/assets/social-preview-hd.webp)](https://codinglombok.github.io/LombokCSS/)
+[![LombokCSS Preview](docs/assets/preview.png)](https://codinglombok.github.io/LombokCSS/)
 
 A modern, **token-first** component CSS framework. Drop a class, get a working
 component — like Bootstrap. Re-theme everything by changing **one attribute** —
