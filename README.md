@@ -1,9 +1,9 @@
 # LombokCSS
 
 > **Switch the look, not the HTML.**
-A modern, **token-first** component CSS framework. Drop a class, get a working
-component — like Bootstrap. Re-theme everything by changing **one attribute** —
-like a design system. Ships at **~9.7 KB gzipped** (full build, minified).
+> A modern, **token-first** component CSS framework. Drop a class, get a working
+> component — like Bootstrap. Re-theme everything by changing **one attribute** —
+> like a design system. Ships at **~9.7 KB gzipped** (full build, minified).
 
 ```
 Component-based (Bootstrap)  +  Token-driven theming (design systems)  +  Tiny (Pico/UnoCSS)
@@ -19,7 +19,6 @@ Component-based (Bootstrap)  +  Token-driven theming (design systems)  +  Tiny (
 [![gzip size](https://img.shields.io/badge/gzip-9.7%20KB-success.svg)](#)
 [![license](https://img.shields.io/npm/l/lombokcss.svg)](LICENSE)
 
-
 [![LombokCSS Preview](docs/assets/social-preview-hd.webp)](https://codinglombok.github.io/LombokCSS/)
 [![LombokCSS Preview](docs/assets/preview.png)](https://codinglombok.github.io/LombokCSS/)
 
@@ -27,16 +26,17 @@ Component-based (Bootstrap)  +  Token-driven theming (design systems)  +  Tiny (
 
 ## Documentation
 
-| | |
-| --- | --- |
-| **Overview** | **Getting Started** |
-| [![Overview](docs/assets/index-resonant-stark-quarter.webp)](https://codinglombok.github.io/LombokCSS/index.html) | [![Getting Started](docs/assets/getting-started-modern-corporate-flat-quarter.webp)](https://codinglombok.github.io/LombokCSS/getting-started.html) |
-| **Migration from Bootstrap** | **Theming & Styles** |
-| [![Migration from Bootstrap](docs/assets/migration-resonant-stark-quarter.webp)](https://codinglombok.github.io/LombokCSS/migration.html) | [![Theming & Styles](docs/assets/theming-modern-corporate-flat-quarter.webp)](https://codinglombok.github.io/LombokCSS/theming.html) |
-| **Components** | **Forms** |
-| [![Components](docs/assets/components-neo-brutalism-quarter.webp)](https://codinglombok.github.io/LombokCSS/components.html) | [![Forms](docs/assets/forms-glassmorphism-quarter.webp)](https://codinglombok.github.io/LombokCSS/forms.html) |
-| **Utilities** | **Accessibility** |
-| [![Utilities](docs/assets/utilities-semantic-minimalist-quarter.webp)](https://codinglombok.github.io/LombokCSS/utilities.html) | [![Accessibility](docs/assets/accessibility-semantic-minimalist-quarter.webp)](https://codinglombok.github.io/LombokCSS/accessibility.html) |
+|                                                                                                                                           |                                                                                                                                                     |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Overview**                                                                                                                              | **Getting Started**                                                                                                                                 |
+| [![Overview](docs/assets/index-resonant-stark-quarter.webp)](https://codinglombok.github.io/LombokCSS/index.html)                         | [![Getting Started](docs/assets/getting-started-modern-corporate-flat-quarter.webp)](https://codinglombok.github.io/LombokCSS/getting-started.html) |
+| **Migration from Bootstrap**                                                                                                              | **Theming & Styles**                                                                                                                                |
+| [![Migration from Bootstrap](docs/assets/migration-resonant-stark-quarter.webp)](https://codinglombok.github.io/LombokCSS/migration.html) | [![Theming & Styles](docs/assets/theming-modern-corporate-flat-quarter.webp)](https://codinglombok.github.io/LombokCSS/theming.html)                |
+| **Components**                                                                                                                            | **Forms**                                                                                                                                           |
+| [![Components](docs/assets/components-neo-brutalism-quarter.webp)](https://codinglombok.github.io/LombokCSS/components.html)              | [![Forms](docs/assets/forms-glassmorphism-quarter.webp)](https://codinglombok.github.io/LombokCSS/forms.html)                                       |
+| **Utilities**                                                                                                                             | **Accessibility**                                                                                                                                   |
+| [![Utilities](docs/assets/utilities-semantic-minimalist-quarter.webp)](https://codinglombok.github.io/LombokCSS/utilities.html)           | [![Accessibility](docs/assets/accessibility-semantic-minimalist-quarter.webp)](https://codinglombok.github.io/LombokCSS/accessibility.html)         |
+
 ---
 
 ## Why it's different
