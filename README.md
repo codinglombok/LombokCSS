@@ -29,11 +29,14 @@ Component-based (Bootstrap)  +  Token-driven theming (design systems)  +  Tiny (
 
 | | |
 | --- | --- |
+| **Overview** | **Getting Started** |
 | [![Overview](docs/assets/index-resonant-stark-quarter.webp)](https://codinglombok.github.io/LombokCSS/index.html) | [![Getting Started](docs/assets/getting-started-modern-corporate-flat-quarter.webp)](https://codinglombok.github.io/LombokCSS/getting-started.html) |
+| **Migration from Bootstrap** | **Theming & Styles** |
 | [![Migration from Bootstrap](docs/assets/migration-resonant-stark-quarter.webp)](https://codinglombok.github.io/LombokCSS/migration.html) | [![Theming & Styles](docs/assets/theming-modern-corporate-flat-quarter.webp)](https://codinglombok.github.io/LombokCSS/theming.html) |
+| **Components** | **Forms** |
 | [![Components](docs/assets/components-neo-brutalism-quarter.webp)](https://codinglombok.github.io/LombokCSS/components.html) | [![Forms](docs/assets/forms-glassmorphism-quarter.webp)](https://codinglombok.github.io/LombokCSS/forms.html) |
+| **Utilities** | **Accessibility** |
 | [![Utilities](docs/assets/utilities-semantic-minimalist-quarter.webp)](https://codinglombok.github.io/LombokCSS/utilities.html) | [![Accessibility](docs/assets/accessibility-semantic-minimalist-quarter.webp)](https://codinglombok.github.io/LombokCSS/accessibility.html) |
-
 ---
 
 ## Why it's different
