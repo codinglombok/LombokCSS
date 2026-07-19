@@ -10,12 +10,14 @@ Component-based (Bootstrap)  +  Token-driven theming (design systems)  +  Tiny (
 ```
 
 ---
+
 ### Git Hub
 
 [![CI](https://github.com/codinglombok/lombokcss/actions/workflows/ci.yml/badge.svg)](https://github.com/codinglombok/lombokcss/actions/workflows/ci.yml)
 [![Deploy docs](https://github.com/codinglombok/lombokcss/actions/workflows/pages.yml/badge.svg)](https://github.com/codinglombok/lombokcss/actions/workflows/pages.yml)
 
 ---
+
 ### NPM
 
 [![npm version](https://img.shields.io/npm/v/lombokcss.svg)](https://www.npmjs.com/package/lombokcss)
@@ -34,6 +36,7 @@ Component-based (Bootstrap)  +  Token-driven theming (design systems)  +  Tiny (
 [![Download LombokCSS](https://img.shields.io/sourceforge/dt/lombokcss.svg)](https://sourceforge.net/projects/lombokcss/files/latest/download)
 
 ---
+
 [![LombokCSS Preview](docs/assets/social-preview-hd.webp)](https://codinglombok.github.io/LombokCSS/)
 [![LombokCSS Preview](docs/assets/preview.png)](https://codinglombok.github.io/LombokCSS/)
 
