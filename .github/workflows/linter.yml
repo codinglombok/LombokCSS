@@ -4,6 +4,8 @@ on: [push, pull_request]
 
 permissions:
   contents: read
+  statuses: write    # allow super-linter to update commit status
+  checks: write      # optional but useful if linter uses Checks API
 
 jobs:
   lint:
