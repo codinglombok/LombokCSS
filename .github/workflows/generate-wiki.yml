@@ -23,108 +23,80 @@ jobs:
       - name: Checkout wiki repository
         uses: actions/checkout@v7
         with:
-          repository: codinglombok/LombokCharts.wiki
+          repository: codinglombok/LombokCSS.wiki
           path: wiki
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate wiki pages
         run: |
-          # Create Home page from README
-          cp README.md wiki/Home.md
-          
-          # Copy API documentation
-          if [ -f docs/api.md ]; then
-            cp docs/api.md wiki/API-Reference.md
+          # Home page = docs/index.html
+          if [ -f docs/index.html ]; then
+            cp docs/index.html wiki/Home.html
           fi
-          
-          # Copy theming documentation
-          if [ -f docs/theming.md ]; then
-            cp docs/theming.md wiki/Theming.md
+
+          # Getting Started
+          if [ -f docs/getting-started.html ]; then
+            cp docs/getting-started.html wiki/Getting-Started.html
           fi
-          
-          # Copy architecture documentation
-          if [ -f docs/architecture.md ]; then
-            cp docs/architecture.md wiki/Architecture.md
+
+          # Accessibility
+          if [ -f docs/accessibility.html ]; then
+            cp docs/accessibility.html wiki/Accessibility.html
           fi
-          
-          # Copy porting documentation
-          if [ -f docs/porting.md ]; then
-            cp docs/porting.md wiki/Porting-Guide.md
+
+          # Components
+          if [ -f docs/components.html ]; then
+            cp docs/components.html wiki/Components.html
           fi
-          
-          # Create Getting Started page
-          cat > wiki/Getting-Started.md << 'EOF'
-          # Getting Started with LombokCharts
-          
-          ## Installation
-          
-          ### npm
-          \`\`\`bash
-          npm install lombok-charts
-          \`\`\`
-          
-          ### pnpm
-          \`\`\`bash
-          pnpm add lombok-charts
-          \`\`\`
-          
-          ### yarn
-          \`\`\`bash
-          yarn add lombok-charts
-          \`\`\`
-          
-          ## Quick Start
-          
-          ### Basic Usage
-          
-          \`\`\`javascript
-          import { chart } from 'lombok-charts';
-          
-          chart('#app', {
-            data: [
-              { label: 'Q1', value: 120 },
-              { label: 'Q2', value: 200 },
-              { label: 'Q3', value: 150 },
-              { label: 'Q4', value: 280 },
-            ],
-            mark: 'bar',
-            title: 'Quarterly Revenue',
-          });
-          \`\`\`
-          
-          ### Via CDN (no build step)
-          
-          \`\`\`html
-          <script src="https://cdn.jsdelivr.net/npm/lombok-charts/dist/lombok-charts.umd.min.js"></script>
-          <script>
-            LombokCharts.chart('#app', {
-              data: [{ label: 'A', value: 10 }],
-              mark: 'bar'
-            });
-          </script>
-          \`\`\`
-          EOF
+
+          # Forms
+          if [ -f docs/forms.html ]; then
+            cp docs/forms.html wiki/Forms.html
+          fi
+
+          # Theming
+          if [ -f docs/theming.html ]; then
+            cp docs/theming.html wiki/Theming.html
+          fi
+
+          # Utilities
+          if [ -f docs/utilities.html ]; then
+            cp docs/utilities.html wiki/Utilities.html
+          fi
+
+          # Migration Guide
+          if [ -f docs/migration.html ]; then
+            cp docs/migration.html wiki/Migration-Guide.html
+          fi
+
+          # Copy assets (images, css, etc. referenced by the HTML pages)
+          if [ -d docs/assets ]; then
+            mkdir -p wiki/assets
+            cp -r docs/assets/. wiki/assets/
+          fi
 
       - name: Create _Sidebar.md
         run: |
           cat > wiki/_Sidebar.md << 'EOF'
           # Documentation
-          
+
           - [[Home|Home]]
           - [[Getting Started|Getting-Started]]
-          - [[API Reference|API-Reference]]
+          - [[Components|Components]]
+          - [[Forms|Forms]]
           - [[Theming|Theming]]
-          - [[Architecture|Architecture]]
-          - [[Porting Guide|Porting-Guide]]
+          - [[Utilities|Utilities]]
+          - [[Accessibility|Accessibility]]
+          - [[Migration Guide|Migration-Guide]]
           EOF
 
       - name: Create _Footer.md
         run: |
           cat > wiki/_Footer.md << 'EOF'
           ---
-          *LombokCharts v0.1.0 - Zero-Dependency Charting Library*
-          
-          [Repository](https://github.com/codinglombok/LombokCharts) | [npm Package](https://www.npmjs.com/package/lombok-charts) | [License](https://github.com/codinglombok/LombokCharts/blob/main/LICENSE)
+          *LombokCSS v0.1.0 - Zero-Dependency CSS Library*
+
+          [Repository](https://github.com/codinglombok/LombokCSS) | [npm Package](https://www.npmjs.com/package/lombok-css) | [License](https://github.com/codinglombok/LombokCSS/blob/main/LICENSE)
           EOF
 
       - name: Commit and push wiki changes
@@ -132,9 +104,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          
+
           git add .
-          
+
           # Only commit if there are changes
           if git diff --cached --quiet; then
             echo "No changes to commit"
