@@ -15,7 +15,7 @@ Component-based (Bootstrap)  +  Token-driven theming (design systems)  +  Tiny (
 
 [![CI](https://github.com/codinglombok/lombokcss/actions/workflows/ci.yml/badge.svg)](https://github.com/codinglombok/lombokcss/actions/workflows/ci.yml)
 [![Deploy docs](https://github.com/codinglombok/lombokcss/actions/workflows/pages.yml/badge.svg)](https://github.com/codinglombok/lombokcss/actions/workflows/pages.yml)
-
+[![license](https://img.shields.io/npm/l/lombokcss.svg)](LICENSE)
 ---
 
 ### NPM
@@ -24,7 +24,7 @@ Component-based (Bootstrap)  +  Token-driven theming (design systems)  +  Tiny (
 [![npm downloads](https://img.shields.io/npm/dm/lombokcss.svg)](https://www.npmjs.com/package/lombokcss)
 [![jsDelivr hits](https://img.shields.io/jsdelivr/npm/hm/lombokcss.svg)](https://www.jsdelivr.com/package/npm/lombokcss)
 [![gzip size](https://img.shields.io/badge/gzip-9.7%20KB-success.svg)](#)
-[![license](https://img.shields.io/npm/l/lombokcss.svg)](LICENSE)
+
 ---
 
 ### Sourceforge.net
