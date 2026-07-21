@@ -2,30 +2,9 @@
 (function(){
   var root = document.documentElement;
   var q = new URLSearchParams(location.search);
-
-  function sanitizeStyle(value){
-    var allowed = ['modern-corporate-flat', 'modern-corporate-neumorph'];
-    return allowed.indexOf(value) !== -1 ? value : 'modern-corporate-flat';
-  }
-
-  function sanitizeTheme(value){
-    return value === 'dark' ? 'dark' : 'light';
-  }
-
-  function sanitizeDir(value){
-    return value === 'rtl' ? 'rtl' : 'ltr';
-  }
-
-  function sanitizeDataPage(value){
-    if (!value) return null;
-    if (/^(?:[a-z][a-z0-9+.-]*:|\/\/)/i.test(value)) return null;
-    if (!/^[a-zA-Z0-9._\-\/]+\.html(?:#[a-zA-Z0-9_\-]+)?$/.test(value)) return null;
-    return value;
-  }
-
-  var style = sanitizeStyle(q.get('style'));
-  var theme = sanitizeTheme(q.get('theme'));
-  var dir   = sanitizeDir(q.get('dir'));
+  var style = q.get('style') || 'modern-corporate-flat';
+  var theme = q.get('theme') || 'light';
+  var dir   = q.get('dir')   || 'ltr';
   apply();
   function apply(){
     root.setAttribute('data-style', style);
@@ -38,14 +17,13 @@
     var dk=document.getElementById('dk'); if(dk) dk.checked = theme==='dark';
     var rt=document.getElementById('rt'); if(rt) rt.checked = dir==='rtl';
     // rewrite internal nav links to carry state
-    var qs='?' + new URLSearchParams({ style: style, theme: theme, dir: dir }).toString();
+    var qs='?style='+style+'&theme='+theme+'&dir='+dir;
     document.querySelectorAll('a[data-page]').forEach(function(a){
-      var dataPage = sanitizeDataPage(a.getAttribute('data-page'));
-      if (dataPage) a.setAttribute('href', dataPage + qs);
+      a.setAttribute('href', a.getAttribute('data-page')+qs);
     });
   }
   document.querySelectorAll('[data-style-set]').forEach(function(b){
-    b.addEventListener('click', function(){ style=sanitizeStyle(b.getAttribute('data-style-set')); apply(); });
+    b.addEventListener('click', function(){ style=b.getAttribute('data-style-set'); apply(); });
   });
   var dk=document.getElementById('dk'); if(dk) dk.addEventListener('change',function(e){ theme=e.target.checked?'dark':'light'; apply(); });
   var rt=document.getElementById('rt'); if(rt) rt.addEventListener('change',function(e){ dir=e.target.checked?'rtl':'ltr'; apply(); });

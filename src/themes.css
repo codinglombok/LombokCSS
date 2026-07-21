@@ -11,160 +11,106 @@
    Colors are inherited from :root / dark overlay, so we only confirm look.
    -------------------------------------------------------------------------- */
 [data-style="modern-corporate-flat"] {
-  --lc-accent: #3b82f6;
-  --lc-accent-hover: #2f6fe0;
-  --lc-accent-active: #2861c9;
-  --lc-radius-sm: 6px;
-  --lc-radius: 10px;
-  --lc-radius-lg: 16px;
-  --lc-border-width: 1px;
-  --lc-shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
-  --lc-shadow: 0 4px 12px rgba(16, 24, 40, 0.08);
-  --lc-shadow-lg: 0 12px 32px rgba(16, 24, 40, 0.12);
-  --lc-shadow-hard: none;
-  --lc-blur: none;
+  --lc-accent:#3b82f6; --lc-accent-hover:#2f6fe0; --lc-accent-active:#2861c9;
+  --lc-radius-sm:6px; --lc-radius:10px; --lc-radius-lg:16px;
+  --lc-border-width:1px;
+  --lc-shadow-sm:0 1px 2px rgba(16,24,40,.06);
+  --lc-shadow:0 4px 12px rgba(16,24,40,.08);
+  --lc-shadow-lg:0 12px 32px rgba(16,24,40,.12);
+  --lc-shadow-hard:none; --lc-blur:none;
 }
 
 /* --------------------------------------------------------------------------
    2) resonant-stark  (Linear-style) — intrinsically dark, high contrast.
    -------------------------------------------------------------------------- */
 [data-style="resonant-stark"] {
-  --lc-bg: #08090c;
-  --lc-surface: #101218;
-  --lc-surface-2: #171a22;
-  --lc-text: #f3f5f8;
-  --lc-text-muted: #a3acba;
-  --lc-text-faint: #6c7585;
-  --lc-border: #23262f;
-  --lc-border-strong: #333845;
-  --lc-accent: #7c6cff;
-  --lc-accent-hover: #8d7fff;
-  --lc-accent-active: #6b5af0;
-  --lc-accent-text: #ffffff;
-  --lc-accent-soft: #1b1830;
-  --lc-accent-soft-text: #bcb2ff;
-  --lc-ring: rgba(124, 108, 255, 0.5);
+  --lc-bg:#08090c;
+  --lc-surface:#101218;
+  --lc-surface-2:#171a22;
+  --lc-text:#f3f5f8;
+  --lc-text-muted:#a3acba;
+  --lc-text-faint:#6c7585;
+  --lc-border:#23262f;
+  --lc-border-strong:#333845;
+  --lc-accent:#7c6cff; --lc-accent-hover:#8d7fff; --lc-accent-active:#6b5af0;
+  --lc-accent-text:#ffffff; --lc-accent-soft:#1b1830; --lc-accent-soft-text:#bcb2ff;
+  --lc-ring:rgba(124,108,255,.5);
   /* dark-appropriate status colors (soft backgrounds + readable text) */
-  --lc-success-soft: #11271b;
-  --lc-success-text: #6ee7a0;
-  --lc-warning-soft: #2a1f0d;
-  --lc-warning-text: #fbbf24;
-  --lc-danger-soft: #2a1414;
-  --lc-danger-text: #fca5a5;
-  --lc-info-soft: #0c2530;
-  --lc-info-text: #67d3f7;
-  --lc-radius-sm: 5px;
-  --lc-radius: 7px;
-  --lc-radius-lg: 11px;
-  --lc-border-width: 1px;
-  --lc-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
-  --lc-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
-  --lc-shadow-lg: 0 10px 36px rgba(0, 0, 0, 0.65);
-  --lc-shadow-hard: none;
-  --lc-blur: none;
-  --lc-tracking: -0.01em;
-  --lc-font-display: var(--lc-font-sans);
-  --lc-weight-semibold: 600;
+  --lc-success-soft:#11271b; --lc-success-text:#6ee7a0;
+  --lc-warning-soft:#2a1f0d; --lc-warning-text:#fbbf24;
+  --lc-danger-soft:#2a1414;  --lc-danger-text:#fca5a5;
+  --lc-info-soft:#0c2530;    --lc-info-text:#67d3f7;
+  --lc-radius-sm:5px; --lc-radius:7px; --lc-radius-lg:11px;
+  --lc-border-width:1px;
+  --lc-shadow-sm:0 1px 2px rgba(0,0,0,.5);
+  --lc-shadow:0 2px 10px rgba(0,0,0,.55);
+  --lc-shadow-lg:0 10px 36px rgba(0,0,0,.65);
+  --lc-shadow-hard:none; --lc-blur:none;
+  --lc-tracking:-.01em;
+  --lc-font-display:var(--lc-font-sans);
+  --lc-weight-semibold:600;
 }
 
 /* --------------------------------------------------------------------------
    3) neo-brutalism — thick black borders, hard offset shadow, bold blocks.
    -------------------------------------------------------------------------- */
 [data-style="neo-brutalism"] {
-  --lc-bg: #fdf6e3;
-  --lc-surface: #ffffff;
-  --lc-surface-2: #fff3c4;
-  --lc-text: #0a0a0a;
-  --lc-text-muted: #33312b;
-  --lc-text-faint: #6b6760;
-  --lc-border: #0a0a0a;
-  --lc-border-strong: #0a0a0a;
-  --lc-accent: #ff4f00;
-  --lc-accent-hover: #e84700;
-  --lc-accent-active: #cc3f00;
-  --lc-accent-text: #ffffff;
-  --lc-accent-soft: #ffe1cc;
-  --lc-accent-soft-text: #0a0a0a;
-  --lc-ring: rgba(10, 10, 10, 0.9);
-  --lc-success: #1f9e4d;
-  --lc-warning: #e0a400;
-  --lc-danger: #e3342f;
-  --lc-info: #2563eb;
-  --lc-success-soft: #d9f5e2;
-  --lc-warning-soft: #fff0c4;
-  --lc-danger-soft: #ffd9d7;
-  --lc-info-soft: #d7e3ff;
-  --lc-radius-sm: 0px;
-  --lc-radius: 0px;
-  --lc-radius-lg: 0px;
-  --lc-border-width: 2.5px;
-  --lc-shadow-sm: 3px 3px 0 #0a0a0a;
-  --lc-shadow: 5px 5px 0 #0a0a0a;
-  --lc-shadow-lg: 8px 8px 0 #0a0a0a;
-  --lc-shadow-hard: 5px 5px 0 #0a0a0a;
-  --lc-blur: none;
-  --lc-weight-medium: 700;
-  --lc-weight-semibold: 800;
-  --lc-weight-bold: 900;
+  --lc-bg:#fdf6e3;
+  --lc-surface:#ffffff;
+  --lc-surface-2:#fff3c4;
+  --lc-text:#0a0a0a;
+  --lc-text-muted:#33312b;
+  --lc-text-faint:#6b6760;
+  --lc-border:#0a0a0a;
+  --lc-border-strong:#0a0a0a;
+  --lc-accent:#ff4f00; --lc-accent-hover:#e84700; --lc-accent-active:#cc3f00;
+  --lc-accent-text:#ffffff; --lc-accent-soft:#ffe1cc; --lc-accent-soft-text:#0a0a0a;
+  --lc-ring:rgba(10,10,10,.9);
+  --lc-success:#1f9e4d; --lc-warning:#e0a400; --lc-danger:#e3342f; --lc-info:#2563eb;
+  --lc-success-soft:#d9f5e2; --lc-warning-soft:#fff0c4; --lc-danger-soft:#ffd9d7; --lc-info-soft:#d7e3ff;
+  --lc-radius-sm:0px; --lc-radius:0px; --lc-radius-lg:0px;
+  --lc-border-width:2.5px;
+  --lc-shadow-sm:3px 3px 0 #0a0a0a;
+  --lc-shadow:5px 5px 0 #0a0a0a;
+  --lc-shadow-lg:8px 8px 0 #0a0a0a;
+  --lc-shadow-hard:5px 5px 0 #0a0a0a;
+  --lc-blur:none;
+  --lc-weight-medium:700; --lc-weight-semibold:800; --lc-weight-bold:900;
 }
 [data-style="neo-brutalism"][data-theme="dark"] {
-  --lc-bg: #16140f;
-  --lc-surface: #1f1c14;
-  --lc-surface-2: #2a2517;
-  --lc-text: #fdf6e3;
-  --lc-text-muted: #cfc7ad;
-  --lc-text-faint: #8f8a72;
-  --lc-border: #fdf6e3;
-  --lc-border-strong: #fdf6e3;
-  --lc-shadow-sm: 3px 3px 0 #fdf6e3;
-  --lc-shadow: 5px 5px 0 #fdf6e3;
-  --lc-shadow-lg: 8px 8px 0 #fdf6e3;
-  --lc-shadow-hard: 5px 5px 0 #fdf6e3;
-  --lc-accent-soft: #3a2a1c;
+  --lc-bg:#16140f; --lc-surface:#1f1c14; --lc-surface-2:#2a2517;
+  --lc-text:#fdf6e3; --lc-text-muted:#cfc7ad; --lc-text-faint:#8f8a72;
+  --lc-border:#fdf6e3; --lc-border-strong:#fdf6e3;
+  --lc-shadow-sm:3px 3px 0 #fdf6e3; --lc-shadow:5px 5px 0 #fdf6e3; --lc-shadow-lg:8px 8px 0 #fdf6e3;
+  --lc-shadow-hard:5px 5px 0 #fdf6e3; --lc-accent-soft:#3a2a1c;
 }
 
 /* --------------------------------------------------------------------------
    4) semantic-minimalist — minimal, neutral, generous spacing, readable.
    -------------------------------------------------------------------------- */
 [data-style="semantic-minimalist"] {
-  --lc-bg: #fbfbfa;
-  --lc-surface: #ffffff;
-  --lc-surface-2: #f4f4f2;
-  --lc-text: #23211e;
-  --lc-text-muted: #6a665f;
-  --lc-text-faint: #9a958c;
-  --lc-border: #e8e6e1;
-  --lc-border-strong: #d4d1c9;
-  --lc-accent: #1f6f5c;
-  --lc-accent-hover: #1a5e4e;
-  --lc-accent-active: #164f42;
-  --lc-accent-text: #ffffff;
-  --lc-accent-soft: #e4f0ec;
-  --lc-accent-soft-text: #155446;
-  --lc-ring: rgba(31, 111, 92, 0.4);
-  --lc-radius-sm: 4px;
-  --lc-radius: 6px;
-  --lc-radius-lg: 8px;
-  --lc-border-width: 1px;
-  --lc-shadow-sm: none;
-  --lc-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  --lc-shadow-lg: 0 6px 18px rgba(0, 0, 0, 0.07);
-  --lc-shadow-hard: none;
-  --lc-blur: none;
-  --lc-leading-normal: 1.7;
-  --lc-leading-relaxed: 1.85;
-  --lc-font-display: Georgia, "Times New Roman", serif; /* characterful display, restrained */
+  --lc-bg:#fbfbfa;
+  --lc-surface:#ffffff;
+  --lc-surface-2:#f4f4f2;
+  --lc-text:#23211e;
+  --lc-text-muted:#6a665f;
+  --lc-text-faint:#9a958c;
+  --lc-border:#e8e6e1;
+  --lc-border-strong:#d4d1c9;
+  --lc-accent:#1f6f5c; --lc-accent-hover:#1a5e4e; --lc-accent-active:#164f42;
+  --lc-accent-text:#ffffff; --lc-accent-soft:#e4f0ec; --lc-accent-soft-text:#155446;
+  --lc-ring:rgba(31,111,92,.4);
+  --lc-radius-sm:4px; --lc-radius:6px; --lc-radius-lg:8px;
+  --lc-border-width:1px;
+  --lc-shadow-sm:none; --lc-shadow:0 1px 3px rgba(0,0,0,.05); --lc-shadow-lg:0 6px 18px rgba(0,0,0,.07);
+  --lc-shadow-hard:none; --lc-blur:none;
+  --lc-leading-normal:1.7; --lc-leading-relaxed:1.85;
+  --lc-font-display:Georgia,"Times New Roman",serif; /* characterful display, restrained */
 }
 [data-style="semantic-minimalist"][data-theme="dark"] {
-  --lc-bg: #16150f;
-  --lc-surface: #1d1c15;
-  --lc-surface-2: #26241b;
-  --lc-text: #ece9df;
-  --lc-text-muted: #a7a394;
-  --lc-text-faint: #777262;
-  --lc-border: #2c2a20;
-  --lc-border-strong: #3a3729;
-  --lc-accent-soft: #163029;
+  --lc-bg:#16150f; --lc-surface:#1d1c15; --lc-surface-2:#26241b;
+  --lc-text:#ece9df; --lc-text-muted:#a7a394; --lc-text-faint:#777262;
+  --lc-border:#2c2a20; --lc-border-strong:#3a3729; --lc-accent-soft:#163029;
 }
 
 /* --------------------------------------------------------------------------
@@ -172,53 +118,41 @@
    Page sits on a gradient so the blur reads. Fallback below for no support.
    -------------------------------------------------------------------------- */
 [data-style="glassmorphism"] {
-  --lc-bg: #0b1020;
-  --lc-bg-gradient:
-    radial-gradient(1200px 600px at 12% -10%, #6d28d9 0%, transparent 55%),
-    radial-gradient(900px 500px at 100% 0%, #0ea5e9 0%, transparent 50%),
-    radial-gradient(800px 600px at 50% 120%, #db2777 0%, transparent 55%);
-  --lc-surface: rgba(255, 255, 255, 0.1);
-  --lc-surface-2: rgba(255, 255, 255, 0.16);
-  --lc-text: #f4f6ff;
-  --lc-text-muted: #c4cbe6;
-  --lc-text-faint: #9aa2c4;
-  --lc-border: rgba(255, 255, 255, 0.22);
-  --lc-border-strong: rgba(255, 255, 255, 0.35);
-  --lc-accent: #a78bfa;
-  --lc-accent-hover: #b9a4fb;
-  --lc-accent-active: #9170f7;
-  --lc-accent-text: #13102a;
-  --lc-accent-soft: rgba(167, 139, 250, 0.22);
-  --lc-accent-soft-text: #e3dbff;
-  --lc-ring: rgba(167, 139, 250, 0.5);
-  --lc-success-soft: rgba(34, 197, 94, 0.2);
-  --lc-warning-soft: rgba(217, 119, 6, 0.22);
-  --lc-danger-soft: rgba(220, 38, 38, 0.22);
-  --lc-info-soft: rgba(14, 165, 233, 0.22);
-  --lc-radius-sm: 10px;
-  --lc-radius: 16px;
-  --lc-radius-lg: 22px;
-  --lc-border-width: 1px;
-  --lc-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
-  --lc-shadow: 0 8px 32px rgba(0, 0, 0, 0.32);
-  --lc-shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.4);
-  --lc-shadow-hard: none;
-  --lc-blur: blur(14px) saturate(140%);
-  --lc-glass-tint: rgba(255, 255, 255, 0.1);
-  --lc-glass-border: rgba(255, 255, 255, 0.28);
+  --lc-bg:#0b1020;
+  --lc-bg-gradient:radial-gradient(1200px 600px at 12% -10%, #6d28d9 0%, transparent 55%),
+                   radial-gradient(900px 500px at 100% 0%, #0ea5e9 0%, transparent 50%),
+                   radial-gradient(800px 600px at 50% 120%, #db2777 0%, transparent 55%);
+  --lc-surface:rgba(255,255,255,.10);
+  --lc-surface-2:rgba(255,255,255,.16);
+  --lc-text:#f4f6ff;
+  --lc-text-muted:#c4cbe6;
+  --lc-text-faint:#9aa2c4;
+  --lc-border:rgba(255,255,255,.22);
+  --lc-border-strong:rgba(255,255,255,.35);
+  --lc-accent:#a78bfa; --lc-accent-hover:#b9a4fb; --lc-accent-active:#9170f7;
+  --lc-accent-text:#13102a; --lc-accent-soft:rgba(167,139,250,.22); --lc-accent-soft-text:#e3dbff;
+  --lc-ring:rgba(167,139,250,.5);
+  --lc-success-soft:rgba(34,197,94,.2); --lc-warning-soft:rgba(217,119,6,.22);
+  --lc-danger-soft:rgba(220,38,38,.22); --lc-info-soft:rgba(14,165,233,.22);
+  --lc-radius-sm:10px; --lc-radius:16px; --lc-radius-lg:22px;
+  --lc-border-width:1px;
+  --lc-shadow-sm:0 2px 8px rgba(0,0,0,.25);
+  --lc-shadow:0 8px 32px rgba(0,0,0,.32);
+  --lc-shadow-lg:0 20px 60px rgba(0,0,0,.4);
+  --lc-shadow-hard:none;
+  --lc-blur:blur(14px) saturate(140%);
+  --lc-glass-tint:rgba(255,255,255,.10);
+  --lc-glass-border:rgba(255,255,255,.28);
 }
-[data-style="glassmorphism"] body {
-  background-image: var(--lc-bg-gradient);
-  background-attachment: fixed;
-}
+[data-style="glassmorphism"] body { background-image: var(--lc-bg-gradient); background-attachment: fixed; }
 
 /* Fallback: if backdrop-filter is unsupported, make glass surfaces opaque
    so content stays legible (no see-through mud). */
 @supports not (backdrop-filter: blur(1px)) {
   [data-style="glassmorphism"] {
-    --lc-surface: #1b2138;
-    --lc-surface-2: #232a44;
-    --lc-border: rgba(255, 255, 255, 0.18);
-    --lc-blur: none;
+    --lc-surface:#1b2138;
+    --lc-surface-2:#232a44;
+    --lc-border:rgba(255,255,255,.18);
+    --lc-blur:none;
   }
 }
