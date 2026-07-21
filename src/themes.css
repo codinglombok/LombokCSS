@@ -29,7 +29,6 @@
    2) resonant-stark  (Linear-style) — intrinsically dark, high contrast.
    -------------------------------------------------------------------------- */
 [data-style="resonant-stark"] {
-  color-scheme: dark;
   --lc-bg: #08090c;
   --lc-surface: #101218;
   --lc-surface-2: #171a22;
@@ -122,15 +121,6 @@
   --lc-shadow-lg: 8px 8px 0 #fdf6e3;
   --lc-shadow-hard: 5px 5px 0 #fdf6e3;
   --lc-accent-soft: #3a2a1c;
-  --lc-accent-soft-text: #fdf6e3;
-  --lc-success-soft: #11271b;
-  --lc-success-text: #6ee7a0;
-  --lc-warning-soft: #2a1f0d;
-  --lc-warning-text: #fbbf24;
-  --lc-danger-soft: #2a1414;
-  --lc-danger-text: #fca5a5;
-  --lc-info-soft: #0c2530;
-  --lc-info-text: #67d3f7;
 }
 
 /* --------------------------------------------------------------------------
@@ -175,15 +165,6 @@
   --lc-border: #2c2a20;
   --lc-border-strong: #3a3729;
   --lc-accent-soft: #163029;
-  --lc-accent-soft-text: #7fd8c4;
-  --lc-success-soft: #11271b;
-  --lc-success-text: #6ee7a0;
-  --lc-warning-soft: #2a1f0d;
-  --lc-warning-text: #fbbf24;
-  --lc-danger-soft: #2a1414;
-  --lc-danger-text: #fca5a5;
-  --lc-info-soft: #0c2530;
-  --lc-info-text: #67d3f7;
 }
 
 /* --------------------------------------------------------------------------

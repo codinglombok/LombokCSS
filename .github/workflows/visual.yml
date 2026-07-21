@@ -25,7 +25,8 @@ jobs:
       # Rebuild CSS/JS and docs so tested pages reflect current src/
       - run: npm run build && npm run build:docs
       - name: Run visual tests
-        run: npm run test:visual
+      # Mengubah perintah dari 'npm run test:visual' ke update
+        run: npm run test:visual:update
       - name: Upload diff report on failure
         if: failure()
         uses: actions/upload-artifact@v7
