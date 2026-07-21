@@ -12,77 +12,69 @@
   --lc-black: #0a0a0a;
 
   /* ---- Semantic surface & text (LIGHT default = corporate-flat) ---- */
-  --lc-bg: #f6f7f9; /* page background            */
-  --lc-surface: #ffffff; /* cards, modals, inputs      */
-  --lc-surface-2: #f1f3f5; /* subtle raised / hover      */
-  --lc-text: #1a1d21; /* primary text               */
-  --lc-text-muted: #5b6470; /* secondary text             */
-  --lc-text-faint: #8a93a0; /* placeholders, captions     */
-  --lc-border: #e2e6ea; /* hairline borders           */
-  --lc-border-strong: #c8cfd6;
+  --lc-bg:           #f6f7f9;   /* page background            */
+  --lc-surface:      #ffffff;   /* cards, modals, inputs      */
+  --lc-surface-2:    #f1f3f5;   /* subtle raised / hover      */
+  --lc-text:         #1a1d21;   /* primary text               */
+  --lc-text-muted:   #5b6470;   /* secondary text             */
+  --lc-text-faint:   #8a93a0;   /* placeholders, captions     */
+  --lc-border:       #e2e6ea;   /* hairline borders           */
+  --lc-border-strong:#c8cfd6;
 
   /* ---- Brand / accent ---- */
-  --lc-accent: #3b82f6;
-  --lc-accent-hover: #2f6fe0;
+  --lc-accent:        #3b82f6;
+  --lc-accent-hover:  #2f6fe0;
   --lc-accent-active: #2861c9;
-  --lc-accent-text: #ffffff; /* text on accent surface     */
-  --lc-accent-soft: #e8f0fe; /* soft accent background     */
+  --lc-accent-text:   #ffffff;  /* text on accent surface     */
+  --lc-accent-soft:   #e8f0fe;  /* soft accent background     */
   --lc-accent-soft-text: #1f5fd1;
-  --lc-ring: rgba(59, 130, 246, 0.45); /* focus ring color */
+  --lc-ring:          rgba(59,130,246,.45); /* focus ring color */
 
   /* ---- Status colors (bg / text / soft) ---- */
-  --lc-success: #16a34a;
-  --lc-success-soft: #e7f6ec;
-  --lc-success-text: #0f7a37;
-  --lc-warning: #d97706;
-  --lc-warning-soft: #fdf0dd;
-  --lc-warning-text: #a85d05;
-  --lc-danger: #dc2626;
-  --lc-danger-soft: #fde8e8;
-  --lc-danger-text: #b21d1d;
-  --lc-info: #0ea5e9;
-  --lc-info-soft: #e3f5fd;
-  --lc-info-text: #0b7fb4;
+  --lc-success:      #16a34a;  --lc-success-soft:#e7f6ec;  --lc-success-text:#0f7a37;
+  --lc-warning:      #d97706;  --lc-warning-soft:#fdf0dd;  --lc-warning-text:#a85d05;
+  --lc-danger:       #dc2626;  --lc-danger-soft: #fde8e8;  --lc-danger-text: #b21d1d;
+  --lc-info:         #0ea5e9;  --lc-info-soft:   #e3f5fd;  --lc-info-text:   #0b7fb4;
 
   /* ---- Typography ---- */
   --lc-font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --lc-font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace;
   --lc-font-display: var(--lc-font-sans);
 
-  --lc-text-xs: 0.75rem;
-  --lc-text-sm: 0.875rem;
+  --lc-text-xs:   .75rem;
+  --lc-text-sm:   .875rem;
   --lc-text-base: 1rem;
-  --lc-text-lg: 1.125rem;
-  --lc-text-xl: 1.25rem;
-  --lc-text-2xl: 1.5rem;
-  --lc-text-3xl: 1.875rem;
-  --lc-text-4xl: 2.25rem;
+  --lc-text-lg:   1.125rem;
+  --lc-text-xl:   1.25rem;
+  --lc-text-2xl:  1.5rem;
+  --lc-text-3xl:  1.875rem;
+  --lc-text-4xl:  2.25rem;
 
-  --lc-leading-tight: 1.2;
-  --lc-leading-normal: 1.55;
+  --lc-leading-tight:   1.2;
+  --lc-leading-normal:  1.55;
   --lc-leading-relaxed: 1.75;
 
-  --lc-weight-normal: 400;
-  --lc-weight-medium: 500;
+  --lc-weight-normal:   400;
+  --lc-weight-medium:   500;
   --lc-weight-semibold: 600;
-  --lc-weight-bold: 700;
-  --lc-tracking: 0; /* letter-spacing for body */
+  --lc-weight-bold:     700;
+  --lc-tracking:        0; /* letter-spacing for body */
 
   /* ---- Spacing scale (used by utilities + components) ---- */
-  --lc-space-0: 0;
-  --lc-space-1: 0.25rem;
-  --lc-space-2: 0.5rem;
-  --lc-space-3: 0.75rem;
-  --lc-space-4: 1rem;
-  --lc-space-5: 1.25rem;
-  --lc-space-6: 1.5rem;
-  --lc-space-8: 2rem;
+  --lc-space-0:  0;
+  --lc-space-1:  .25rem;
+  --lc-space-2:  .5rem;
+  --lc-space-3:  .75rem;
+  --lc-space-4:  1rem;
+  --lc-space-5:  1.25rem;
+  --lc-space-6:  1.5rem;
+  --lc-space-8:  2rem;
   --lc-space-10: 2.5rem;
   --lc-space-12: 3rem;
 
   /* ---- Radius ---- */
   --lc-radius-sm: 6px;
-  --lc-radius: 10px;
+  --lc-radius:    10px;
   --lc-radius-lg: 16px;
   --lc-radius-full: 9999px;
 
@@ -90,19 +82,19 @@
   --lc-border-width: 1px;
 
   /* ---- Shadows ---- */
-  --lc-shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
-  --lc-shadow: 0 4px 12px rgba(16, 24, 40, 0.08);
-  --lc-shadow-lg: 0 12px 32px rgba(16, 24, 40, 0.12);
+  --lc-shadow-sm: 0 1px 2px rgba(16,24,40,.06);
+  --lc-shadow:    0 4px 12px rgba(16,24,40,.08);
+  --lc-shadow-lg: 0 12px 32px rgba(16,24,40,.12);
   /* hard-offset shadow only used by neo-brutalism, kept here for consistency */
   --lc-shadow-hard: none;
 
   /* ---- Glass tokens (inert unless a glass theme turns blur on) ---- */
-  --lc-blur: none; /* backdrop-filter value     */
+  --lc-blur: none;                 /* backdrop-filter value     */
   --lc-glass-tint: var(--lc-surface);
   --lc-glass-border: var(--lc-border);
 
   /* ---- Motion ---- */
-  --lc-transition: 160ms cubic-bezier(0.4, 0, 0.2, 1);
+  --lc-transition: 160ms cubic-bezier(.4,0,.2,1);
 
   /* ---- Layout ---- */
   --lc-container: 1120px;
@@ -121,49 +113,39 @@
    ========================================================================== */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --lc-bg: #0f1115;
-    --lc-surface: #171a21;
-    --lc-surface-2: #1f242d;
-    --lc-text: #e7eaee;
-    --lc-text-muted: #9aa4b2;
-    --lc-text-faint: #6b7480;
-    --lc-border: #2a2f3a;
-    --lc-border-strong: #3a404d;
-    --lc-accent-soft: #16263f;
-    --lc-accent-soft-text: #8ab4ff;
-    --lc-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-    --lc-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
-    --lc-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.55);
-    --lc-success-soft: #10241a;
-    --lc-warning-soft: #2a1f0d;
-    --lc-danger-soft: #2a1414;
-    --lc-info-soft: #0c2530;
-    --lc-success-text: #6ee7a0;
-    --lc-warning-text: #fbbf24;
-    --lc-danger-text: #fca5a5;
-    --lc-info-text: #67d3f7;
+    --lc-bg:           #0f1115;
+    --lc-surface:      #171a21;
+    --lc-surface-2:    #1f242d;
+    --lc-text:         #e7eaee;
+    --lc-text-muted:   #9aa4b2;
+    --lc-text-faint:   #6b7480;
+    --lc-border:       #2a2f3a;
+    --lc-border-strong:#3a404d;
+    --lc-accent-soft:  #16263f;
+    --lc-accent-soft-text:#8ab4ff;
+    --lc-shadow-sm: 0 1px 2px rgba(0,0,0,.4);
+    --lc-shadow:    0 4px 12px rgba(0,0,0,.45);
+    --lc-shadow-lg: 0 12px 32px rgba(0,0,0,.55);
+    --lc-success-soft:#10241a; --lc-warning-soft:#2a1f0d;
+    --lc-danger-soft:#2a1414;  --lc-info-soft:#0c2530;
+    --lc-success-text:#6ee7a0; --lc-warning-text:#fbbf24; --lc-danger-text:#fca5a5; --lc-info-text:#67d3f7;
   }
 }
 [data-theme="dark"] {
-  --lc-bg: #0f1115;
-  --lc-surface: #171a21;
-  --lc-surface-2: #1f242d;
-  --lc-text: #e7eaee;
-  --lc-text-muted: #9aa4b2;
-  --lc-text-faint: #6b7480;
-  --lc-border: #2a2f3a;
-  --lc-border-strong: #3a404d;
-  --lc-accent-soft: #16263f;
-  --lc-accent-soft-text: #8ab4ff;
-  --lc-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --lc-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
-  --lc-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.55);
-  --lc-success-soft: #10241a;
-  --lc-warning-soft: #2a1f0d;
-  --lc-danger-soft: #2a1414;
-  --lc-info-soft: #0c2530;
-  --lc-success-text: #6ee7a0;
-  --lc-warning-text: #fbbf24;
-  --lc-danger-text: #fca5a5;
-  --lc-info-text: #67d3f7;
+  --lc-bg:           #0f1115;
+  --lc-surface:      #171a21;
+  --lc-surface-2:    #1f242d;
+  --lc-text:         #e7eaee;
+  --lc-text-muted:   #9aa4b2;
+  --lc-text-faint:   #6b7480;
+  --lc-border:       #2a2f3a;
+  --lc-border-strong:#3a404d;
+  --lc-accent-soft:  #16263f;
+  --lc-accent-soft-text:#8ab4ff;
+  --lc-shadow-sm: 0 1px 2px rgba(0,0,0,.4);
+  --lc-shadow:    0 4px 12px rgba(0,0,0,.45);
+  --lc-shadow-lg: 0 12px 32px rgba(0,0,0,.55);
+  --lc-success-soft:#10241a; --lc-warning-soft:#2a1f0d;
+  --lc-danger-soft:#2a1414;  --lc-info-soft:#0c2530;
+  --lc-success-text:#6ee7a0; --lc-warning-text:#fbbf24; --lc-danger-text:#fca5a5; --lc-info-text:#67d3f7;
 }
