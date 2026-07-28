@@ -3,9 +3,25 @@
   var root = document.documentElement;
   var q = new URLSearchParams(location.search);
 
+  // Daftar style diturunkan dari tombol yang benar-benar ada di halaman,
+  // bukan dari daftar tetap. Daftar tetap sebelumnya sempat basi
+  // (menyebut 'modern-corporate-neumorph' yang tak ada di themes.css dan
+  // melewatkan empat style yang ada), sehingga empat dari lima tombol
+  // dikembalikan diam-diam ke style default. Sumber kebenarannya sekarang
+  // markup yang digenerasi build_docs.py, jadi tidak bisa melenceng lagi.
+  var FALLBACK_STYLE = 'modern-corporate-flat';
+
+  function allowedStyles(){
+    var found = [];
+    document.querySelectorAll('[data-style-set]').forEach(function(b){
+      var v = b.getAttribute('data-style-set');
+      if (v && found.indexOf(v) === -1) found.push(v);
+    });
+    return found.length ? found : [FALLBACK_STYLE];
+  }
+
   function sanitizeStyle(value){
-    var allowed = ['modern-corporate-flat', 'modern-corporate-neumorph'];
-    return allowed.indexOf(value) !== -1 ? value : 'modern-corporate-flat';
+    return allowedStyles().indexOf(value) !== -1 ? value : FALLBACK_STYLE;
   }
 
   function sanitizeTheme(value){
