@@ -6,6 +6,13 @@
 
 - Fix dark-mode contrast for `neo-brutalism` and `semantic-minimalist`: their dark variants now override status `*-soft`/`*-text` and `--lc-accent-soft-text` (alerts, soft buttons, and badges were unreadable).
 
+## [0.1.2](https://github.com/codinglombok/LombokCSS/compare/lombokcss-v0.1.1...lombokcss-v0.1.2) (2026-07-28)
+
+
+### Bug Fixes
+
+* **docs:** allow all five styles in switcher, derive allowlist from buttons ([963aa4a](https://github.com/codinglombok/LombokCSS/commit/963aa4a4118964304adb9fbf20ad49c3b96969cc))
+
 ## [0.1.1](https://github.com/codinglombok/LombokCSS/compare/lombokcss-v0.1.0...lombokcss-v0.1.1) (2026-07-28)
 
 
