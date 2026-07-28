@@ -1,0 +1,65 @@
+// Konfigurasi ESLint untuk Super-Linter (VALIDATE_JAVASCRIPT_ES).
+// Sengaja TANPA import paket luar (@eslint/js dsb) supaya resolusi modul
+// tidak bergantung pada layout node_modules di dalam container Super-Linter.
+// Aturan ditulis eksplisit — sejalan dengan filosofi explicit-over-magic.
+
+export default [
+  {
+    files: ["**/*.js"],
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: "script",
+      globals: {
+        window: "readonly",
+        document: "readonly",
+        console: "readonly",
+        navigator: "readonly",
+        location: "readonly",
+        history: "readonly",
+        localStorage: "readonly",
+        sessionStorage: "readonly",
+        matchMedia: "readonly",
+        getComputedStyle: "readonly",
+        requestAnimationFrame: "readonly",
+        cancelAnimationFrame: "readonly",
+        setTimeout: "readonly",
+        clearTimeout: "readonly",
+        setInterval: "readonly",
+        clearInterval: "readonly",
+        queueMicrotask: "readonly",
+        MutationObserver: "readonly",
+        IntersectionObserver: "readonly",
+        ResizeObserver: "readonly",
+        CustomEvent: "readonly",
+        Event: "readonly",
+        Element: "readonly",
+        HTMLElement: "readonly",
+        Node: "readonly",
+        NodeList: "readonly",
+        DOMParser: "readonly",
+        CSS: "readonly",
+      },
+    },
+    linterOptions: {
+      reportUnusedDisableDirectives: true,
+    },
+    rules: {
+      "no-undef": "error",
+      "no-unused-vars": ["error", { args: "none", ignoreRestSiblings: true }],
+      "no-redeclare": "error",
+      "no-dupe-keys": "error",
+      "no-dupe-args": "error",
+      "no-duplicate-case": "error",
+      "no-unreachable": "error",
+      "no-fallthrough": "error",
+      "no-cond-assign": "error",
+      "no-constant-condition": "error",
+      "no-empty": ["error", { allowEmptyCatch: true }],
+      "no-self-assign": "error",
+      "no-sparse-arrays": "error",
+      "use-isnan": "error",
+      "valid-typeof": "error",
+      eqeqeq: ["error", "smart"],
+    },
+  },
+];

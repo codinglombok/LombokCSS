@@ -23,3 +23,6 @@ jsconfig.json
 # playwright artifacts (baselines under tests/**-snapshots ARE committed)
 test-results/
 playwright-report/
+
+# ditulis oleh release-please — jangan diformat, memicu lint gagal di PR rilis
+CHANGELOG.md

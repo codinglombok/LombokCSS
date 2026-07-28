@@ -105,7 +105,7 @@
   a {
     text-decoration: underline;
   }
-  a:not(.btn):not(.badge)[href^="http"]::after {
+  a:not(.btn, .badge)[href^="http"]::after {
     content: " (" attr(href) ")";
     font-size: 0.85em;
     color: #555;

@@ -1,0 +1,21 @@
+---
+# Konfigurasi markdownlint untuk Super-Linter (VALIDATE_MARKDOWN).
+# CHANGELOG.md ditulis oleh release-please, bukan manusia — memaksakan
+# aturan gaya di situ akan menggagalkan setiap PR rilis.
+
+default: true
+
+# MD013 line-length: CHANGELOG dan tabel badge wajar melewati 80 kolom.
+MD013: false
+
+# MD033 inline HTML: README memakai <img>/<details> untuk badge dan seksi lipat.
+MD033: false
+
+# MD041 first-line-heading: CHANGELOG dan beberapa dok mulai dengan badge.
+MD041: false
+
+# MD024 duplicate heading: CHANGELOG mengulang heading versi ("Features", "Bug Fixes").
+MD024:
+  siblings_only: true
+
+# MD034 bare URLs: dibiarkan aktif — URL telanjang sebaiknya tetap dikurung.
