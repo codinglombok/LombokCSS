@@ -971,8 +971,7 @@ select {
   background-position:
     18px center,
     13px center;
-  padding-inline-end: 0.8em;
-  padding-inline-start: 2.2em;
+  padding-inline: 2.2em 0.8em;
 }
 
 /* checkbox / radio use accent-color for native theming */
@@ -1581,8 +1580,7 @@ a.list-group-item:hover,
 /* navbar dropdowns sit near the inline-end, so open toward start to avoid overflow */
 .navbar .dropdown-menu,
 .dropdown-menu.dropdown-end {
-  inset-inline-start: auto;
-  inset-inline-end: 0;
+  inset-inline: auto 0;
 }
 
 /* ---------- TOOLTIP (CSS-only via data-tip) ---------- */
@@ -1808,8 +1806,7 @@ dialog.modal::backdrop {
   transition: transform var(--lc-transition);
 }
 .drawer-end {
-  inset-inline-start: auto;
-  inset-inline-end: 0;
+  inset-inline: auto 0;
   border-inline: 0;
   border-inline-start: var(--lc-border-width) solid var(--lc-border);
   transform: translateX(100%);
@@ -3312,7 +3309,7 @@ dialog.modal::backdrop {
   a {
     text-decoration: underline;
   }
-  a:not(.btn):not(.badge)[href^="http"]::after {
+  a:not(.btn, .badge)[href^="http"]::after {
     content: " (" attr(href) ")";
     font-size: 0.85em;
     color: #555;

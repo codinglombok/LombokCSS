@@ -1,0 +1,39 @@
+{
+  "extends": [
+    "stylelint-config-standard"
+  ],
+  "ignoreFiles": [
+    "dist/**",
+    "docs/**",
+    "node_modules/**",
+    "site/**"
+  ],
+  "rules": {
+    "rule-empty-line-before": null,
+    "at-rule-empty-line-before": null,
+    "declaration-empty-line-before": null,
+    "comment-empty-line-before": null,
+    "custom-property-empty-line-before": null,
+    "selector-class-pattern": [
+      "^[a-z0-9]+(-[a-z0-9]+)*(\\\\?:[a-z0-9]+(-[a-z0-9]+)*)*$",
+      {
+        "message": "Class harus kebab-case, boleh dengan prefix varian responsif ber-escape (mis. .sm\\:flex)"
+      }
+    ],
+    "custom-property-pattern": [
+      "^_?[a-z0-9]+(-[a-z0-9]+)*$",
+      {
+        "message": "Custom property kebab-case; awalan _ dicadangkan untuk token internal komponen (--_bg)"
+      }
+    ],
+    "property-no-vendor-prefix": null,
+    "value-keyword-case": null,
+    "alpha-value-notation": null,
+    "color-function-notation": null,
+    "color-hex-length": null,
+    "media-feature-range-notation": null,
+    "no-descending-specificity": null,
+    "declaration-block-no-redundant-longhand-properties": true,
+    "selector-not-notation": "complex"
+  }
+}
