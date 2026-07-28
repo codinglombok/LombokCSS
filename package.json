@@ -48,11 +48,12 @@
     "test:visual": "playwright test",
     "test:visual:update": "playwright test --update-snapshots",
     "lint": "npm run format:check",
-    "test": "npm run size:check"
+    "test": "npm run size:check",
+    "format:fix": "prettier --write \"src/**/*.{css,js}\" \"scripts/**/*.mjs\" \"tests/**/*.js\" \"*.{json,md}\" \"*.config.js\""
   },
   "devDependencies": {
     "@playwright/test": "1.56.0",
-    "lightningcss-cli": "^1.29.0",
+    "lightningcss-cli": "1.33.0",
     "prettier": "3.9.6"
   },
   "keywords": [

@@ -4,7 +4,6 @@ dist/
 .git/
 .github/
 docs/
-dist/
 assets/
 scripts/
 *.json
@@ -17,7 +16,6 @@ _site/
 .release/
 examples/
 tests/
-docs/
 *.config.js
 build.js
 .eslintrc.json
