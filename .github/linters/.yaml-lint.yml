@@ -1,0 +1,43 @@
+---
+# Konfigurasi yamllint untuk Super-Linter (VALIDATE_YAML).
+#
+# Default yamllint ditulis untuk YAML umum, bukan untuk berkas GitHub
+# Actions. Tiga aturannya bertabrakan langsung dengan format yang
+# diwajibkan GitHub, dan sebagian workflow di repo ini berasal dari
+# template pihak ketiga (OSSAR, Defender for DevOps) yang diperbarui
+# dari hulu — memformat ulang berkas itu akan hilang saat pembaruan.
+
+extends: default
+
+rules:
+  # GitHub Actions WAJIB memakai kunci `on:`; yamllint membacanya sebagai
+  # boolean. check-keys: false hanya melonggarkan pemeriksaan pada kunci,
+  # nilai truthy yang keliru tetap tertangkap.
+  truthy:
+    check-keys: false
+
+  # Berkas workflow lazim ditulis tanpa penanda awal dokumen.
+  document-start: disable
+
+  # Perintah shell, URL, dan ekspresi ${{ }} wajar panjang. Batas tetap
+  # ada supaya baris yang benar-benar liar masih tertangkap.
+  line-length:
+    max: 200
+    allow-non-breakable-words: true
+
+  # Sebagian workflow mengindentasi sequence, sebagian tidak. Keduanya
+  # sah di YAML; memaksa satu gaya berarti menyunting template hulu.
+  indentation:
+    indent-sequences: whatever
+
+  # Gaya flow `with: { node-version: '24' }` dipakai di repo ini.
+  brackets:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+  braces:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+
+  comments:
+    min-spaces-from-content: 1
+  comments-indentation: disable
