@@ -1,29 +1,27 @@
 ---
 # Konfigurasi markdownlint untuk Super-Linter (VALIDATE_MARKDOWN).
-# CHANGELOG.md ditulis oleh release-please, bukan manusia — memaksakan
-# aturan gaya di situ akan menggagalkan setiap PR rilis.
+#
+# CHANGELOG.md TIDAK diatur di sini — berkas itu dikecualikan di
+# linter.yml lewat FILTER_REGEX_EXCLUDE, karena ditulis release-please
+# dan gayanya kembali tiap rilis. Aturan di bawah hanya berlaku untuk
+# dokumen tulisan tangan, jadi bisa tetap ketat.
 
 default: true
 
-# MD013 line-length: CHANGELOG dan tabel badge wajar melewati 80 kolom.
+# MD013 line-length: tabel badge dan URL panjang wajar melewati 80 kolom.
 MD013: false
 
-# MD033 inline HTML: README memakai <img>/<details> untuk badge dan seksi lipat.
+# MD033 inline HTML: README memakai <img>/<details> untuk badge dan
+# seksi lipat.
 MD033: false
 
-# MD041 first-line-heading: CHANGELOG dan beberapa dok mulai dengan badge.
+# MD041 first-line-heading: beberapa dokumen dibuka dengan badge.
 MD041: false
 
-# MD024 duplicate heading: CHANGELOG mengulang heading tiap versi
-# ("Features", "Bug Fixes"), jadi hanya sibling yang dicek.
+# MD024 duplicate heading: heading berulang sah asal bukan sesama sibling.
 MD024:
   siblings_only: true
 
-# MD034 bare URLs: dibiarkan aktif — URL telanjang sebaiknya tetap dikurung.
-
-# MD012 blank lines & MD004 bullet style: release-please menulis dua baris
-# kosong setelah heading versi dan memakai "*" untuk bullet, sementara
-# bagian CHANGELOG yang ditulis tangan memakai "-". Format bot ini
-# diregenerasi tiap rilis, jadi tak bisa diperbaiki dengan menyunting file.
-MD012: false
-MD004: false
+# Sengaja DIBIARKAN aktif: MD034 (URL telanjang), MD004 (gaya bullet),
+# MD012 (baris kosong ganda), MD031/MD040 (fence). Semuanya sudah
+# dipenuhi dokumen tulisan tangan per 28 Jul 2026.
