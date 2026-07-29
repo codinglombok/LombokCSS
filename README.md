@@ -5,29 +5,30 @@
 > component — like Bootstrap. Re-theme everything by changing **one attribute** —
 > like a design system. Ships at **~9.7 KB gzipped** (full build, minified).
 
-```
+```text
 Component-based (Bootstrap)  +  Token-driven theming (design systems)  +  Tiny (Pico/UnoCSS)
 ```
 
 ---
 
-### Git Hub
+## GitHub
 
 [![CI](https://github.com/codinglombok/lombokcss/actions/workflows/ci.yml/badge.svg)](https://github.com/codinglombok/lombokcss/actions/workflows/ci.yml)
 [![Deploy docs](https://github.com/codinglombok/lombokcss/actions/workflows/pages.yml/badge.svg)](https://github.com/codinglombok/lombokcss/actions/workflows/pages.yml)
 [![license](https://img.shields.io/npm/l/lombokcss.svg)](LICENSE)
+
 ---
 
-### NPM
+## NPM
 
 [![npm version](https://img.shields.io/npm/v/lombokcss.svg)](https://www.npmjs.com/package/lombokcss)
 [![npm downloads](https://img.shields.io/npm/dm/lombokcss.svg)](https://www.npmjs.com/package/lombokcss)
 [![jsDelivr hits](https://img.shields.io/jsdelivr/npm/hm/lombokcss.svg)](https://www.jsdelivr.com/package/npm/lombokcss)
-[![gzip size](https://img.shields.io/badge/gzip-9.7%20KB-success.svg)](#)
+![gzip size](https://img.shields.io/badge/gzip-9.7%20KB-success.svg)
 
 ---
 
-### Sourceforge.net
+## Sourceforge.net
 
 [![Download LombokCSS](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/lombokcss/files/latest/download)
 [![Download LombokCSS](https://img.shields.io/sourceforge/dm/lombokcss.svg)](https://sourceforge.net/projects/lombokcss/files/latest/download)
@@ -133,7 +134,7 @@ the URL query string. A single-file interactive playground is at
 
 ## Architecture
 
-```
+```text
 src/
   variables.css   → token architecture (the contract every component depends on)
   core.css        → reset/reboot + base element styles (= classless mode)

@@ -38,13 +38,17 @@ git config --global user.email "you@example.com"
    email placeholders if you want real contacts:
    - `your-domain.example` in `SECURITY.md` and `CODE_OF_CONDUCT.md`.
 2. **Confirm the package name is free on npm** (skip if you won't publish to npm):
+
    ```bash
    npm view lombokcss        # "404 Not Found" = available
    ```
+
    If it's taken, switch to a scoped name in `package.json`:
    `"name": "@codinglombok/lombokcss"` (the workflows already use
    `--access public`, which scoped packages require).
+
 3. **Sanity build locally:**
+
    ```bash
    npm install
    npm run build
@@ -87,10 +91,12 @@ gh repo create codinglombok/lombokcss \
 1. github.com → **New repository** → owner `codinglombok`, name `lombokcss`,
    **Public**, do **not** add README/license (the project already has them).
 2. Connect & push:
+
    ```bash
    git remote add origin https://github.com/codinglombok/lombokcss.git
    git push -u origin main
    ```
+
    For HTTPS, the "password" prompt wants a **Personal Access Token** (classic,
    scope `repo`), not your account password.
 
@@ -153,7 +159,7 @@ Settings → **Pages** → **Source: GitHub Actions**. (One-time; the workflow c
 turn Pages on itself.) On the next push to `main`, `pages.yml` rebuilds the docs
 and deploys them to:
 
-```
+```text
 https://codinglombok.github.io/lombokcss/
 ```
 
@@ -187,11 +193,14 @@ Manual fallback (rarely needed): Actions → **Publish to npm (manual fallback)*
 - **npm:** `https://www.npmjs.com/package/lombokcss` shows the version and a
   provenance statement.
 - **CDN:**
-  ```
+
+  ```text
   https://cdn.jsdelivr.net/npm/lombokcss@0.1.0/dist/lombok.min.css
   https://unpkg.com/lombokcss@0.1.0/dist/lombok.min.css
   ```
+
   (For a scoped name: `.../npm/@codinglombok/lombokcss@0.1.0/dist/lombok.min.css`.)
+
 - **Badges** in the README go live automatically once the repo/package exist.
 
 ---
@@ -203,11 +212,14 @@ Manual fallback (rarely needed): Actions → **Publish to npm (manual fallback)*
 - **Dependabot** opens weekly PRs for npm + Actions updates; merge the green ones.
 - **Visual changes are intentional?** Refresh baselines **in the pinned
   Playwright image** so they match CI exactly:
+
   ```bash
   docker run --rm -v "$PWD":/work -w /work mcr.microsoft.com/playwright:v1.56.0-noble \
     bash -c "npm ci && npm run build && npm run build:docs && npm run test:visual:update"
   ```
+
   Commit the updated PNGs under `tests/visual.spec.js-snapshots/`.
+
 - **Formatting:** `npm run format` before committing.
 
 ---
