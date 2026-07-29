@@ -108,7 +108,7 @@ import "lombokcss/dist/lombok.js"; // optional, only for interactive components
 Pin a version for production (jsDelivr):
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lombokcss@0.1.0/dist/lombok.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lombokcss@0.1.2/dist/lombok.min.css" />
 ```
 
 **Download:** grab `dist/lombok.min.css` (+ optional `dist/lombok.js`) and link them directly.
