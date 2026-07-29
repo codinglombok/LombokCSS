@@ -15,7 +15,7 @@ Please **do not** open a public issue for security reports.
 
 - Preferred: open a private report via GitHub
   **Security → Advisories → "Report a vulnerability"** on this repository.
-- Or email **security@your-domain.example**.
+- Or email **<security@your-domain.example>**.
 
 Include: a description, affected version(s), reproduction steps, and impact.
 

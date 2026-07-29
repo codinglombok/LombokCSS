@@ -4,14 +4,14 @@ Thanks for using LombokCSS! Here is where to go for help.
 
 ## Questions & usage help
 
-- **GitHub Discussions:** https://github.com/codinglombok/lombokcss/discussions
+- **GitHub Discussions:** <https://github.com/codinglombok/lombokcss/discussions>
   — best for "how do I…", theming questions, and sharing what you built.
-- **Documentation:** https://codinglombok.github.io/lombokcss/ — Overview,
+- **Documentation:** <https://codinglombok.github.io/lombokcss/> — Overview,
   Getting started, Migration from Bootstrap, Theming, Components, Forms, Utilities.
 
 ## Bugs & feature requests
 
-- **Issues:** https://github.com/codinglombok/lombokcss/issues — use the Bug
+- **Issues:** <https://github.com/codinglombok/lombokcss/issues> — use the Bug
   report or Feature request template. Please include a minimal reproduction,
   the `data-style`/`data-theme`/`dir` in use, browser/OS, and version.
 
