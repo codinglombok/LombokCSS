@@ -26,7 +26,7 @@ jobs:
           # CHANGELOG.md ditulis release-please; gayanya (baris kosong
           # ganda, bullet "*") melekat pada bot dan akan kembali tiap
           # rilis, jadi melintnya hanya menghasilkan PR rilis merah.
-          FILTER_REGEX_EXCLUDE: (^|/)(dist|node_modules|site|docs)/|tests/visual/__snapshots__/|^CHANGELOG\.md$
+          FILTER_REGEX_EXCLUDE: (^|/)(dist|node_modules|site|docs)/|tests/visual\.spec\.js-snapshots/|^CHANGELOG\.md$
           # Menyalakan satu VALIDATE_* mematikan semua yang lain
           VALIDATE_JAVASCRIPT_ES: true
           VALIDATE_CSS: true

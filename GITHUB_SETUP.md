@@ -160,7 +160,7 @@ turn Pages on itself.) On the next push to `main`, `pages.yml` rebuilds the docs
 and deploys them to:
 
 ```text
-https://codinglombok.github.io/lombokcss/
+https://codinglombok.github.io/LombokCSS/
 ```
 
 Put that URL in the repo **Website** field and the README.
@@ -188,18 +188,18 @@ Manual fallback (rarely needed): Actions → **Publish to npm (manual fallback)*
 
 - **CI:** green check on the latest commit (build + size budget + stale-dist
   guard + visual tests).
-- **Docs:** `https://codinglombok.github.io/lombokcss/` loads; style/dark/RTL
+- **Docs:** `https://codinglombok.github.io/LombokCSS/` loads; style/dark/RTL
   switchers work and persist across pages.
 - **npm:** `https://www.npmjs.com/package/lombokcss` shows the version and a
   provenance statement.
 - **CDN:**
 
   ```text
-  https://cdn.jsdelivr.net/npm/lombokcss@0.1.0/dist/lombok.min.css
-  https://unpkg.com/lombokcss@0.1.0/dist/lombok.min.css
+  https://cdn.jsdelivr.net/npm/lombokcss@<version>/dist/lombok.min.css
+  https://unpkg.com/lombokcss@<version>/dist/lombok.min.css
   ```
 
-  (For a scoped name: `.../npm/@codinglombok/lombokcss@0.1.0/dist/lombok.min.css`.)
+  (For a scoped name: `.../npm/@codinglombok/lombokcss@<version>/dist/lombok.min.css`.)
 
 - **Badges** in the README go live automatically once the repo/package exist.
 

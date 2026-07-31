@@ -6,7 +6,7 @@ Thanks for using LombokCSS! Here is where to go for help.
 
 - **GitHub Discussions:** <https://github.com/codinglombok/lombokcss/discussions>
   — best for "how do I…", theming questions, and sharing what you built.
-- **Documentation:** <https://codinglombok.github.io/lombokcss/> — Overview,
+- **Documentation:** <https://codinglombok.github.io/LombokCSS/> — Overview,
   Getting started, Migration from Bootstrap, Theming, Components, Forms, Utilities.
 
 ## Bugs & feature requests

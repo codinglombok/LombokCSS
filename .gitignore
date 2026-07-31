@@ -16,3 +16,9 @@ __pycache__/
 # playwright artifacts (baselines under tests/**-snapshots ARE committed)
 test-results/
 playwright-report/
+# failure debris: Playwright writes <test-title>-chromium/ dirs with
+# -actual/-diff/-expected PNGs plus error-context.md. Ten of these were
+# committed by accident; never again.
+tests/*-chromium/
+tests/*-firefox/
+tests/*-webkit/

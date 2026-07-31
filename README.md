@@ -479,7 +479,7 @@ The `jsdelivr` / `unpkg` fields point both CDNs at the minified CSS by default.
 **Docs hosting (GitHub Pages).** `.github/workflows/pages.yml` rebuilds the
 docs and deploys `docs/` to Pages on every push to `main`. Enable it once in
 repo **Settings → Pages → Source: GitHub Actions**. Site goes live at
-`https://codinglombok.github.io/lombokcss/`.
+`https://codinglombok.github.io/LombokCSS/`.
 
 Need help? See **[SUPPORT.md](SUPPORT.md)**.
 
