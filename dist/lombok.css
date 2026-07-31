@@ -520,6 +520,18 @@ kbd {
   --lc-shadow-lg: 8px 8px 0 #fdf6e3;
   --lc-shadow-hard: 5px 5px 0 #fdf6e3;
   --lc-accent-soft: #3a2a1c;
+  --lc-accent-soft-text: #fdf6e3;
+  /* The light block above sets these; without dark values they win by source
+     order over the dark defaults in variables.css and leave pale panels under
+     light text. Dropped by 5f39ab5, restored here. */
+  --lc-success-soft: #11271b;
+  --lc-success-text: #6ee7a0;
+  --lc-warning-soft: #2a1f0d;
+  --lc-warning-text: #fbbf24;
+  --lc-danger-soft: #2a1414;
+  --lc-danger-text: #fca5a5;
+  --lc-info-soft: #0c2530;
+  --lc-info-text: #67d3f7;
 }
 
 /* --------------------------------------------------------------------------
