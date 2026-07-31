@@ -6,6 +6,14 @@
 
 - Fix dark-mode contrast for `neo-brutalism` and `semantic-minimalist`: their dark variants now override status `*-soft`/`*-text` and `--lc-accent-soft-text` (alerts, soft buttons, and badges were unreadable).
 
+## [0.1.3](https://github.com/codinglombok/LombokCSS/compare/lombokcss-v0.1.2...lombokcss-v0.1.3) (2026-07-31)
+
+
+### Bug Fixes
+
+* guard lombok.js against environments without a DOM ([15a8c87](https://github.com/codinglombok/LombokCSS/commit/15a8c87f108349eb9300745a3f88044aa60b315d))
+* **themes:** restore dark-mode status colors for neo-brutalism ([e8571ab](https://github.com/codinglombok/LombokCSS/commit/e8571ab0aca1b60b09f8232dac34fe63a941b2c2))
+
 ## [0.1.2](https://github.com/codinglombok/LombokCSS/compare/lombokcss-v0.1.1...lombokcss-v0.1.2) (2026-07-28)
 
 
