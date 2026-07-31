@@ -25,9 +25,16 @@ npm run size          # print gzipped sizes
 npm run size:check    # enforce the size budget (CI gate)
 npm run format        # Prettier write
 npm run format:check  # Prettier check
-npm run test:visual   # Playwright visual-regression tests
+npm run test            # size budget + SSR import guard (no browser needed)
+npm run test:behavior   # Playwright behaviour tests for src/lombok.js
+npm run test:visual     # Playwright visual-regression tests
 npm run test:visual:update  # refresh screenshot baselines
 ```
+
+Behaviour tests need a Chromium. In CI the Playwright container supplies one;
+locally point `PW_CHROMIUM_PATH` at an installed Chrome/Chromium, or run
+`npx playwright install chromium` once. They load `dist/lombok.js`, so run
+`npm run build` first if you just edited `src/lombok.js`.
 
 Edit source in `src/` — **never edit `dist/` by hand**; it is generated.
 After editing source, run `npm run build` and commit the updated `dist/`
@@ -62,7 +69,7 @@ After editing source, run `npm run build` and commit the updated `dist/`
 
 - Use clear messages; Conventional Commits encouraged
   (`feat:`, `fix:`, `docs:`, `refactor:`, `chore:`).
-- Before opening a PR: `npm run build && npm run size:check && npm run test:visual`.
+- Before opening a PR: `npm run build && npm test && npm run test:behavior && npm run test:visual`.
 - Describe the change and include before/after screenshots for visual changes.
 - By contributing you agree your work is licensed under the project's MIT license.
 
