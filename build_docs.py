@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
 import html as H
+import json
+import os
+
+# Versi diambil dari package.json, bukan ditulis tangan. Sebelumnya angkanya
+# di-hardcode dan tertinggal di 0.1.0 — halaman "Getting started" menyuruh
+# pengguna memasang versi yang layer @media print-nya rusak.
+_here = os.path.dirname(os.path.abspath(__file__))
+with open(os.path.join(_here, "package.json"), encoding="utf-8") as _f:
+    VERSION = json.load(_f)["version"]
 
 PAGES = [
     ("index.html",           "Overview"),
@@ -137,9 +146,9 @@ pnpm add lombokcss</code></pre>
 import "lombokcss/dist/lombok.js"; // optional</code></pre>
 
 <h3>CDN (jsDelivr / unpkg)</h3>
-<pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lombokcss@0.1.0/dist/lombok.min.css"&gt;
-&lt;script defer src="https://cdn.jsdelivr.net/npm/lombokcss@0.1.0/dist/lombok.js"&gt;&lt;/script&gt;
-&lt;!-- or unpkg: https://unpkg.com/lombokcss@0.1.0/dist/lombok.min.css --&gt;</code></pre>
+<pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lombokcss@""" + VERSION + """/dist/lombok.min.css"&gt;
+&lt;script defer src="https://cdn.jsdelivr.net/npm/lombokcss@""" + VERSION + """/dist/lombok.js"&gt;&lt;/script&gt;
+&lt;!-- or unpkg: https://unpkg.com/lombokcss@""" + VERSION + """/dist/lombok.min.css --&gt;</code></pre>
 
 <h3>Composer (PHP / Packagist)</h3>
 <pre><code>composer require codinglombok/lombokcss

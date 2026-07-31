@@ -3,13 +3,27 @@
    Everything degrades gracefully if JS is off (details/dialog are native). */
 (function () {
   "use strict";
+
+  /* Bail out where there is no DOM. The package sets "type": "module" and
+     points main/exports["."] here, so SSR frameworks (Next, Nuxt, Astro,
+     SvelteKit) evaluate this file on the server. Without this guard the
+     import throws ReferenceError: document is not defined. */
+  if (typeof document === "undefined") return;
+
   var d = document;
+
+  /* Collapse a container and tell assistive tech its trigger is closed. */
+  function collapse(el, toggleSelector) {
+    el.classList.remove("is-open");
+    var b = el.querySelector(toggleSelector);
+    if (b) b.setAttribute("aria-expanded", "false");
+  }
 
   /* Dropdowns: toggle [data-dropdown] -> nearest .dropdown gets .is-open */
   d.addEventListener("click", function (e) {
     var t = e.target.closest("[data-dropdown-toggle]");
     var open = d.querySelector(".dropdown.is-open");
-    if (open && (!t || !open.contains(t))) open.classList.remove("is-open");
+    if (open && (!t || !open.contains(t))) collapse(open, "[data-dropdown-toggle]");
     if (t) {
       e.preventDefault();
       var dd = t.closest(".dropdown");
@@ -22,7 +36,7 @@
   d.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
       var o = d.querySelector(".dropdown.is-open");
-      if (o) o.classList.remove("is-open");
+      if (o) collapse(o, "[data-dropdown-toggle]");
     }
   });
 
@@ -99,11 +113,7 @@
   d.addEventListener("click", function (e) {
     var t = e.target.closest("[data-popover-toggle]");
     var open = d.querySelector(".popover.is-open");
-    if (open && (!t || !open.contains(t))) {
-      open.classList.remove("is-open");
-      var b = open.querySelector("[data-popover-toggle]");
-      if (b) b.setAttribute("aria-expanded", "false");
-    }
+    if (open && (!t || !open.contains(t))) collapse(open, "[data-popover-toggle]");
     if (t) {
       e.preventDefault();
       var pop = t.closest(".popover");
@@ -118,7 +128,7 @@
       var dr = d.querySelector(".drawer.is-open");
       if (dr) closeDrawer(dr);
       var po = d.querySelector(".popover.is-open");
-      if (po) po.classList.remove("is-open");
+      if (po) collapse(po, "[data-popover-toggle]");
     }
   });
 
