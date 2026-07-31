@@ -440,9 +440,6 @@ test.describe("carousel", () => {
   test("prev steps back one slide", async ({ page }) => {
     await mount(page, CAROUSEL, { head: CAROUSEL_CSS });
     await page.locator("#next").click();
-    // Settle before clicking again: scrollBy is relative to the live scroll
-    // position, so a second click mid-animation advances from wherever the
-    // animation happens to be, not from the previous slide boundary.
     await scrollLeft(page).toBe(216);
     await page.locator("#next").click();
     await scrollLeft(page).toBe(432);
@@ -461,6 +458,24 @@ test.describe("carousel", () => {
     await page.locator("#next").click();
     await expect(page.locator("#dots > button").nth(1)).toHaveClass(/is-active/);
     await expect(page.locator("#dots > button").nth(0)).not.toHaveClass(/is-active/);
+  });
+
+  // The regression this guards: the carousel used to move by a delta from the
+  // live scroll position, so a click landing mid-animation advanced from
+  // wherever the animation was (two quick clicks gave 230px, not 432) and left
+  // the track stopped between slides. It now moves to a tracked target index.
+  test("two quick clicks advance exactly two slides", async ({ page }) => {
+    await mount(page, CAROUSEL, { head: CAROUSEL_CSS });
+    await page.locator("#next").click();
+    await page.locator("#next").click(); // deliberately without waiting to settle
+    await scrollLeft(page).toBe(432);
+  });
+
+  test("next stops at the end instead of overshooting", async ({ page }) => {
+    await mount(page, CAROUSEL, { head: CAROUSEL_CSS });
+    for (let i = 0; i < 5; i++) await page.locator("#next").click();
+    // 4 slides of 200 + 3 gaps of 16 = 848, minus the 400 viewport
+    await scrollLeft(page).toBe(448);
   });
 
   test("direction inverts under dir=rtl", async ({ page }) => {
