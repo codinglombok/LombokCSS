@@ -108,9 +108,20 @@ test.describe("dropdown", () => {
 
   test("works for markup injected after the script (delegated listener)", async ({ page }) => {
     await mount(page, `<div id="host"></div>`);
+    // Built node by node rather than from an HTML string: the delegated
+    // listener is what is under test, not the parser, and there is no reason
+    // to invite a DOM-sink finding from ESLint into a test file.
     await page.evaluate(() => {
-      document.getElementById("host").innerHTML =
-        '<div class="dropdown" id="late"><button data-dropdown-toggle aria-expanded="false" id="late-btn">L</button></div>';
+      const dropdown = document.createElement("div");
+      dropdown.className = "dropdown";
+      dropdown.id = "late";
+      const toggle = document.createElement("button");
+      toggle.id = "late-btn";
+      toggle.setAttribute("data-dropdown-toggle", "");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.textContent = "L";
+      dropdown.append(toggle);
+      document.getElementById("host").append(dropdown);
     });
     await page.locator("#late-btn").click();
     await expect(page.locator("#late")).toHaveClass(/is-open/);
