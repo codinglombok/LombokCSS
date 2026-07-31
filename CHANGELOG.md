@@ -6,6 +6,14 @@
 
 - Fix dark-mode contrast for `neo-brutalism` and `semantic-minimalist`: their dark variants now override status `*-soft`/`*-text` and `--lc-accent-soft-text` (alerts, soft buttons, and badges were unreadable).
 
+## [0.1.4](https://github.com/codinglombok/LombokCSS/compare/lombokcss-v0.1.3...lombokcss-v0.1.4) (2026-07-31)
+
+
+### Bug Fixes
+
+* **carousel:** cancel a pending re-sync when moving to a new target ([6b8209a](https://github.com/codinglombok/LombokCSS/commit/6b8209af504fd36bb460aca366a10d0255dc4289))
+* **carousel:** move to a tracked slide index instead of a scroll delta ([67df315](https://github.com/codinglombok/LombokCSS/commit/67df31596cd0a8fc53619eab3c25c42f82db3201))
+
 ## [0.1.3](https://github.com/codinglombok/LombokCSS/compare/lombokcss-v0.1.2...lombokcss-v0.1.3) (2026-07-31)
 
 
