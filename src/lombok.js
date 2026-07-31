@@ -173,7 +173,13 @@
        wherever an in-flight smooth scroll currently is, so two quick clicks used
        to advance from mid-animation and leave the track between slides. */
     var index = 0;
+    var settle;
     function go(i) {
+      /* A re-sync armed by the previous animation must not land on top of the
+         target we are about to set; the events this scroll emits will arm a
+         fresh one. Without this, a click arriving between the end of one
+         animation and its 120ms re-sync moves from the stale index. */
+      clearTimeout(settle);
       index = Math.max(0, Math.min(i, last()));
       track.scrollTo({ left: step() * index * dir, behavior: "smooth" });
     }
@@ -193,7 +199,6 @@
         go(i);
       });
     });
-    var settle;
     track.addEventListener(
       "scroll",
       function () {

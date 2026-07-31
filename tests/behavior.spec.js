@@ -437,14 +437,22 @@ test.describe("carousel", () => {
     await scrollLeft(page).toBe(432);
   });
 
+  // Waiting between clicks is not padding, it is the point: each pause lets the
+  // scroll settle and arm the 120ms re-sync, so this sequence is what catches a
+  // re-sync landing on top of a freshly set target. It failed in CI once for
+  // exactly that reason while the back-to-back clicks below stayed green.
   test("prev steps back one slide", async ({ page }) => {
     await mount(page, CAROUSEL, { head: CAROUSEL_CSS });
     await page.locator("#next").click();
     await scrollLeft(page).toBe(216);
     await page.locator("#next").click();
     await scrollLeft(page).toBe(432);
+    await page.waitForTimeout(200); // let the re-sync fire before moving again
     await page.locator("#prev").click();
     await scrollLeft(page).toBe(216);
+    await page.waitForTimeout(200);
+    await page.locator("#prev").click();
+    await scrollLeft(page).toBe(0);
   });
 
   test("dot jumps to its own index", async ({ page }) => {
