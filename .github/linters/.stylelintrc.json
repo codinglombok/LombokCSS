@@ -34,6 +34,8 @@
     "media-feature-range-notation": null,
     "no-descending-specificity": null,
     "declaration-block-no-redundant-longhand-properties": true,
-    "selector-not-notation": "complex"
+    "selector-not-notation": "complex",
+    "color-function-alias-notation": null,
+    "property-no-deprecated": null
   }
 }

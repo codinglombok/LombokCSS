@@ -87,11 +87,26 @@ export default [
 
   // Sisi Node: skrip build, konfigurasi, dan tes. Semuanya ESM.
   {
-    files: ["**/*.mjs", "**/*.cjs", "scripts/**/*.js", "tests/**/*.js", "*.config.js"],
+    files: ["**/*.mjs", "**/*.cjs", "scripts/**/*.js", "*.config.js"],
     languageOptions: {
       ecmaVersion: 2022,
       sourceType: "module",
       globals: nodeGlobals,
+    },
+    linterOptions: { reportUnusedDisableDirectives: true },
+    rules: coreRules,
+  },
+
+  // Spec Playwright. Berkas ini modul Node, TAPI callback di dalam
+  // page.evaluate() dieksekusi di dalam browser, jadi document dan window
+  // memang sah muncul di sini. Tanpa gabungan global ini, no-undef menolak
+  // setiap page.evaluate dan Super-Linter merah.
+  {
+    files: ["tests/**/*.js"],
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: "module",
+      globals: { ...nodeGlobals, ...browserGlobals },
     },
     linterOptions: { reportUnusedDisableDirectives: true },
     rules: coreRules,
