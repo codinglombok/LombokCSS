@@ -45,11 +45,12 @@
     "prepublishOnly": "npm run build",
     "format": "prettier --write \"src/**/*.{css,js}\" \"scripts/**/*.mjs\" \"tests/**/*.js\" \"*.{json,md}\" \"*.config.js\"",
     "format:check": "prettier --check \"src/**/*.{css,js}\" \"scripts/**/*.mjs\" \"tests/**/*.js\" \"*.{json,md}\" \"*.config.js\"",
-    "test:visual": "playwright test",
-    "test:visual:update": "playwright test --update-snapshots",
+    "test:visual": "playwright test tests/visual.spec.js",
+    "test:visual:update": "playwright test tests/visual.spec.js --update-snapshots",
     "lint": "npm run format:check",
-    "test": "npm run size:check",
-    "format:fix": "prettier --write \"src/**/*.{css,js}\" \"scripts/**/*.mjs\" \"tests/**/*.js\" \"*.{json,md}\" \"*.config.js\""
+    "test": "npm run size:check && node scripts/ssr-check.mjs",
+    "format:fix": "prettier --write \"src/**/*.{css,js}\" \"scripts/**/*.mjs\" \"tests/**/*.js\" \"*.{json,md}\" \"*.config.js\"",
+    "test:behavior": "playwright test tests/behavior.spec.js"
   },
   "devDependencies": {
     "@playwright/test": "1.56.0",
