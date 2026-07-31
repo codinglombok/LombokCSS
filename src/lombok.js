@@ -164,34 +164,51 @@
         parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 16) || 16;
       return slide ? slide.getBoundingClientRect().width + gap : track.clientWidth;
     }
+    function last() {
+      var n = track.querySelectorAll(".carousel-slide").length;
+      return n ? n - 1 : Math.round((track.scrollWidth - track.clientWidth) / step());
+    }
     var dir = d.documentElement.getAttribute("dir") === "rtl" ? -1 : 1;
+    /* Move to a tracked target index, never by a delta. scrollBy is relative to
+       wherever an in-flight smooth scroll currently is, so two quick clicks used
+       to advance from mid-animation and leave the track between slides. */
+    var index = 0;
+    function go(i) {
+      index = Math.max(0, Math.min(i, last()));
+      track.scrollTo({ left: step() * index * dir, behavior: "smooth" });
+    }
     var prev = c.querySelector(".carousel-prev"),
       next = c.querySelector(".carousel-next");
     if (prev)
       prev.addEventListener("click", function () {
-        track.scrollBy({ left: -step() * dir, behavior: "smooth" });
+        go(index - 1);
       });
     if (next)
       next.addEventListener("click", function () {
-        track.scrollBy({ left: step() * dir, behavior: "smooth" });
+        go(index + 1);
       });
     var dots = c.querySelectorAll(".carousel-dots > *");
     dots.forEach(function (dot, i) {
       dot.addEventListener("click", function () {
-        track.scrollTo({ left: step() * i * dir, behavior: "smooth" });
+        go(i);
       });
     });
-    if (dots.length)
-      track.addEventListener(
-        "scroll",
-        function () {
-          var idx = Math.round(Math.abs(track.scrollLeft) / step());
-          dots.forEach(function (x, i) {
-            x.classList.toggle("is-active", i === idx);
-          });
-        },
-        { passive: true },
-      );
+    var settle;
+    track.addEventListener(
+      "scroll",
+      function () {
+        var idx = Math.round(Math.abs(track.scrollLeft) / step());
+        dots.forEach(function (x, i) {
+          x.classList.toggle("is-active", i === idx);
+        });
+        /* Re-sync the target after a drag or swipe, once the track stops. */
+        clearTimeout(settle);
+        settle = setTimeout(function () {
+          index = Math.max(0, Math.min(idx, last()));
+        }, 120);
+      },
+      { passive: true },
+    );
   });
 
   /* Table sort: <th aria-sort> click sorts its column (string/number aware) */
