@@ -1,5 +1,9 @@
 name: Generate Wiki
 
+# Default deny; every job below declares the scopes it actually needs.
+permissions:
+  contents: read
+
 on:
   push:
     branches:

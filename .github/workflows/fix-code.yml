@@ -1,5 +1,9 @@
 name: Auto Fix Formatting
 
+# Default deny; every job below declares the scopes it actually needs.
+permissions:
+  contents: read
+
 on:
   push:
     branches-ignore: [ main ] # Best to avoid direct auto-commits to main

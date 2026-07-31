@@ -1,4 +1,8 @@
 name: Publish to npm
+
+# Default deny; every job below declares the scopes it actually needs.
+permissions:
+  contents: read
 on:
   release:
     types: [published]
