@@ -1,5 +1,9 @@
 name: Greetings
 
+# Default deny; every job below declares the scopes it actually needs.
+permissions:
+  contents: read
+
 on: [pull_request_target, issues]
 
 jobs:

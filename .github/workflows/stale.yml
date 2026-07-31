@@ -5,6 +5,10 @@
 # https://github.com/actions/stale
 name: Mark stale issues and pull requests
 
+# Default deny; every job below declares the scopes it actually needs.
+permissions:
+  contents: read
+
 on:
   schedule:
   - cron: '26 6 * * *'
