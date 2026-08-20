@@ -81,7 +81,7 @@ jobs:
             fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
           "
 
-      - run: npm publish
+      - run: npm publish --ignore-scripts
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -107,6 +107,7 @@ jobs:
           COPY package*.json ./
           COPY src ./src
           COPY scripts ./scripts
+          COPY README.md ./
           RUN npm ci && npm run build
 
           FROM nginx:alpine
