@@ -34,9 +34,7 @@ jobs:
       - run: npm run build
 
       - id: ver
-        run: |
-          VERSION=$(node -p "require('./package.json').version")
-          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+        run: echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
 
       - uses: actions/upload-artifact@v4
         with:
