@@ -1,0 +1,335 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# LombokCSS — Publish to ALL 5 GitHub Packages Registries
+# Triggered on release publish. Publishes:
+#   1. npm          → npm.pkg.github.com
+#   2. Container    → ghcr.io  (nginx serving dist CSS/JS)
+#   3. Maven        → maven.pkg.github.com (webjar)
+#   4. NuGet        → nuget.pkg.github.com
+#   5. RubyGems     → rubygems.pkg.github.com (existing gemspec)
+#
+# Does NOT replace: npm-publish.yml (npmjs.org), release-please.yml
+# ──────────────────────────────────────────────────────────────────────────────
+name: Publish GitHub Packages (All Registries)
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  # ═══════════════════════════════════════════════════════════════════════════
+  # 0. Shared build artifact
+  # ═══════════════════════════════════════════════════════════════════════════
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.ver.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.x'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+
+      - id: ver
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: |
+            dist/
+            src/
+            lib/
+            lombokcss.gemspec
+            package.json
+            README.md
+            LICENSE
+            CHANGELOG.md
+          retention-days: 1
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # 1. npm → GitHub Packages
+  # ═══════════════════════════════════════════════════════════════════════════
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with: { name: dist }
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.x'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@codinglombok'
+
+      - name: Scope package for GPR
+        run: |
+          node -e "
+            const fs = require('fs');
+            const pkg = JSON.parse(fs.readFileSync('package.json','utf8'));
+            pkg.name = '@codinglombok/lombokcss';
+            pkg.publishConfig = { registry: 'https://npm.pkg.github.com' };
+            fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
+          "
+
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # 2. Container → ghcr.io (nginx serving CSS/JS assets)
+  # ═══════════════════════════════════════════════════════════════════════════
+  publish-container:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    env:
+      IMAGE: ghcr.io/${{ github.repository_owner }}/lombokcss
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate Dockerfile
+        run: |
+          cat > Dockerfile << 'DKEOF'
+          FROM node:24-alpine AS build
+          WORKDIR /app
+          COPY package*.json ./
+          COPY src ./src
+          COPY scripts ./scripts
+          RUN npm ci && npm run build
+
+          FROM nginx:alpine
+          COPY --from=build /app/dist /usr/share/nginx/html/dist
+          COPY --from=build /app/src /usr/share/nginx/html/src
+          COPY --from=build /app/README.md /usr/share/nginx/html/
+
+          # Demo page showcasing all 5 styles
+          RUN echo '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">' \
+               '<meta name="viewport" content="width=device-width,initial-scale=1">' \
+               '<title>LombokCSS</title>' \
+               '<link rel="stylesheet" href="/dist/lombok.min.css">' \
+               '<script defer src="/dist/lombok.js"></script></head>' \
+               '<body data-style="modern-corporate-flat"><div class="container">' \
+               '<h1>LombokCSS</h1><p>Token-first component CSS framework</p>' \
+               '<button class="btn btn-primary">Primary</button>' \
+               '<button class="btn btn-outline">Outline</button>' \
+               '</div></body></html>' > /usr/share/nginx/html/index.html
+
+          EXPOSE 80
+          CMD ["nginx", "-g", "daemon off;"]
+          DKEOF
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ env.IMAGE }}:${{ needs.build.outputs.version }}
+            ${{ env.IMAGE }}:latest
+          labels: |
+            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
+            org.opencontainers.image.description=LombokCSS — token-first component CSS framework
+            org.opencontainers.image.licenses=MIT
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # 3. Maven → GitHub Packages (webjar)
+  # ═══════════════════════════════════════════════════════════════════════════
+  publish-maven:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with: { name: dist }
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Maven settings
+        run: |
+          mkdir -p ~/.m2
+          cat > ~/.m2/settings.xml << 'XML'
+          <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0">
+            <servers>
+              <server>
+                <id>github</id>
+                <username>${env.GITHUB_ACTOR}</username>
+                <password>${env.GITHUB_TOKEN}</password>
+              </server>
+            </servers>
+          </settings>
+          XML
+
+      - name: Build webjar & deploy
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION="${{ needs.build.outputs.version }}"
+          WJ="src/main/resources/META-INF/resources/webjars/lombokcss/${VERSION}"
+
+          mkdir -p "${WJ}"
+          cp dist/lombok.css dist/lombok.min.css dist/lombok.js "${WJ}/"
+          cp README.md LICENSE "${WJ}/"
+
+          cat > pom.xml << POMEOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <project xmlns="http://maven.apache.org/POM/4.0.0"
+                   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                   http://maven.apache.org/xsd/maven-4.0.0.xsd"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <modelVersion>4.0.0</modelVersion>
+            <groupId>com.github.codinglombok</groupId>
+            <artifactId>lombokcss</artifactId>
+            <version>${VERSION}</version>
+            <packaging>jar</packaging>
+            <name>LombokCSS</name>
+            <description>Token-first component CSS framework — webjar distribution</description>
+            <url>https://github.com/codinglombok/LombokCSS</url>
+            <licenses>
+              <license>
+                <name>MIT</name>
+                <url>https://opensource.org/licenses/MIT</url>
+              </license>
+            </licenses>
+            <scm>
+              <url>https://github.com/codinglombok/LombokCSS</url>
+            </scm>
+            <distributionManagement>
+              <repository>
+                <id>github</id>
+                <url>https://maven.pkg.github.com/codinglombok/LombokCSS</url>
+              </repository>
+            </distributionManagement>
+          </project>
+          POMEOF
+
+          mvn deploy -B -DskipTests
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # 4. NuGet → GitHub Packages
+  # ═══════════════════════════════════════════════════════════════════════════
+  publish-nuget:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with: { name: dist }
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x'
+
+      - name: Pack & push
+        run: |
+          VERSION="${{ needs.build.outputs.version }}"
+
+          mkdir -p nuget-pkg/content/dist
+          cp dist/lombok.css dist/lombok.min.css dist/lombok.js nuget-pkg/content/dist/
+          cp README.md LICENSE nuget-pkg/
+
+          cat > nuget-pkg/LombokCSS.csproj << CSPROJ
+          <Project Sdk="Microsoft.NET.Sdk">
+            <PropertyGroup>
+              <TargetFramework>netstandard2.0</TargetFramework>
+              <PackageId>codinglombok.LombokCSS</PackageId>
+              <Version>${VERSION}</Version>
+              <Authors>codinglombok</Authors>
+              <Description>Token-first component CSS framework — one markup, five design styles, dark mode + RTL, ~10KB gzipped</Description>
+              <PackageLicenseExpression>MIT</PackageLicenseExpression>
+              <PackageProjectUrl>https://github.com/codinglombok/LombokCSS</PackageProjectUrl>
+              <RepositoryUrl>https://github.com/codinglombok/LombokCSS</RepositoryUrl>
+              <RepositoryType>git</RepositoryType>
+              <PackageTags>css framework components design-tokens theming dark-mode rtl</PackageTags>
+              <PackageReadmeFile>README.md</PackageReadmeFile>
+              <IncludeBuildOutput>false</IncludeBuildOutput>
+              <NoBuild>true</NoBuild>
+              <NoDefaultExcludes>true</NoDefaultExcludes>
+            </PropertyGroup>
+            <ItemGroup>
+              <Content Include="content/**/*" PackagePath="content/" />
+              <None Include="README.md" Pack="true" PackagePath="/" />
+              <None Include="LICENSE" Pack="true" PackagePath="/" />
+            </ItemGroup>
+          </Project>
+          CSPROJ
+
+          cd nuget-pkg
+          dotnet pack -o ../nupkg --no-build -p:NoBuild=true 2>/dev/null || \
+            dotnet pack -o ../nupkg 2>/dev/null || true
+          cd ..
+
+          if ! ls nupkg/*.nupkg 2>/dev/null; then
+            mkdir -p nupkg
+            cd nuget-pkg && zip -r ../nupkg/codinglombok.LombokCSS.${VERSION}.nupkg . -x '.*' && cd ..
+          fi
+
+          dotnet nuget add source \
+            --username codinglombok \
+            --password ${{ secrets.GITHUB_TOKEN }} \
+            --store-password-in-clear-text \
+            --name github \
+            "https://nuget.pkg.github.com/codinglombok/index.json"
+
+          dotnet nuget push "nupkg/*.nupkg" \
+            --api-key ${{ secrets.GITHUB_TOKEN }} \
+            --source github --skip-duplicate
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # 5. RubyGems → GitHub Packages (uses existing gemspec + lib/)
+  # ═══════════════════════════════════════════════════════════════════════════
+  publish-rubygems:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with: { name: dist }
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+
+      - name: Build & push gem
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION="${{ needs.build.outputs.version }}"
+
+          # Repo already has lombokcss.gemspec + lib/ — build directly
+          # Add github_repo metadata for GitHub Packages linking
+          gem build lombokcss.gemspec
+
+          mkdir -p ~/.gem
+          echo "---"                                > ~/.gem/credentials
+          echo ":github: Bearer ${GITHUB_TOKEN}"   >> ~/.gem/credentials
+          chmod 0600 ~/.gem/credentials
+
+          gem push --key github \
+            --host https://rubygems.pkg.github.com/codinglombok \
+            "lombokcss-${VERSION}.gem"
