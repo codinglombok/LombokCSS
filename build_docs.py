@@ -19,6 +19,7 @@ PAGES = [
     ("forms.html",           "Forms"),
     ("utilities.html",       "Utilities"),
     ("accessibility.html",   "Accessibility"),
+    ("showcase.html",        "Showcase & Recipes"),
 ]
 
 NAV = """
@@ -35,6 +36,10 @@ NAV = """
   <a data-page="forms.html">Forms</a>
   <a data-page="utilities.html">Utilities</a>
   <a data-page="accessibility.html">Accessibility</a>
+</nav>
+<div class="docs-navtitle">Examples</div>
+<nav class="docs-nav">
+  <a data-page="showcase.html">Showcase &amp; Recipes</a>
 </nav>
 """
 
@@ -198,6 +203,21 @@ createApp(App).mount("#app");
 
 <blockquote><strong>Bower</strong> is included for legacy setups
 (<code>bower install lombokcss</code>) but Bower is deprecated — prefer npm/Yarn/pnpm.</blockquote>
+
+<h3>GitHub Packages</h3>
+<p>LombokCSS is also available on all 5 GitHub Packages registries:</p>
+<pre><code># npm (GitHub Packages Registry)
+npm install @codinglombok/lombokcss --registry=https://npm.pkg.github.com
+
+# Container (Docker)
+docker pull ghcr.io/codinglombok/lombokcss:latest
+
+# NuGet
+dotnet add package codinglombok.LombokCSS --source https://nuget.pkg.github.com/codinglombok/index.json
+
+# Maven (pom.xml)
+&lt;groupId&gt;com.github.codinglombok&lt;/groupId&gt;
+&lt;artifactId&gt;lombokcss&lt;/artifactId&gt;</code></pre>
 
 <h2>File structure</h2>
 <pre><code>src/
@@ -629,6 +649,217 @@ utilities += """
 <p>External link targets are appended in parentheses so URLs survive on paper. Try your browser&#39;s print preview on any page.</p>
 """
 
+# ---------------------------------------------------------------- SHOWCASE
+showcase = """
+<h1>Showcase &amp; Recipes</h1>
+<p class="lead">Real-world component compositions and layout patterns. Each example renders live — switch the style, dark mode and RTL with the controls above. Copy the code below each result to use in your project.</p>
+
+<h2>Login card</h2>
+<p>A centered card with a form, validation, and a branded button. Works in any of the five styles without changing a single class.</p>
+""" + ex(
+'<div class="flex justify-center p-6">\n'
+'  <div class="card" style="max-width:380px;width:100%">\n'
+'    <div class="card-body">\n'
+'      <h3 class="card-title text-center">Sign in</h3>\n'
+'      <div class="field">\n'
+'        <label class="label" for="login-email">Email</label>\n'
+'        <input class="input" id="login-email" type="email" placeholder="you@company.com" required>\n'
+'      </div>\n'
+'      <div class="field">\n'
+'        <label class="label" for="login-pass">Password</label>\n'
+'        <input class="input" id="login-pass" type="password" required>\n'
+'      </div>\n'
+'      <label class="switch"><span>Remember me</span><input type="checkbox"><span class="track"></span></label>\n'
+'      <button class="btn btn-primary w-full mt-4">Sign in</button>\n'
+'      <p class="text-center text-sm mt-3" style="color:var(--lc-text-muted)">Don\\\'t have an account? <a href="#">Sign up</a></p>\n'
+'    </div>\n'
+'  </div>\n'
+'</div>',
+'<div class="card" style="max-width:380px">\n'
+'  <div class="card-body">\n'
+'    <h3 class="card-title text-center">Sign in</h3>\n'
+'    <div class="field">\n'
+'      <label class="label" for="email">Email</label>\n'
+'      <input class="input" id="email" type="email" placeholder="you@company.com" required>\n'
+'    </div>\n'
+'    <div class="field">\n'
+'      <label class="label" for="pass">Password</label>\n'
+'      <input class="input" id="pass" type="password" required>\n'
+'    </div>\n'
+'    <label class="switch"><span>Remember me</span><input type="checkbox"><span class="track"></span></label>\n'
+'    <button class="btn btn-primary w-full mt-4">Sign in</button>\n'
+'  </div>\n'
+'</div>'
+) + """
+
+<h2>Dashboard header with stats</h2>
+<p>A row of stat cards — great for an admin dashboard top section.</p>
+""" + ex(
+'<div class="grid grid-cols-1 md:grid-cols-4 gap-4">\n'
+'  <div class="stat"><div class="stat-title">Revenue</div><div class="stat-value">$12,480</div><div class="stat-desc text-success">+12% from last month</div></div>\n'
+'  <div class="stat"><div class="stat-title">Users</div><div class="stat-value">2,340</div><div class="stat-desc text-success">+8%</div></div>\n'
+'  <div class="stat"><div class="stat-title">Orders</div><div class="stat-value">573</div><div class="stat-desc text-danger">-3%</div></div>\n'
+'  <div class="stat"><div class="stat-title">Conversion</div><div class="stat-value">3.2%</div><div class="stat-desc text-muted">no change</div></div>\n'
+'</div>',
+'<div class="grid grid-cols-1 md:grid-cols-4 gap-4">\\n'
+'  <div class="stat">\\n'
+'    <div class="stat-title">Revenue</div>\\n'
+'    <div class="stat-value">$12,480</div>\\n'
+'    <div class="stat-desc text-success">+12% from last month</div>\\n'
+'  </div>\\n'
+'  <!-- repeat for other stats -->\\n'
+'</div>'
+) + """
+
+<h2>Pricing cards</h2>
+<p>Side-by-side cards with different emphasis using button variants.</p>
+""" + ex(
+'<div class="grid grid-cols-1 md:grid-cols-3 gap-4">\n'
+'  <div class="card"><div class="card-body text-center">\n'
+'    <span class="badge badge-secondary">Starter</span>\n'
+'    <div style="font-size:var(--lc-text-3xl);font-weight:700;margin:12px 0">$9<small style="font-size:var(--lc-text-sm);font-weight:400">/mo</small></div>\n'
+'    <p class="text-muted text-sm">For individuals</p>\n'
+'    <button class="btn btn-outline w-full mt-4">Get started</button>\n'
+'  </div></div>\n'
+'  <div class="card" style="border-color:var(--lc-accent);box-shadow:var(--lc-shadow-lg)"><div class="card-body text-center">\n'
+'    <span class="badge badge-primary">Pro</span>\n'
+'    <div style="font-size:var(--lc-text-3xl);font-weight:700;margin:12px 0">$29<small style="font-size:var(--lc-text-sm);font-weight:400">/mo</small></div>\n'
+'    <p class="text-muted text-sm">For growing teams</p>\n'
+'    <button class="btn btn-primary w-full mt-4">Start free trial</button>\n'
+'  </div></div>\n'
+'  <div class="card"><div class="card-body text-center">\n'
+'    <span class="badge badge-secondary">Enterprise</span>\n'
+'    <div style="font-size:var(--lc-text-3xl);font-weight:700;margin:12px 0">Custom</div>\n'
+'    <p class="text-muted text-sm">Tailored solutions</p>\n'
+'    <button class="btn btn-outline w-full mt-4">Contact sales</button>\n'
+'  </div></div>\n'
+'</div>'
+) + """
+
+<h2>Alert variants</h2>
+<p>All four status colors, each with a title and body.</p>
+""" + ex(
+'<div class="flex flex-col gap-3">\n'
+'  <div class="alert alert-success"><div><div class="alert-title">Success</div>Your changes have been saved.</div></div>\n'
+'  <div class="alert alert-warning"><div><div class="alert-title">Warning</div>Your trial expires in 3 days.</div></div>\n'
+'  <div class="alert alert-danger"><div><div class="alert-title">Error</div>Could not connect to the server.</div></div>\n'
+'  <div class="alert alert-info"><div><div class="alert-title">Info</div>A new version is available.</div></div>\n'
+'</div>'
+) + """
+
+<h2>Modal with form</h2>
+<p>A dialog with a form inside. Uses native <code>&lt;dialog&gt;</code> + LombokCSS JS helpers.</p>
+""" + ex(
+'<button class="btn btn-primary" data-modal-open="showcase-modal">Open modal</button>\n'
+'<dialog class="modal" id="showcase-modal">\n'
+'  <div class="modal-card">\n'
+'    <div class="modal-header">Create project <button class="btn btn-ghost btn-icon btn-sm" data-modal-close>&#10005;</button></div>\n'
+'    <div class="modal-body">\n'
+'      <div class="field"><label class="label">Project name</label><input class="input" placeholder="My project"></div>\n'
+'      <div class="field"><label class="label">Description</label><textarea class="input" rows="2" placeholder="Optional"></textarea></div>\n'
+'    </div>\n'
+'    <div class="modal-footer">\n'
+'      <button class="btn btn-ghost" data-modal-close>Cancel</button>\n'
+'      <button class="btn btn-primary" data-modal-close>Create</button>\n'
+'    </div>\n'
+'  </div>\n'
+'</dialog>'
+) + """
+
+<h2>Sortable data table</h2>
+<p>Click any header to sort. Uses <code>aria-sort</code> — LombokCSS JS handles the rest.</p>
+""" + ex(
+'<div class="table-wrap">\n'
+'  <table class="table table-hover">\n'
+'    <thead><tr><th aria-sort="none">Name</th><th aria-sort="none">Role</th><th aria-sort="none">MRR</th></tr></thead>\n'
+'    <tbody>\n'
+'      <tr><td>Adi Pratama</td><td>Designer</td><td>120</td></tr>\n'
+'      <tr><td>Budi Santoso</td><td>Developer</td><td>340</td></tr>\n'
+'      <tr><td>Citra Dewi</td><td>Manager</td><td>250</td></tr>\n'
+'      <tr><td>Dian Maharani</td><td>Engineer</td><td>180</td></tr>\n'
+'    </tbody>\n'
+'  </table>\n'
+'</div>'
+) + """
+
+<h2>Tabs with content</h2>
+<p>Accessible tabs with <code>role="tablist"</code>.</p>
+""" + ex(
+'<div class="tabs" role="tablist">\n'
+'  <button role="tab" aria-selected="true" aria-controls="sc-p1">Overview</button>\n'
+'  <button role="tab" aria-selected="false" aria-controls="sc-p2">Features</button>\n'
+'  <button role="tab" aria-selected="false" aria-controls="sc-p3">Pricing</button>\n'
+'</div>\n'
+'<div class="tab-panel" id="sc-p1" role="tabpanel"><p class="p-4">Welcome to the overview. LombokCSS makes theming effortless.</p></div>\n'
+'<div class="tab-panel" id="sc-p2" role="tabpanel" hidden><p class="p-4">Five design styles, dark mode, RTL, and only ~9.7 KB gzipped.</p></div>\n'
+'<div class="tab-panel" id="sc-p3" role="tabpanel" hidden><p class="p-4">Free and open-source under the MIT license.</p></div>'
+) + """
+
+<h2>Timeline</h2>
+<p>A vertical timeline for events, changelogs or process steps.</p>
+""" + ex(
+'<ul class="timeline">\n'
+'  <li><div class="timeline-time">v0.1.0</div><div class="timeline-title">Initial release</div><p>Token-first architecture with five design styles.</p></li>\n'
+'  <li><div class="timeline-time">v0.1.1</div><div class="timeline-title">Print stylesheet</div><p>Restored print layer, added .no-print and .print-only helpers.</p></li>\n'
+'  <li><div class="timeline-time">v0.1.3</div><div class="timeline-title">SSR guard + accessibility</div><p>Guard for server environments, aria-expanded on interactive components.</p></li>\n'
+'  <li><div class="timeline-time">v0.1.4</div><div class="timeline-title">Carousel fix</div><p>Tracked slide index with race condition fix.</p></li>\n'
+'</ul>'
+) + """
+
+<h2>Toast notifications</h2>
+<p>Fire toasts via the JS API <code>Lombok.toast(message, options)</code>.</p>
+""" + ex(
+'<div class="flex gap-3 flex-wrap">\n'
+'  <button class="btn btn-soft" onclick="Lombok.toast(\\\'File saved\\\', {variant:\\\'success\\\'})" >Success toast</button>\n'
+'  <button class="btn btn-soft" onclick="Lombok.toast(\\\'Check your input\\\', {variant:\\\'warning\\\'})">Warning toast</button>\n'
+'  <button class="btn btn-soft" onclick="Lombok.toast(\\\'Something went wrong\\\', {variant:\\\'danger\\\'})">Danger toast</button>\n'
+'  <button class="btn btn-soft" onclick="Lombok.toast(\\\'New update available\\\', {variant:\\\'info\\\'})">Info toast</button>\n'
+'</div>',
+'Lombok.toast("File saved", { variant: "success" });\\n'
+'Lombok.toast("Check your input", { variant: "warning" });\\n'
+'Lombok.toast("Something went wrong", { variant: "danger" });\\n'
+'Lombok.toast("New update available", { variant: "info" });'
+) + """
+
+<h2>Full page layout skeleton</h2>
+<p>Combining navbar, sidebar, cards and utilities to build a real page layout.</p>
+""" + ex(
+'<div style="border:1px solid var(--lc-border);border-radius:var(--lc-radius);overflow:hidden">\n'
+'  <nav class="navbar"><div class="container flex items-center justify-between"><a class="navbar-brand" href="#">MyApp</a><div class="flex gap-2"><span class="badge badge-primary">3</span><div class="avatar avatar-sm" style="background:var(--lc-accent);color:var(--lc-accent-text);display:flex;align-items:center;justify-content:center">AD</div></div></div></nav>\n'
+'  <div class="flex">\n'
+'    <nav class="sidebar" style="min-width:180px">\n'
+'      <div class="sidebar-title">Navigation</div>\n'
+'      <a class="sidebar-link is-active" href="#">Dashboard</a>\n'
+'      <a class="sidebar-link" href="#">Projects</a>\n'
+'      <a class="sidebar-link" href="#">Settings</a>\n'
+'    </nav>\n'
+'    <div class="p-4 flex-1">\n'
+'      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">\n'
+'        <div class="card"><div class="card-body"><h4 class="card-title">Active projects</h4><div class="progress" style="--progress:72%"><div class="progress-bar"></div></div><p class="text-sm text-muted mt-2">72% complete</p></div></div>\n'
+'        <div class="card"><div class="card-body"><h4 class="card-title">Team</h4><div class="avatar-group"><div class="avatar avatar-sm" style="background:var(--lc-accent)">A</div><div class="avatar avatar-sm" style="background:var(--lc-success)">B</div><div class="avatar avatar-sm" style="background:var(--lc-warning)">C</div></div></div></div>\n'
+'      </div>\n'
+'    </div>\n'
+'  </div>\n'
+'</div>',
+'<nav class="navbar">\\n'
+'  <div class="container flex items-center justify-between">\\n'
+'    <a class="navbar-brand" href="#">MyApp</a>\\n'
+'  </div>\\n'
+'</nav>\\n'
+'<div class="flex">\\n'
+'  <nav class="sidebar">\\n'
+'    <a class="sidebar-link is-active" href="#">Dashboard</a>\\n'
+'    <a class="sidebar-link" href="#">Projects</a>\\n'
+'  </nav>\\n'
+'  <main class="p-4 flex-1">\\n'
+'    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">\\n'
+'      <div class="card">...</div>\\n'
+'    </div>\\n'
+'  </main>\\n'
+'</div>'
+) + """
+"""
+
 CONTENT = {
     "index.html": ("Overview", overview),
     "getting-started.html": ("Getting started", getting),
@@ -638,6 +869,7 @@ CONTENT = {
     "forms.html": ("Forms", forms),
     "utilities.html": ("Utilities", utilities),
     "accessibility.html": ("Accessibility", accessibility),
+    "showcase.html": ("Showcase & Recipes", showcase),
 }
 
 import os, shutil

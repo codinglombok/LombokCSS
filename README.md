@@ -11,30 +11,64 @@ Component-based (Bootstrap)  +  Token-driven theming (design systems)  +  Tiny (
 
 ---
 
-## GitHub
+### GitHub
 
-[![CI](https://github.com/codinglombok/lombokcss/actions/workflows/ci.yml/badge.svg)](https://github.com/codinglombok/lombokcss/actions/workflows/ci.yml)
-[![Deploy docs](https://github.com/codinglombok/lombokcss/actions/workflows/pages.yml/badge.svg)](https://github.com/codinglombok/lombokcss/actions/workflows/pages.yml)
-[![license](https://img.shields.io/npm/l/lombokcss.svg)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/codinglombok/LombokCSS?style=flat-square&logo=github&labelColor=181717&color=gold)](https://github.com/codinglombok/LombokCSS/stargazers)
+[![Forks](https://img.shields.io/github/forks/codinglombok/LombokCSS?style=flat-square&logo=github&labelColor=181717&color=blue)](https://github.com/codinglombok/LombokCSS/network/members)
+[![Issues](https://img.shields.io/github/issues/codinglombok/LombokCSS?style=flat-square&logo=github&labelColor=181717&color=orange)](https://github.com/codinglombok/LombokCSS/issues)
+[![Pull Requests](https://img.shields.io/github/issues-pr/codinglombok/LombokCSS?style=flat-square&logo=github&labelColor=181717&color=8A2BE2)](https://github.com/codinglombok/LombokCSS/pulls)
+[![Release](https://img.shields.io/github/v/release/codinglombok/LombokCSS?style=flat-square&logo=github&labelColor=181717&color=brightgreen)](https://github.com/codinglombok/LombokCSS/releases)
+[![License](https://img.shields.io/github/license/codinglombok/LombokCSS?style=flat-square&logo=opensourceinitiative&labelColor=181717&color=brightgreen)](https://github.com/codinglombok/LombokCSS/blob/main/LICENSE)
+[![Last Commit](https://img.shields.io/github/last-commit/codinglombok/LombokCSS?style=flat-square&logo=github&labelColor=181717&color=teal)](https://github.com/codinglombok/LombokCSS/commits/main)
+[![Repo Size](https://img.shields.io/github/repo-size/codinglombok/LombokCSS?style=flat-square&logo=github&labelColor=181717&color=gray)](https://github.com/codinglombok/LombokCSS)
 
----
+### npm
 
-## NPM
+[![npm version](https://img.shields.io/npm/v/lombokcss?style=flat-square&logo=npm&logoColor=white&labelColor=CB3837&color=CB3837)](https://www.npmjs.com/package/lombokcss)
+[![npm downloads](https://img.shields.io/npm/dm/lombokcss?style=flat-square&logo=npm&logoColor=white&labelColor=CB3837&color=orange)](https://www.npmjs.com/package/lombokcss)
+[![npm total downloads](https://img.shields.io/npm/dt/lombokcss?style=flat-square&logo=npm&logoColor=white&labelColor=CB3837&color=blue)](https://www.npmjs.com/package/lombokcss)
+[![jsDelivr hits](https://img.shields.io/jsdelivr/npm/hm/lombokcss?style=flat-square&logo=jsdelivr&logoColor=white&labelColor=E84D3D&color=E84D3D)](https://www.jsdelivr.com/package/npm/lombokcss)
+![gzip size](https://img.shields.io/badge/gzip-9.7%20KB-success?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xNCAxSDh2Mmg2VjFtLTIgNFY1SDh2NmwtNCA0djdoMTZ2LTdMMTYgOVY1aC00eiIvPjwvc3ZnPg==&labelColor=2d7d2d)
 
-[![npm version](https://img.shields.io/npm/v/lombokcss.svg)](https://www.npmjs.com/package/lombokcss)
-[![npm downloads](https://img.shields.io/npm/dm/lombokcss.svg)](https://www.npmjs.com/package/lombokcss)
-[![jsDelivr hits](https://img.shields.io/jsdelivr/npm/hm/lombokcss.svg)](https://www.jsdelivr.com/package/npm/lombokcss)
-![gzip size](https://img.shields.io/badge/gzip-9.7%20KB-success.svg)
+### GitHub Packages
 
----
+[![Container](https://img.shields.io/badge/Container-ghcr.io-2496ED?style=flat-square&logo=docker&logoColor=white&labelColor=1565C0)](https://github.com/codinglombok/LombokCSS/pkgs/container/lombokcss)
+[![npm GPR](https://img.shields.io/badge/npm-GPR-CB3837?style=flat-square&logo=npm&logoColor=white&labelColor=8B0000)](https://github.com/codinglombok/LombokCSS/pkgs/npm/lombokcss)
+[![NuGet](https://img.shields.io/badge/NuGet-GPR-004880?style=flat-square&logo=nuget&logoColor=white&labelColor=003060)](https://github.com/codinglombok/LombokCSS/pkgs/nuget/codinglombok.LombokCSS)
+[![RubyGems](https://img.shields.io/badge/RubyGems-GPR-CC342D?style=flat-square&logo=rubygems&logoColor=white&labelColor=8B1A1A)](https://github.com/codinglombok/LombokCSS/pkgs/rubygems/lombokcss)
+[![Maven](https://img.shields.io/badge/Maven-GPR-C71A36?style=flat-square&logo=apachemaven&logoColor=white&labelColor=8B0000)](https://github.com/codinglombok/LombokCSS/pkgs/maven/com.github.codinglombok/lombokcss)
 
-## Sourceforge.net
+### Quality
 
-[![Download LombokCSS](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/lombokcss/files/latest/download)
-[![Download LombokCSS](https://img.shields.io/sourceforge/dm/lombokcss.svg)](https://sourceforge.net/projects/lombokcss/files/latest/download)
-[![Download LombokCSS](https://img.shields.io/sourceforge/dw/lombokcss.svg)](https://sourceforge.net/projects/lombokcss/files/latest/download)
-[![Download LombokCSS](https://img.shields.io/sourceforge/dd/lombokcss.svg)](https://sourceforge.net/projects/lombokcss/files/latest/download)
-[![Download LombokCSS](https://img.shields.io/sourceforge/dt/lombokcss.svg)](https://sourceforge.net/projects/lombokcss/files/latest/download)
+[![CI](https://img.shields.io/github/actions/workflow/status/codinglombok/LombokCSS/ci.yml?style=flat-square&logo=github-actions&logoColor=white&labelColor=2088FF&color=brightgreen&label=CI&branch=main)](https://github.com/codinglombok/LombokCSS/actions/workflows/ci.yml)
+[![Super-Linter](https://img.shields.io/github/actions/workflow/status/codinglombok/LombokCSS/linter.yml?style=flat-square&logo=github-actions&logoColor=white&labelColor=2088FF&color=brightgreen&label=Super-Linter&branch=main)](https://github.com/codinglombok/LombokCSS/actions/workflows/linter.yml)
+[![Visual Tests](https://img.shields.io/github/actions/workflow/status/codinglombok/LombokCSS/visual.yml?style=flat-square&logo=playwright&logoColor=white&labelColor=2EAD33&color=brightgreen&label=Visual+Tests&branch=main)](https://github.com/codinglombok/LombokCSS/actions/workflows/visual.yml)
+[![Tests](https://img.shields.io/badge/Tests-42%20passing-brightgreen?style=flat-square&logo=checkmarx&logoColor=white&labelColor=21B352)](https://github.com/codinglombok/LombokCSS/tree/main/tests)
+[![Zero deps](https://img.shields.io/badge/Dependencies-0%20runtime-brightgreen?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik05IDE2LjJMNC44IDEybC0xLjQgMS40TDkgMTkgMjEgN2wtMS40LTEuNHoiLz48L3N2Zz4=&labelColor=333)](#)
+[![Conventional Commits](https://img.shields.io/badge/Commits-Conventional-FE5196?style=flat-square&logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
+[![Code style](https://img.shields.io/badge/Code%20style-Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=white&labelColor=1A2B34)](https://prettier.io)
+
+### SourceForge
+
+[![SF Downloads](https://img.shields.io/sourceforge/dt/lombokcss?style=flat-square&logo=sourceforge&logoColor=white&labelColor=FF6600&color=FF6600)](https://sourceforge.net/projects/lombokcss/files/latest/download)
+[![SF Monthly](https://img.shields.io/sourceforge/dm/lombokcss?style=flat-square&logo=sourceforge&logoColor=white&labelColor=FF6600&color=orange)](https://sourceforge.net/projects/lombokcss/files/latest/download)
+[![SF Weekly](https://img.shields.io/sourceforge/dw/lombokcss?style=flat-square&logo=sourceforge&logoColor=white&labelColor=FF6600&color=yellow)](https://sourceforge.net/projects/lombokcss/files/latest/download)
+[![SourceForge](https://img.shields.io/badge/SourceForge-Mirror-FF6600?style=flat-square&logo=sourceforge&logoColor=white&labelColor=CC4400)](https://sourceforge.net/projects/lombokcss)
+
+### Community
+
+[![Contributors](https://img.shields.io/github/contributors/codinglombok/LombokCSS?style=flat-square&logo=github&labelColor=181717&color=blue)](https://github.com/codinglombok/LombokCSS/graphs/contributors)
+[![Discussions](https://img.shields.io/github/discussions/codinglombok/LombokCSS?style=flat-square&logo=github&labelColor=181717&color=8A2BE2)](https://github.com/codinglombok/LombokCSS/discussions)
+[![Sponsors](https://img.shields.io/github/sponsors/codinglombok?style=flat-square&logo=github-sponsors&logoColor=white&labelColor=EA4AAA&color=EA4AAA)](https://github.com/sponsors/codinglombok)
+[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square&logo=git&logoColor=white&labelColor=1B5E20)](https://github.com/codinglombok/LombokCSS/blob/main/CONTRIBUTING.md)
+
+### Lombok Ecosystem
+
+[![LombokClarion](https://img.shields.io/badge/LombokClarion-PHP%20Full%20Stack-777BB4?style=flat-square&logo=php&logoColor=white&labelColor=4F5B93)](https://github.com/codinglombok/LombokClarion)
+[![LombokCharts](https://img.shields.io/badge/LombokCharts-Zero--Dep%20Charts-FF6384?style=flat-square&logo=chartdotjs&logoColor=white&labelColor=C94070)](https://github.com/codinglombok/LombokCharts)
+[![LombokQRCode](https://img.shields.io/badge/LombokQRCode-QR%20Generator-00C9A7?style=flat-square&logo=qrcode&logoColor=white&labelColor=00927A)](https://github.com/codinglombok/LombokQRCode)
+[![LombokTableSheet](https://img.shields.io/badge/LombokTableSheet-Spreadsheet-F7931E?style=flat-square&logo=microsoftexcel&logoColor=white&labelColor=C4740A)](https://github.com/codinglombok/LombokTableSheet)
+[![LombokECC](https://img.shields.io/badge/LombokECC-Reed--Solomon-6C63FF?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0tMiAxNWwtNS01IDEuNDEtMS40MUwxMCAxNC4xN2w3LjU5LTcuNTlMMTkgOGwtOSA5eiIvPjwvc3ZnPg==&labelColor=4B44CC)](https://github.com/codinglombok/LombokECC)
 
 ---
 
@@ -108,58 +142,28 @@ import "lombokcss/dist/lombok.js"; // optional, only for interactive components
 Pin a version for production (jsDelivr):
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lombokcss@0.1.2/dist/lombok.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lombokcss@0.1.8/dist/lombok.min.css" />
 ```
 
 **Download:** grab `dist/lombok.min.css` (+ optional `dist/lombok.js`) and link them directly.
 
 The JS is **optional**. Accordions, modals and `<dialog>` work natively without
-it; the script only adds dropdown/tab/toast/table-sort/navbar-toggle behavior.
+it; the script only adds dropdown/tab/toast/table-sort/navbar-toggle/carousel/drawer/popover behavior.
 
 ---
 
-**Other registries.** Also distributed via Composer (`composer require codinglombok/lombokcss`),
-RubyGems (`gem "lombokcss"` → `Lombokcss.assets_path` for Sprockets), and Bower
-(legacy: `bower install lombokcss`, prefer npm). Works with any bundler
-(Vite/Webpack/Parcel) and framework (Vue/React/Svelte) — just import the CSS.
-See the **Getting started** docs for per-tool snippets.
+**Other registries:**
 
-## Documentation site
+| Registry | Install command |
+| -------- | --------------- |
+| **GitHub Packages (npm)** | `npm install @codinglombok/lombokcss` |
+| **GitHub Packages (Container)** | `docker pull ghcr.io/codinglombok/lombokcss:0.1.8` |
+| **GitHub Packages (NuGet)** | `dotnet add package codinglombok.LombokCSS` |
+| **GitHub Packages (RubyGems)** | `gem "lombokcss"` → `Lombokcss.assets_path` for Sprockets |
+| **GitHub Packages (Maven)** | `<groupId>com.github.codinglombok</groupId>` `<artifactId>lombokcss</artifactId>` |
 
-A full multi-page docs site lives in `docs/` (Overview, Getting started, Theming
-& styles, Components, Utilities). Open `docs/index.html` in a browser. The style
-/ dark / RTL switchers at the top apply live and **follow you across pages** via
-the URL query string. A single-file interactive playground is at
-`examples/demo.html`.
-
-## Architecture
-
-```text
-src/
-  variables.css   → token architecture (the contract every component depends on)
-  core.css        → reset/reboot + base element styles (= classless mode)
-  themes.css      → token value sets per design preset (data-style)
-  components.css  → all components (read tokens only, RTL-safe, glass-aware)
-  utilities.css   → atomic utilities + responsive prefixes
-dist/
-  lombok.css      → bundled, unminified (readable)
-  lombok.min.css  → bundled + minified (ship this)
-  lombok.js       → optional interactive behaviors
-```
-
-### Token layers
-
-1. **Primitives & scale** — spacing, font sizes, raw palette.
-2. **Semantic tokens** — `--lc-surface`, `--lc-text`, `--lc-border`, `--lc-accent`, `--lc-radius`, `--lc-shadow`, `--lc-blur`, status colors. **Components only ever reference these.**
-3. **Style presets** (`[data-style="…"]`) re-map the semantic tokens.
-4. **Dark overlay** (`[data-theme="dark"]` / `prefers-color-scheme`) re-maps color tokens; composes with presets via `[data-style][data-theme]` pairs.
-
-Glassmorphism support is built into the contract: every surface component
-applies `backdrop-filter: var(--lc-blur)`. `--lc-blur` is `none` everywhere
-except the glass preset, so the property is inert until a glass theme turns it
-on — no per-component glass code.
-
----
+Works with any bundler (Vite/Webpack/Parcel) and framework (Vue/React/Svelte) —
+just import the CSS. See the **Getting started** docs for per-tool snippets.
 
 ## The five design styles
 
@@ -190,21 +194,15 @@ Everything is a CSS variable. Override on `:root` (or a scope) to customize:
 **Dark mode** — three ways, they all work together:
 
 ```html
-<html data-theme="dark">
-  <!-- force dark           -->
-  <html data-theme="light">
-    <!-- force light           -->
-    <html>
-      <!-- follows the OS setting -->
-    </html>
-  </html>
-</html>
+<html data-theme="dark">  <!-- force dark           -->
+<html data-theme="light"> <!-- force light           -->
+<html>                     <!-- follows the OS setting -->
 ```
 
 **RTL** — set the document direction; all components use logical properties:
 
 ```html
-<html dir="rtl" lang="ar"></html>
+<html dir="rtl" lang="ar">
 ```
 
 **Make your own style** — add a token block, no component edits:
@@ -241,19 +239,6 @@ Everything is a CSS variable. Override on `:root` (or a scope) to customize:
   <div class="card-footer">Footer</div>
 </article>
 
-<!-- Form + validation (native :user-invalid + :has) -->
-<form>
-  <div class="field">
-    <label class="label" for="e">Email</label>
-    <input class="input" id="e" type="email" required />
-    <span class="help">We never share it.</span>
-    <span class="error-text">Enter a valid email.</span>
-  </div>
-  <label class="switch"
-    ><span>Notify me</span><input type="checkbox" /><span class="track"></span
-  ></label>
-</form>
-
 <!-- Alert / Badge -->
 <div class="alert alert-success">
   <div>
@@ -271,25 +256,7 @@ Everything is a CSS variable. Override on `:root` (or a scope) to customize:
 <div class="tab-panel" id="p1" role="tabpanel">…</div>
 <div class="tab-panel" id="p2" role="tabpanel" hidden>…</div>
 
-<!-- Accordion (native, no JS) -->
-<div class="accordion">
-  <details open>
-    <summary>Q</summary>
-    <div class="accordion-body">A</div>
-  </details>
-</div>
-
-<!-- Dropdown (JS) -->
-<div class="dropdown">
-  <button class="btn btn-soft" data-dropdown-toggle aria-expanded="false">Menu ▾</button>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Item</a>
-    <div class="dropdown-divider"></div>
-    <button class="dropdown-item">Action</button>
-  </div>
-</div>
-
-<!-- Modal (native <dialog> + tiny JS helpers) -->
+<!-- Modal (native <dialog>) -->
 <button class="btn btn-primary" data-modal-open="m">Open</button>
 <dialog class="modal" id="m">
   <div class="modal-card">
@@ -304,71 +271,21 @@ Everything is a CSS variable. Override on `:root` (or a scope) to customize:
 <!-- Toast (JS API) -->
 <button class="btn" onclick="Lombok.toast('Done', {variant:'success'})">Notify</button>
 
-<!-- Sortable table (JS: click headers) -->
-<div class="table-wrap">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th aria-sort="none">Name</th>
-        <th aria-sort="none">MRR</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Nadia</td>
-        <td>49</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<!-- Carousel (CSS-only, scroll-snap) -->
+<!-- Carousel (CSS scroll-snap + JS nav) -->
 <div class="carousel">
   <div class="carousel-track">
     <div class="carousel-slide is-third card">…</div>
     <div class="carousel-slide is-third card">…</div>
   </div>
 </div>
-
-<!-- Drawer / Offcanvas (JS) -->
-<button class="btn" data-drawer-open="nav">Menu</button>
-<aside class="drawer" id="nav">
-  <div class="drawer-header">
-    Menu <button class="btn btn-ghost btn-icon btn-sm" data-drawer-close>✕</button>
-  </div>
-  <div class="drawer-body">…</div>
-</aside>
-<div class="drawer-overlay" id="nav-overlay"></div>
-
-<!-- Popover (JS) -->
-<div class="popover">
-  <button class="btn btn-outline" data-popover-toggle aria-expanded="false">Info ▾</button>
-  <div class="popover-panel">
-    <div class="popover-title">Title</div>
-    <p>Rich content.</p>
-  </div>
-</div>
-
-<!-- Sidebar -->
-<nav class="sidebar">
-  <div class="sidebar-title">Workspace</div>
-  <a class="sidebar-link is-active" href="#">Dashboard</a>
-  <a class="sidebar-link" href="#">Projects</a>
-</nav>
-
-<!-- Timeline -->
-<ul class="timeline">
-  <li>
-    <div class="timeline-time">09:00</div>
-    <div class="timeline-title">Event</div>
-    <p>Detail.</p>
-  </li>
-</ul>
 ```
 
-Other components included: `navbar` (+ mobile toggle), `breadcrumb`,
+Other components included: `dropdown`, `drawer`/offcanvas, `popover`, `navbar`
+(+ mobile toggle), `accordion` (native `<details>`, no JS), `breadcrumb`,
 `pagination`, `avatar`/`avatar-group`, `progress`, `spinner`, `skeleton`,
-`stat`, `list-group`, `steps`, CSS-only tooltip (`data-tip="…"`), `kbd`, `code`/`pre`.
+`stat`, `list-group`, `steps`, `timeline`, `sidebar`, sortable `table`,
+CSS-only tooltip (`data-tip="…"`), `kbd`, `code`/`pre`, full `form` system
+(inputs, validation, switches, input-groups).
 
 ### Utilities
 
@@ -386,28 +303,28 @@ and quick prototypes.
 
 ---
 
-## Build process
+## Architecture
 
-The dist files are produced with **Lightning CSS**:
-
-```bash
-# bundle the modules in order
-cat src/variables.css src/core.css src/themes.css \
-    src/components.css src/utilities.css > dist/lombok.css
-
-# minify (autoprefix + dead-code removal)
-npx lightningcss --minify --bundle dist/lombok.css -o dist/lombok.min.css
+```text
+src/
+  variables.css   → token architecture (the contract every component depends on)
+  core.css        → reset/reboot + base element styles (= classless mode)
+  themes.css      → token value sets per design preset (data-style)
+  components.css  → all components (read tokens only, RTL-safe, glass-aware)
+  utilities.css   → atomic utilities + responsive prefixes
+  print.css       → ink-friendly high-contrast output
+dist/
+  lombok.css      → bundled, unminified (readable)
+  lombok.min.css  → bundled + minified (ship this)
+  lombok.js       → optional interactive behaviors
 ```
 
-PostCSS equivalent: `postcss-import` + `autoprefixer` + `cssnano`.
+### Token layers
 
-### Shrinking further
-
-- **Split core vs full:** ship `variables + core + themes + components` and add
-  `utilities.css` only if you use utility classes.
-- **Purge unused utilities** with your bundler's CSS purge step keyed on your
-  templates.
-- Drop presets you don't use from `themes.css`.
+1. **Primitives & scale** — spacing, font sizes, raw palette.
+2. **Semantic tokens** — `--lc-surface`, `--lc-text`, `--lc-border`, `--lc-accent`, `--lc-radius`, `--lc-shadow`, `--lc-blur`, status colors. **Components only ever reference these.**
+3. **Style presets** (`[data-style="…"]`) re-map the semantic tokens.
+4. **Dark overlay** (`[data-theme="dark"]` / `prefers-color-scheme`) re-maps color tokens; composes with presets via `[data-style][data-theme]` pairs.
 
 ---
 
@@ -420,69 +337,42 @@ properties, native `<dialog>`/`<details>`. Components ship with visible
 
 ## Testing
 
-Visual-regression tests (Playwright) screenshot the buttons block across all
-five styles plus dark/RTL, and the form validation state, comparing against
-committed baselines in `tests/**-snapshots/`.
+Visual-regression + behavior tests run via Playwright in CI:
 
 ```bash
-npm run test:visual          # compare against baselines
-npm run test:visual:update   # refresh baselines after an intentional change
+npm test                    # size budget + SSR import guard (no browser)
+npm run test:behavior       # 42 Playwright behavior tests
+npm run test:visual         # visual regression against committed baselines
+npm run test:visual:update  # refresh baselines after intentional changes
 ```
 
 Baselines are browser-specific. CI runs in a pinned Playwright container
-(`mcr.microsoft.com/playwright:v1.56.0-noble`) so pixels match. When you change
-visuals on purpose, refresh baselines **inside that image** so they match CI:
-
-```bash
-docker run --rm -v "$PWD":/work -w /work mcr.microsoft.com/playwright:v1.56.0-noble \
-  bash -c "npm ci && npm run build && npm run build:docs && npm run test:visual:update"
-```
-
-A failing run uploads a `playwright-report` artifact with side-by-side diffs.
+(`mcr.microsoft.com/playwright:v1.56.0-noble`) so pixels match.
 
 ## Publishing (maintainers)
 
 > Full step-by-step setup (repo creation, branch protection, secrets, Pages,
 > release-please flow, npm/CDN, troubleshooting) is in **[GITHUB_SETUP.md](GITHUB_SETUP.md)**.
 
-The package ships only `dist/`, `src/`, `README.md` and `LICENSE` (see the
-`files` field). `prepublishOnly` rebuilds the bundle and enforces the size
-budget, so a broken or oversized build can never be published.
+Release flow uses **release-please** with Conventional Commits:
 
-**Automated (recommended).** Two GitHub Actions workflows are included:
-
-- `.github/workflows/ci.yml` — on every push/PR: `npm ci`, `npm run build`,
-  size-budget check, and a guard that fails if committed `dist/` is stale.
-- `.github/workflows/publish.yml` — on a published GitHub Release: builds and
-  runs `npm publish --provenance --access public`. Add an `NPM_TOKEN` repo
-  secret (an npm automation token); provenance uses the workflow's OIDC token.
-
-Release flow:
-
-```bash
-npm version patch        # or minor / major — bumps package.json + git tag
-git push --follow-tags
-# then create a GitHub Release for that tag -> publish workflow runs
+```text
+commit (fix:/feat:) → push → release-please opens PR → merge → GitHub Release
+  → npm-publish.yml publishes to npmjs.org
+  → publish-packages.yml publishes to all 5 GitHub Packages registries
+  → jsDelivr/unpkg serve from npm automatically
+  → Pages redeploys docs
 ```
 
-**Manual:**
+## Documentation site
 
-```bash
-npm run build
-npm publish --access public
-```
-
-**CDN is automatic.** Once on npm, jsDelivr and unpkg serve it with no extra
-step: `https://cdn.jsdelivr.net/npm/lombokcss@<version>/dist/lombok.min.css`.
-The `jsdelivr` / `unpkg` fields point both CDNs at the minified CSS by default.
-
-**Docs hosting (GitHub Pages).** `.github/workflows/pages.yml` rebuilds the
-docs and deploys `docs/` to Pages on every push to `main`. Enable it once in
-repo **Settings → Pages → Source: GitHub Actions**. Site goes live at
-`https://codinglombok.github.io/LombokCSS/`.
+Full multi-page docs at `docs/`: Overview, Getting started, Migration from
+Bootstrap, Theming, Components, Forms, Utilities, Accessibility. Open
+`docs/index.html` locally or visit the live site at
+**<https://codinglombok.github.io/LombokCSS/>**.
 
 Need help? See **[SUPPORT.md](SUPPORT.md)**.
 
 ## License
 
-MIT.
+MIT — see [LICENSE](LICENSE).
