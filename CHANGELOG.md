@@ -6,6 +6,19 @@
 
 - Fix dark-mode contrast for `neo-brutalism` and `semantic-minimalist`: their dark variants now override status `*-soft`/`*-text` and `--lc-accent-soft-text` (alerts, soft buttons, and badges were unreadable).
 
+## [0.1.8](https://github.com/codinglombok/LombokCSS/compare/lombokcss-v0.1.7...lombokcss-v0.1.8) (2026-08-21)
+
+
+### Bug Fixes
+
+* **build:** restore print layer in min.css, format src, sync docs assets ([58b8ae8](https://github.com/codinglombok/LombokCSS/commit/58b8ae8b7d7a6ecf2ac17b65a3df44eabbf41e03))
+* **build:** use lightningcss Node API; ci(lint): add repo linter configs, ignore generated CHANGELOG ([203684b](https://github.com/codinglombok/LombokCSS/commit/203684b2620f016157a61488ea35d4839a9b7a80))
+* **carousel:** cancel a pending re-sync when moving to a new target ([6b8209a](https://github.com/codinglombok/LombokCSS/commit/6b8209af504fd36bb460aca366a10d0255dc4289))
+* **carousel:** move to a tracked slide index instead of a scroll delta ([67df315](https://github.com/codinglombok/LombokCSS/commit/67df31596cd0a8fc53619eab3c25c42f82db3201))
+* **docs:** allow all five styles in switcher, derive allowlist from buttons ([963aa4a](https://github.com/codinglombok/LombokCSS/commit/963aa4a4118964304adb9fbf20ad49c3b96969cc))
+* guard lombok.js against environments without a DOM ([15a8c87](https://github.com/codinglombok/LombokCSS/commit/15a8c87f108349eb9300745a3f88044aa60b315d))
+* **themes:** restore dark-mode status colors for neo-brutalism ([e8571ab](https://github.com/codinglombok/LombokCSS/commit/e8571ab0aca1b60b09f8232dac34fe63a941b2c2))
+
 ## [0.1.4](https://github.com/codinglombok/LombokCSS/compare/lombokcss-v0.1.3...lombokcss-v0.1.4) (2026-07-31)
 
 
