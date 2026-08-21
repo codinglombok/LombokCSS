@@ -5,14 +5,14 @@ architecture rules that keep the framework small and themeable, and the PR flow.
 
 ## Prerequisites
 
-- **Node.js ≥ 18** (CI uses 20)
+- **Node.js 24** (Active LTS — CI uses 24)
 - **Python 3** (only for regenerating the docs site via `build_docs.py`)
 
 ## Setup
 
 ```bash
-git clone https://github.com/codinglombok/lombokcss.git
-cd lombokcss
+git clone https://github.com/codinglombok/LombokCSS.git
+cd LombokCSS
 npm install
 ```
 
@@ -25,6 +25,7 @@ npm run size          # print gzipped sizes
 npm run size:check    # enforce the size budget (CI gate)
 npm run format        # Prettier write
 npm run format:check  # Prettier check
+npm run lint          # all linters (format:check + stylelint + eslint)
 npm run test            # size budget + SSR import guard (no browser needed)
 npm run test:behavior   # Playwright behaviour tests for src/lombok.js
 npm run test:visual     # Playwright visual-regression tests
@@ -64,11 +65,15 @@ After editing source, run `npm run build` and commit the updated `dist/`
 3. Document it in `build_docs.py` (Components or Forms page) with a live
    example + code, then `npm run build && npm run build:docs`.
 4. Add/refresh a visual snapshot if it affects above-the-fold layout.
+5. Add behavior tests in `tests/behavior.spec.js` if the component has JS.
 
 ## Commit & PR
 
-- Use clear messages; Conventional Commits encouraged
-  (`feat:`, `fix:`, `docs:`, `refactor:`, `chore:`).
+- Use **Conventional Commits**: `feat:`, `fix:`, `docs:`, `refactor:`,
+  `chore:`, `ci:`, `test:`.
+- **Important:** `fix:` and `feat:` trigger a release. If your change only
+  touches files outside `dist/`/`src/` (like `docs/`, `.github/`, `tests/`),
+  use `docs:`, `ci:`, or `chore:` instead.
 - Before opening a PR: `npm run build && npm test && npm run test:behavior && npm run test:visual`.
 - Describe the change and include before/after screenshots for visual changes.
 - By contributing you agree your work is licensed under the project's MIT license.
