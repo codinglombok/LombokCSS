@@ -78,6 +78,8 @@ jobs:
             pkg.publishConfig = { registry: 'https://npm.pkg.github.com' };
             fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
           "
+      - name: Sync version from tag
+        run: npm version "${{ needs.build.outputs.version }}" --no-git-tag-version
 
       - run: npm publish --ignore-scripts
         env:
@@ -320,6 +322,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           VERSION="${{ needs.build.outputs.version }}"
+
+          # Sync version from tag so gem gets the correct version
+          sed -i "s/VERSION = .*/VERSION = \"${VERSION}\" # x-release-please-version/" lib/lombokcss/version.rb
 
           # Repo already has lombokcss.gemspec + lib/ — build directly
           # Add github_repo metadata for GitHub Packages linking
