@@ -195,16 +195,22 @@ Everything is a CSS variable. Override on `:root` (or a scope) to customize:
 
 <!-- prettier-ignore -->
 ```html
-<html data-theme="dark">  <!-- force dark           -->
-<html data-theme="light"> <!-- force light           -->
-<html>                     <!-- follows the OS setting -->
+<html data-theme="dark">
+  <!-- force dark           -->
+  <html data-theme="light">
+    <!-- force light           -->
+    <html>
+      <!-- follows the OS setting -->
+    </html>
+  </html>
+</html>
 ```
 
 **RTL** — set the document direction; all components use logical properties:
 
 <!-- prettier-ignore -->
 ```html
-<html dir="rtl" lang="ar">
+<html dir="rtl" lang="ar"></html>
 ```
 
 **Make your own style** — add a token block, no component edits:
