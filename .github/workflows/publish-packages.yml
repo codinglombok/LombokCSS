@@ -35,6 +35,8 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     outputs:
       version: ${{ inputs.version }}
     steps:
