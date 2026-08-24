@@ -1,0 +1,50 @@
+# Label configuration for actions/labeler@v7
+# See https://github.com/actions/labeler
+
+css:
+  - changed-files:
+      - any-glob-to-any-file: "src/**/*.css"
+
+javascript:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "src/**/*.js"
+          - "scripts/**/*.mjs"
+
+tests:
+  - changed-files:
+      - any-glob-to-any-file: "tests/**"
+
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "docs/**"
+          - "*.md"
+          - "examples/**"
+
+ci:
+  - changed-files:
+      - any-glob-to-any-file: ".github/**"
+
+build:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "package.json"
+          - "package-lock.json"
+          - "scripts/**"
+
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "package.json"
+          - "package-lock.json"
+
+dist:
+  - changed-files:
+      - any-glob-to-any-file: "dist/**"
+
+ruby:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "lib/**"
+          - "lombokcss.gemspec"
