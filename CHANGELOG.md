@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.9](https://github.com/codinglombok/LombokCSS/compare/lombokcss-v0.1.8...lombokcss-v0.1.9) (2026-08-24)
+
+
+### Bug Fixes
+
+* **ci:** synchronize publish pipeline for all GitHub Packages registries ([9a4b3cd](https://github.com/codinglombok/LombokCSS/commit/9a4b3cd6c7be48ab1a190b734d5be009edc1e4f3))
+
 ## [0.1.8](https://github.com/codinglombok/LombokCSS/compare/v0.1.7...lombokcss-v0.1.8) (2026-08-21)
 
 ### Bug Fixes
