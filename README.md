@@ -11,7 +11,7 @@ Component-based (Bootstrap)  +  Token-driven theming (design systems)  +  Tiny (
 
 ---
 
-### GitHub
+## GitHub
 
 [![Stars](https://img.shields.io/github/stars/codinglombok/LombokCSS?style=flat-square&logo=github&labelColor=181717&color=gold)](https://github.com/codinglombok/LombokCSS/stargazers)
 [![Forks](https://img.shields.io/github/forks/codinglombok/LombokCSS?style=flat-square&logo=github&labelColor=181717&color=blue)](https://github.com/codinglombok/LombokCSS/network/members)
@@ -22,7 +22,7 @@ Component-based (Bootstrap)  +  Token-driven theming (design systems)  +  Tiny (
 [![Last Commit](https://img.shields.io/github/last-commit/codinglombok/LombokCSS?style=flat-square&logo=github&labelColor=181717&color=teal)](https://github.com/codinglombok/LombokCSS/commits/main)
 [![Repo Size](https://img.shields.io/github/repo-size/codinglombok/LombokCSS?style=flat-square&logo=github&labelColor=181717&color=gray)](https://github.com/codinglombok/LombokCSS)
 
-### npm
+## npm
 
 [![npm version](https://img.shields.io/npm/v/lombokcss?style=flat-square&logo=npm&logoColor=white&labelColor=CB3837&color=CB3837)](https://www.npmjs.com/package/lombokcss)
 [![npm downloads](https://img.shields.io/npm/dm/lombokcss?style=flat-square&logo=npm&logoColor=white&labelColor=CB3837&color=orange)](https://www.npmjs.com/package/lombokcss)
@@ -30,7 +30,7 @@ Component-based (Bootstrap)  +  Token-driven theming (design systems)  +  Tiny (
 [![jsDelivr hits](https://img.shields.io/jsdelivr/npm/hm/lombokcss?style=flat-square&logo=jsdelivr&logoColor=white&labelColor=E84D3D&color=E84D3D)](https://www.jsdelivr.com/package/npm/lombokcss)
 ![gzip size](https://img.shields.io/badge/gzip-9.7%20KB-success?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xNCAxSDh2Mmg2VjFtLTIgNFY1SDh2NmwtNCA0djdoMTZ2LTdMMTYgOVY1aC00eiIvPjwvc3ZnPg==&labelColor=2d7d2d)
 
-### GitHub Packages
+## GitHub Packages
 
 [![Container](https://img.shields.io/badge/Container-ghcr.io-2496ED?style=flat-square&logo=docker&logoColor=white&labelColor=1565C0)](https://github.com/codinglombok/LombokCSS/pkgs/container/lombokcss)
 [![npm GPR](https://img.shields.io/badge/npm-GPR-CB3837?style=flat-square&logo=npm&logoColor=white&labelColor=8B0000)](https://github.com/codinglombok/LombokCSS/pkgs/npm/lombokcss)
@@ -38,31 +38,31 @@ Component-based (Bootstrap)  +  Token-driven theming (design systems)  +  Tiny (
 [![RubyGems](https://img.shields.io/badge/RubyGems-GPR-CC342D?style=flat-square&logo=rubygems&logoColor=white&labelColor=8B1A1A)](https://github.com/codinglombok/LombokCSS/pkgs/rubygems/lombokcss)
 [![Maven](https://img.shields.io/badge/Maven-GPR-C71A36?style=flat-square&logo=apachemaven&logoColor=white&labelColor=8B0000)](https://github.com/codinglombok/LombokCSS/pkgs/maven/com.github.codinglombok/lombokcss)
 
-### Quality
+## Quality
 
 [![CI](https://img.shields.io/github/actions/workflow/status/codinglombok/LombokCSS/ci.yml?style=flat-square&logo=github-actions&logoColor=white&labelColor=2088FF&color=brightgreen&label=CI&branch=main)](https://github.com/codinglombok/LombokCSS/actions/workflows/ci.yml)
 [![Super-Linter](https://img.shields.io/github/actions/workflow/status/codinglombok/LombokCSS/linter.yml?style=flat-square&logo=github-actions&logoColor=white&labelColor=2088FF&color=brightgreen&label=Super-Linter&branch=main)](https://github.com/codinglombok/LombokCSS/actions/workflows/linter.yml)
 [![Visual Tests](https://img.shields.io/github/actions/workflow/status/codinglombok/LombokCSS/visual.yml?style=flat-square&logo=playwright&logoColor=white&labelColor=2EAD33&color=brightgreen&label=Visual+Tests&branch=main)](https://github.com/codinglombok/LombokCSS/actions/workflows/visual.yml)
 [![Tests](https://img.shields.io/badge/Tests-42%20passing-brightgreen?style=flat-square&logo=checkmarx&logoColor=white&labelColor=21B352)](https://github.com/codinglombok/LombokCSS/tree/main/tests)
-[![Zero deps](https://img.shields.io/badge/Dependencies-0%20runtime-brightgreen?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik05IDE2LjJMNC44IDEybC0xLjQgMS40TDkgMTkgMjEgN2wtMS40LTEuNHoiLz48L3N2Zz4=&labelColor=333)](#)
+[![Zero deps](https://img.shields.io/badge/Dependencies-0%20runtime-brightgreen?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik05IDE2LjJMNC44IDEybC0xLjQgMS40TDkgMTkgMjEgN2wtMS40LTEuNHoiLz48L3N2Zz4=&labelColor=333)](https://github.com/codinglombok/LombokCSS/blob/main/package.json)
 [![Conventional Commits](https://img.shields.io/badge/Commits-Conventional-FE5196?style=flat-square&logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
 [![Code style](https://img.shields.io/badge/Code%20style-Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=white&labelColor=1A2B34)](https://prettier.io)
 
-### SourceForge
+## SourceForge
 
 [![SF Downloads](https://img.shields.io/sourceforge/dt/lombokcss?style=flat-square&logo=sourceforge&logoColor=white&labelColor=FF6600&color=FF6600)](https://sourceforge.net/projects/lombokcss/files/latest/download)
 [![SF Monthly](https://img.shields.io/sourceforge/dm/lombokcss?style=flat-square&logo=sourceforge&logoColor=white&labelColor=FF6600&color=orange)](https://sourceforge.net/projects/lombokcss/files/latest/download)
 [![SF Weekly](https://img.shields.io/sourceforge/dw/lombokcss?style=flat-square&logo=sourceforge&logoColor=white&labelColor=FF6600&color=yellow)](https://sourceforge.net/projects/lombokcss/files/latest/download)
 [![SourceForge](https://img.shields.io/badge/SourceForge-Mirror-FF6600?style=flat-square&logo=sourceforge&logoColor=white&labelColor=CC4400)](https://sourceforge.net/projects/lombokcss)
 
-### Community
+## Community
 
 [![Contributors](https://img.shields.io/github/contributors/codinglombok/LombokCSS?style=flat-square&logo=github&labelColor=181717&color=blue)](https://github.com/codinglombok/LombokCSS/graphs/contributors)
 [![Discussions](https://img.shields.io/github/discussions/codinglombok/LombokCSS?style=flat-square&logo=github&labelColor=181717&color=8A2BE2)](https://github.com/codinglombok/LombokCSS/discussions)
 [![Sponsors](https://img.shields.io/github/sponsors/codinglombok?style=flat-square&logo=github-sponsors&logoColor=white&labelColor=EA4AAA&color=EA4AAA)](https://github.com/sponsors/codinglombok)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square&logo=git&logoColor=white&labelColor=1B5E20)](https://github.com/codinglombok/LombokCSS/blob/main/CONTRIBUTING.md)
 
-### Lombok Ecosystem
+## Lombok Ecosystem
 
 [![LombokClarion](https://img.shields.io/badge/LombokClarion-PHP%20Full%20Stack-777BB4?style=flat-square&logo=php&logoColor=white&labelColor=4F5B93)](https://github.com/codinglombok/LombokClarion)
 [![LombokCharts](https://img.shields.io/badge/LombokCharts-Zero--Dep%20Charts-FF6384?style=flat-square&logo=chartdotjs&logoColor=white&labelColor=C94070)](https://github.com/codinglombok/LombokCharts)
