@@ -22,12 +22,9 @@ on:
         description: 'Semver version WITHOUT leading v (e.g. 0.1.8)'
         required: true
         type: string
-  workflow_dispatch:
-    inputs:
-      version:
-        description: 'Semver version WITHOUT leading v (e.g. 0.1.8)'
-        required: true
-        type: string
+
+# Default deny — each job declares only what it needs.
+permissions: {}
 
 jobs:
   # ═══════════════════════════════════════════════════════════════════════════
@@ -35,6 +32,8 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     outputs:
       version: ${{ inputs.version }}
     steps:
