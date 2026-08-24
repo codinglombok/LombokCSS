@@ -154,13 +154,13 @@ it; the script only adds dropdown/tab/toast/table-sort/navbar-toggle/carousel/dr
 
 **Other registries:**
 
-| Registry | Install command |
-| -------- | --------------- |
-| **GitHub Packages (npm)** | `npm install @codinglombok/lombokcss` |
-| **GitHub Packages (Container)** | `docker pull ghcr.io/codinglombok/lombokcss:0.1.8` |
-| **GitHub Packages (NuGet)** | `dotnet add package codinglombok.LombokCSS` |
-| **GitHub Packages (RubyGems)** | `gem "lombokcss"` → `Lombokcss.assets_path` for Sprockets |
-| **GitHub Packages (Maven)** | `<groupId>com.github.codinglombok</groupId>` `<artifactId>lombokcss</artifactId>` |
+| Registry                        | Install command                                                                   |
+| ------------------------------- | --------------------------------------------------------------------------------- |
+| **GitHub Packages (npm)**       | `npm install @codinglombok/lombokcss`                                             |
+| **GitHub Packages (Container)** | `docker pull ghcr.io/codinglombok/lombokcss:0.1.8`                                |
+| **GitHub Packages (NuGet)**     | `dotnet add package codinglombok.LombokCSS`                                       |
+| **GitHub Packages (RubyGems)**  | `gem "lombokcss"` → `Lombokcss.assets_path` for Sprockets                         |
+| **GitHub Packages (Maven)**     | `<groupId>com.github.codinglombok</groupId>` `<artifactId>lombokcss</artifactId>` |
 
 Works with any bundler (Vite/Webpack/Parcel) and framework (Vue/React/Svelte) —
 just import the CSS. See the **Getting started** docs for per-tool snippets.
@@ -193,6 +193,7 @@ Everything is a CSS variable. Override on `:root` (or a scope) to customize:
 
 **Dark mode** — three ways, they all work together:
 
+<!-- prettier-ignore -->
 ```html
 <html data-theme="dark">  <!-- force dark           -->
 <html data-theme="light"> <!-- force light           -->
@@ -201,6 +202,7 @@ Everything is a CSS variable. Override on `:root` (or a scope) to customize:
 
 **RTL** — set the document direction; all components use logical properties:
 
+<!-- prettier-ignore -->
 ```html
 <html dir="rtl" lang="ar">
 ```
