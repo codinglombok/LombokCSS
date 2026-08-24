@@ -19,6 +19,9 @@ on:
   schedule:
     - cron: '41 9 * * 1'
 
+# Default deny — each job declares only what it needs.
+permissions: {}
+
 jobs:
   analyze:
     name: Analyze (${{ matrix.language }})
