@@ -28,7 +28,7 @@ jobs:
         run: npm run test:visual
       - name: Upload diff report on failure
         if: failure()
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: playwright-report
           path: |
@@ -52,7 +52,7 @@ jobs:
         run: npm run test:behavior
       - name: Upload report on failure
         if: failure()
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: behavior-report
           path: |
