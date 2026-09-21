@@ -55,7 +55,7 @@
   "devDependencies": {
     "@playwright/test": "1.56.0",
     "lightningcss": "1.33.0",
-    "prettier": "3.9.6"
+    "prettier": "3.9.7"
   },
   "keywords": [
     "css",
