@@ -24,6 +24,10 @@ on:
         type: string
   # Manual re-publish of an existing release (e.g. one whose publish run
   # failed). Builds from that release's tag, not from the tip of main.
+  # The version input only selects WHICH existing release tag to publish;
+  # the build itself comes from that tag, so SLSA's "no dispatch inputs"
+  # rule does not apply here.
+  # checkov:skip=CKV_GHA_7:Input only selects an existing release tag to re-publish
   workflow_dispatch:
     inputs:
       version:
