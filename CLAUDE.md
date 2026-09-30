@@ -40,13 +40,23 @@ Sesi 2026-09-30 (branch `claude/affectionate-sagan-o4rxmx`) — penyelarasan v3.
 - [x] Deskripsi manifest npm/Composer/Bower/gem/NuGet/Maven + "Part of Lombok Ecosystem"
 - [x] `lombok.js`: sortir tabel via `Intl.Collator` dari `lang` terdekat (+2 test)
 
-Sesi 2026-09-30 lanjutan — PR #36 di-merge; lalu:
+Sesi 2026-09-30 lanjutan — PR #36 di-merge; lalu PR #38 (di-merge):
 
 - [x] C-03: folder `package/` dihapus
 - [x] `docs/*.md` dicabut dari git + `.gitignore` (`*.md`, kecuali root dan `.github/`)
 
+Pembersihan riwayat (2026-10-01, dijalankan pemilik dengan `git filter-branch`):
+
+- [x] `docs/*_LombokCSS_*.md` dihapus dari seluruh riwayat `main`; force-push `44f0ef5 → 2b95d7d`. Semua hash commit `main` berubah.
+- [x] Branch `release-please--branches--main--components--lombokcss` dihapus (PR #37 tertutup; release-please membuat ulang dari `main` baru).
+- [x] Terverifikasi via clone mirror: 0 commit memuat dokumen itu di semua branch + 10 tag.
+- **Jangan pernah push dari clone lama** (sebelum `2b95d7d`) — riwayat lama akan kembali. Clone ulang dulu.
+- Commit lama `43321ef`/`5ff26d9` hanya tersisa di `refs/pull/36`, `37`, `38` (tidak bisa dihapus lewat push).
+
 Belum selesai (lanjutkan di sesi berikut):
 
+- [ ] Pemilik: minta GitHub Support (kategori "Remove sensitive data") menghapus cached view + `refs/pull/36`, `37`, `38` (commit `43321ef`, path `docs/*_LombokCSS_v0.1.9.md`)
+- [ ] Pemilik: ganti folder lama `C:\Users\Raffa\Documents\GitHub\LombokCSS` dengan clone baru (atau pakai `LombokCSS-clean`)
 - [ ] Pemilik: ubah deskripsi GitHub About (teks ada di `docs/masterplan_…` §6)
 - [ ] Pemilik: perbaiki model Copilot untuk check `github-advanced-security` (gagal: "model not supported")
 - [ ] C-02: email kontak nyata di `SECURITY.md` (masih placeholder) — butuh keputusan pemilik
