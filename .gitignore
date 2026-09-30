@@ -31,3 +31,8 @@ tests/*-webkit/
 !/*.md
 !/*.MD
 !/.github/**/*.md
+
+# CLAUDE.md = memori sesi Claude Code, konsumsi internal — LOKAL saja,
+# sama seperti dokumen kerja di docs/. Harus di bawah "!/*.md" agar menang.
+/CLAUDE.md
+/CLAUDE.MD
