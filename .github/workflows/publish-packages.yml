@@ -22,6 +22,18 @@ on:
         description: 'Semver version WITHOUT leading v (e.g. 0.1.8)'
         required: true
         type: string
+  # Manual re-publish of an existing release (e.g. one whose publish run
+  # failed). Builds from that release's tag, not from the tip of main.
+  # The version input only selects WHICH existing release tag to publish;
+  # the build itself comes from that tag, so SLSA's "no dispatch inputs"
+  # rule does not apply here.
+  # checkov:skip=CKV_GHA_7:Input only selects an existing release tag to re-publish
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Released version WITHOUT leading v (tag lombokcss-v<version> must exist)'
+        required: true
+        type: string
 
 # Default deny — each job declares only what it needs.
 permissions: {}
@@ -38,6 +50,9 @@ jobs:
       version: ${{ inputs.version }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          # Release tags are component-prefixed by release-please.
+          ref: lombokcss-v${{ inputs.version }}
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
           node-version: '24.x'
@@ -88,7 +103,9 @@ jobs:
             fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2));
           "
       - name: Sync version from tag
-        run: npm version "${{ inputs.version }}" --no-git-tag-version
+        # The release tag already carries this version; without
+        # --allow-same-version npm exits 1 ("Version not changed").
+        run: npm version "${{ inputs.version }}" --no-git-tag-version --allow-same-version
 
       - run: npm publish --ignore-scripts
         env:
@@ -107,6 +124,9 @@ jobs:
       IMAGE: ghcr.io/${{ github.repository_owner }}/lombokcss
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          # Release tags are component-prefixed by release-please.
+          ref: lombokcss-v${{ inputs.version }}
 
       - name: Generate Dockerfile
         run: |
