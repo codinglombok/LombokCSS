@@ -225,7 +225,7 @@
       opts = { numeric: true };
     try {
       return new Intl.Collator((host && host.getAttribute("lang")) || undefined, opts);
-    } catch (e) {
+    } catch {
       return new Intl.Collator(undefined, opts);
     }
   }
