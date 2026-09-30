@@ -351,6 +351,19 @@ select {
   padding-inline: 2.2em 0.8em;
 }
 
+/* The option list is a native popup that cannot be translucent: with a
+   see-through --lc-surface (glassmorphism) it falls back to the UA's white
+   while still inheriting a light --lc-text, so options become invisible.
+   Pin options to the opaque page colours, which every style defines as a
+   readable pair. */
+.select option,
+.select optgroup,
+select option,
+select optgroup {
+  color: var(--lc-text);
+  background-color: var(--lc-bg);
+}
+
 /* checkbox / radio use accent-color for native theming */
 input[type="checkbox"],
 input[type="radio"] {
