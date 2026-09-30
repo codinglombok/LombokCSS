@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.1.10](https://github.com/codinglombok/LombokCSS/compare/lombokcss-v0.1.9...lombokcss-v0.1.10) (2026-09-30)
+
+
+### Bug Fixes
+
+* **ci:** allow manual re-publish of a release to GitHub Packages ([7c42592](https://github.com/codinglombok/LombokCSS/commit/7c42592f568b1ea9f2885399a176c7fd37c8ca88))
+* **ci:** allow manual re-publish of a release to GitHub Packages ([ddbc5d8](https://github.com/codinglombok/LombokCSS/commit/ddbc5d88ed74f88b7ab0df51769765ec8f47be36))
+* **ci:** let the GPR npm job publish a version package.json already has ([cf17c86](https://github.com/codinglombok/LombokCSS/commit/cf17c86e5ce7c65c87212244d7e862912335a007))
+* **ci:** remove duplicate Pages workflow that deployed the repo root ([7980c73](https://github.com/codinglombok/LombokCSS/commit/7980c73ea505c11ef4bc3f9e0f620a2ad59c604a))
+* **ci:** remove duplicate Pages workflow that deployed the repo root ([913b1cc](https://github.com/codinglombok/LombokCSS/commit/913b1cc4493e2f9395ccbf5c820247030a9bdcb9))
+* **js:** drop unused catch binding in table-sort collator ([8f78dcf](https://github.com/codinglombok/LombokCSS/commit/8f78dcfb98c01ded215e2a3ffdc49148fe7b0f79))
+* **js:** drop unused catch binding in table-sort collator ([b912050](https://github.com/codinglombok/LombokCSS/commit/b912050c3a68e0ed72d193050b0563fa27c8363f))
+
 ## [0.1.9](https://github.com/codinglombok/LombokCSS/compare/lombokcss-v0.1.8...lombokcss-v0.1.9) (2026-08-24)
 
 
