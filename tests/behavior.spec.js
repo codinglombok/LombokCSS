@@ -538,6 +538,33 @@ test.describe("table sort", () => {
     expect(await column(page, 0)).toEqual(["apple", "Banana", "Cherry"]);
   });
 
+  test("sorts text by the nearest lang (BCP-47) collation", async ({ page }) => {
+    const words = (lang) => `
+      <table class="table" id="tbl" lang="${lang}">
+        <thead><tr><th aria-sort="none" id="th-w">Word</th></tr></thead>
+        <tbody><tr><td>Äpple</td></tr><tr><td>Zebra</td></tr></tbody>
+      </table>`;
+    // Swedish sorts "Ä" after "Z"; German and English sort it with "A"
+    await mount(page, words("sv"));
+    await page.locator("#th-w").click();
+    expect(await column(page, 0)).toEqual(["Zebra", "Äpple"]);
+    await mount(page, words("de"));
+    await page.locator("#th-w").click();
+    expect(await column(page, 0)).toEqual(["Äpple", "Zebra"]);
+  });
+
+  test("sorts embedded numbers naturally and survives a malformed lang", async ({ page }) => {
+    await mount(
+      page,
+      `<table class="table" id="tbl" lang="not a tag!">
+        <thead><tr><th aria-sort="none" id="th-i">Item</th></tr></thead>
+        <tbody><tr><td>Item 10</td></tr><tr><td>Item 2</td></tr><tr><td>Item 1</td></tr></tbody>
+      </table>`,
+    );
+    await page.locator("#th-i").click();
+    expect(await column(page, 0)).toEqual(["Item 1", "Item 2", "Item 10"]);
+  });
+
   test("sorting another column resets the previous aria-sort", async ({ page }) => {
     await mount(page, TABLE);
     await page.locator("#th-qty").click();
