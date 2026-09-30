@@ -1,6 +1,6 @@
 {
   "name": "lombokcss",
-  "description": "Token-first component CSS framework. One markup, five design styles, dark mode + RTL.",
+  "description": "Token-first component CSS framework. One markup, five design styles, dark mode + RTL. Part of Lombok Ecosystem.",
   "main": "dist/lombok.min.css",
   "license": "MIT",
   "homepage": "https://github.com/codinglombok/lombokcss",
