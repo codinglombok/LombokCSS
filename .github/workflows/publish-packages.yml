@@ -215,7 +215,7 @@ jobs:
             <version>${VERSION}</version>
             <packaging>jar</packaging>
             <name>LombokCSS</name>
-            <description>Token-first component CSS framework — webjar distribution</description>
+            <description>Token-first component CSS framework — webjar distribution. Part of Lombok Ecosystem.</description>
             <url>https://github.com/codinglombok/LombokCSS</url>
             <licenses>
               <license>
@@ -269,7 +269,7 @@ jobs:
               <PackageId>codinglombok.LombokCSS</PackageId>
               <Version>${VERSION}</Version>
               <Authors>codinglombok</Authors>
-              <Description>Token-first component CSS framework — one markup, five design styles, dark mode + RTL, ~10KB gzipped</Description>
+              <Description>Token-first component CSS framework — one markup, five design styles, dark mode + RTL, ~10KB gzipped. Part of Lombok Ecosystem.</Description>
               <PackageLicenseExpression>MIT</PackageLicenseExpression>
               <PackageProjectUrl>https://github.com/codinglombok/LombokCSS</PackageProjectUrl>
               <RepositoryUrl>https://github.com/codinglombok/LombokCSS</RepositoryUrl>
