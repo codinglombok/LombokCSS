@@ -216,11 +216,26 @@
     );
   });
 
+  /* Collator for the BCP-47 language nearest to el (lang="sv", "de", …), so
+     text sorts the way readers of that language expect; numeric: true orders
+     "Item 2" before "Item 10". An unknown or malformed tag falls back to the
+     runtime default instead of throwing a RangeError. */
+  function collator(el) {
+    var host = el.closest("[lang]"),
+      opts = { numeric: true };
+    try {
+      return new Intl.Collator((host && host.getAttribute("lang")) || undefined, opts);
+    } catch (e) {
+      return new Intl.Collator(undefined, opts);
+    }
+  }
+
   /* Table sort: <th aria-sort> click sorts its column (string/number aware) */
   d.querySelectorAll("table.table thead th[aria-sort]").forEach(function (th) {
     th.addEventListener("click", function () {
       var table = th.closest("table"),
-        tbody = table.tBodies[0];
+        tbody = table.tBodies[0],
+        cmp = collator(table).compare;
       var idx = Array.prototype.indexOf.call(th.parentNode.children, th);
       var asc = th.getAttribute("aria-sort") !== "ascending";
       th.parentNode.querySelectorAll("th[aria-sort]").forEach(function (o) {
@@ -233,7 +248,7 @@
           y = b.cells[idx].textContent.trim();
         var nx = parseFloat(x),
           ny = parseFloat(y);
-        var r = !isNaN(nx) && !isNaN(ny) ? nx - ny : x.localeCompare(y);
+        var r = !isNaN(nx) && !isNaN(ny) ? nx - ny : cmp(x, y);
         return asc ? r : -r;
       });
       rows.forEach(function (r) {
