@@ -22,3 +22,12 @@ playwright-report/
 tests/*-chromium/
 tests/*-firefox/
 tests/*-webkit/
+
+# Markdown hanya boleh online di root repo (README, CHANGELOG, dst.) dan di
+# .github/ (template). Dokumen kerja di subfolder — mis. docs/masterplan_*.md,
+# docs/architecture_*.md — disimpan LOKAL saja, tidak dipublikasikan.
+*.md
+*.MD
+!/*.md
+!/*.MD
+!/.github/**/*.md
