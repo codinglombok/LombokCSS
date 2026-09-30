@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.1.11](https://github.com/codinglombok/LombokCSS/compare/lombokcss-v0.1.10...lombokcss-v0.1.11) (2026-09-30)
+
+
+### Bug Fixes
+
+* **ci:** decouple npm publish from GitHub Packages; drop files re-added by an old-clone merge ([c2de5fa](https://github.com/codinglombok/LombokCSS/commit/c2de5fa5fd116c4f7bee1be05db72fcf2d8b597f))
+* **ci:** publish to npmjs in its own job so GitHub Packages still ships ([5416c34](https://github.com/codinglombok/LombokCSS/commit/5416c34be656e7d55887f9c11cd2d483ed50c42d))
+* drop static.yml and CLAUDE.md re-added by a merge from an old clone ([eb7ae68](https://github.com/codinglombok/LombokCSS/commit/eb7ae68a9d2019947a0060f82958ef1eef11fbc4))
+* **forms:** keep select options readable in dark and glass styles ([7ed45bb](https://github.com/codinglombok/LombokCSS/commit/7ed45bbb6b7f50c7a7b903ebc2bbddff9e985f3c))
+* **forms:** keep select options readable in dark and glass styles ([2384aa4](https://github.com/codinglombok/LombokCSS/commit/2384aa48bdd01a909dc43cd120ce21a2c74bd8b2))
+
 ## [0.1.10](https://github.com/codinglombok/LombokCSS/compare/lombokcss-v0.1.9...lombokcss-v0.1.10) (2026-09-30)
 
 
