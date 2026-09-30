@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.10](https://github.com/codinglombok/LombokCSS/compare/lombokcss-v0.1.9...lombokcss-v0.1.10) (2026-09-30)
+
+
+### Bug Fixes
+
+* **js:** drop unused catch binding in table-sort collator ([8f78dcf](https://github.com/codinglombok/LombokCSS/commit/8f78dcfb98c01ded215e2a3ffdc49148fe7b0f79))
+
 ## [0.1.9](https://github.com/codinglombok/LombokCSS/compare/lombokcss-v0.1.8...lombokcss-v0.1.9) (2026-08-24)
 
 
