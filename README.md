@@ -4,6 +4,9 @@
 > A modern, **token-first** component CSS framework. Drop a class, get a working
 > component — like Bootstrap. Re-theme everything by changing **one attribute** —
 > like a design system. Ships at **~9.7 KB gzipped** (full build, minified).
+>
+> Universal CSS framework for any web UI, on any device — part of the
+> [Lombok Ecosystem](https://github.com/codinglombok).
 
 ```text
 Component-based (Bootstrap)  +  Token-driven theming (design systems)  +  Tiny (Pico/UnoCSS)
@@ -43,7 +46,7 @@ Component-based (Bootstrap)  +  Token-driven theming (design systems)  +  Tiny (
 [![CI](https://img.shields.io/github/actions/workflow/status/codinglombok/LombokCSS/ci.yml?style=flat-square&logo=github-actions&logoColor=white&labelColor=2088FF&color=brightgreen&label=CI&branch=main)](https://github.com/codinglombok/LombokCSS/actions/workflows/ci.yml)
 [![Super-Linter](https://img.shields.io/github/actions/workflow/status/codinglombok/LombokCSS/linter.yml?style=flat-square&logo=github-actions&logoColor=white&labelColor=2088FF&color=brightgreen&label=Super-Linter&branch=main)](https://github.com/codinglombok/LombokCSS/actions/workflows/linter.yml)
 [![Visual Tests](https://img.shields.io/github/actions/workflow/status/codinglombok/LombokCSS/visual.yml?style=flat-square&logo=playwright&logoColor=white&labelColor=2EAD33&color=brightgreen&label=Visual+Tests&branch=main)](https://github.com/codinglombok/LombokCSS/actions/workflows/visual.yml)
-[![Tests](https://img.shields.io/badge/Tests-42%20passing-brightgreen?style=flat-square&logo=checkmarx&logoColor=white&labelColor=21B352)](https://github.com/codinglombok/LombokCSS/tree/main/tests)
+[![Tests](https://img.shields.io/badge/Tests-44%20passing-brightgreen?style=flat-square&logo=checkmarx&logoColor=white&labelColor=21B352)](https://github.com/codinglombok/LombokCSS/tree/main/tests)
 [![Zero deps](https://img.shields.io/badge/Dependencies-0%20runtime-brightgreen?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik05IDE2LjJMNC44IDEybC0xLjQgMS40TDkgMTkgMjEgN2wtMS40LTEuNHoiLz48L3N2Zz4=&labelColor=333)](https://github.com/codinglombok/LombokCSS/blob/main/package.json)
 [![Conventional Commits](https://img.shields.io/badge/Commits-Conventional-FE5196?style=flat-square&logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
 [![Code style](https://img.shields.io/badge/Code%20style-Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=white&labelColor=1A2B34)](https://prettier.io)
@@ -64,6 +67,10 @@ Component-based (Bootstrap)  +  Token-driven theming (design systems)  +  Tiny (
 
 ## Lombok Ecosystem
 
+Libraries that work well alongside LombokCSS — optional peers, not owners.
+LombokCSS has zero runtime dependencies and is a standalone library that
+belongs to no single application or framework.
+
 [![LombokClarion](https://img.shields.io/badge/LombokClarion-PHP%20Full%20Stack-777BB4?style=flat-square&logo=php&logoColor=white&labelColor=4F5B93)](https://github.com/codinglombok/LombokClarion)
 [![LombokCharts](https://img.shields.io/badge/LombokCharts-Zero--Dep%20Charts-FF6384?style=flat-square&logo=chartdotjs&logoColor=white&labelColor=C94070)](https://github.com/codinglombok/LombokCharts)
 [![LombokQRCode](https://img.shields.io/badge/LombokQRCode-QR%20Generator-00C9A7?style=flat-square&logo=qrcode&logoColor=white&labelColor=00927A)](https://github.com/codinglombok/LombokQRCode)
@@ -74,6 +81,35 @@ Component-based (Bootstrap)  +  Token-driven theming (design systems)  +  Tiny (
 
 [![LombokCSS Preview](docs/assets/social-preview-hd.webp)](https://codinglombok.github.io/LombokCSS/)
 [![LombokCSS Preview](docs/assets/preview.png)](https://codinglombok.github.io/LombokCSS/)
+
+---
+
+## Why this library?
+
+**For whom:** web developers, designers, agencies, product teams and hardware
+makers who ship a browser UI — from a one-page landing site or a router/IoT
+admin panel served from flash, to a SaaS dashboard, an e-government form or an
+enterprise design system.
+
+**The problem:** most CSS frameworks bake one look into every component, so a
+rebrand, a dark mode or an RTL locale means overriding hundreds of rules or
+rewriting markup. Utility-first frameworks avoid that, but move the styling
+into every HTML attribute and need a build step.
+
+**Why LombokCSS instead:**
+
+- **One markup, five design styles** — switch the whole look with a single
+  `data-style` attribute; dark mode (`data-theme`) and RTL (`dir`) compose
+  independently with every style.
+- **Tiny and dependency-free** — ~9.7 KB gzipped CSS plus an optional ~3 KB JS;
+  works from a CDN, npm, Composer, RubyGems or a plain file copy, with no build
+  step.
+- **Runs anywhere a browser engine runs** — desktop and mobile browsers,
+  WebViews in iOS/Android apps, Electron/Tauri desktop apps, SSR frameworks,
+  kiosks and embedded device panels.
+- **Standards-based** — CSS logical properties, native `<dialog>`/`<details>`,
+  WAI-ARIA patterns, `prefers-color-scheme` / `prefers-reduced-motion`, and
+  BCP-47 `lang` / `dir` (see [Standards implemented](#standards-implemented)).
 
 ---
 
@@ -342,6 +378,17 @@ Modern CSS used with graceful fallbacks: `:has()`, `:user-invalid`,
 `accent-color`, `backdrop-filter` (opaque fallback via `@supports`), logical
 properties, native `<dialog>`/`<details>`. Components ship with visible
 `:focus-visible` rings, ARIA hooks, and respect `prefers-reduced-motion`.
+
+## Standards implemented
+
+| Area                  | Standard                                                                                     |
+| --------------------- | -------------------------------------------------------------------------------------------- |
+| Accessibility         | WCAG 2.2 level AA colour contrast for built-in styles; WAI-ARIA 1.2 roles and states         |
+| Interaction patterns  | WAI-ARIA Authoring Practices: tabs, dialog (modal), disclosure, sortable table               |
+| Layout & writing mode | CSS Logical Properties and Values (RTL via `dir`)                                            |
+| User preferences      | Media Queries Level 5: `prefers-color-scheme`, `prefers-reduced-motion`                      |
+| Language              | BCP 47 language tags — table sort collates by the nearest `lang` attribute (`Intl.Collator`) |
+| HTML                  | WHATWG HTML Living Standard: native `<dialog>`, `<details>`, form validation states          |
 
 ## Testing
 

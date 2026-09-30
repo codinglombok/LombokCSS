@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name        = "lombokcss"
   spec.version     = Lombokcss::VERSION
   spec.authors     = ["codinglombok"]
-  spec.summary     = "Token-first component CSS framework. One markup, five design styles, dark + RTL."
+  spec.summary     = "Token-first component CSS framework. One markup, five design styles, dark + RTL. Part of Lombok Ecosystem."
   spec.description = "LombokCSS compiled assets packaged as a RubyGem for Rails/Sprockets and Ruby projects."
   spec.homepage    = "https://github.com/codinglombok/lombokcss"
   spec.license     = "MIT"
