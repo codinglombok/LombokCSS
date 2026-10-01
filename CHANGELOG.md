@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.1.12](https://github.com/codinglombok/LombokCSS/compare/lombokcss-v0.1.11...lombokcss-v0.1.12) (2026-10-01)
+
+
+### Bug Fixes
+
+* **build:** restore print layer in min.css, format src, sync docs assets ([31a17f1](https://github.com/codinglombok/LombokCSS/commit/31a17f1bf29c7f04ca9e50369d8f91d225be4214))
+* **build:** use lightningcss Node API; ci(lint): add repo linter configs, ignore generated CHANGELOG ([876786e](https://github.com/codinglombok/LombokCSS/commit/876786ed7a59f326e328b07d31924fd2f0daac79))
+* **carousel:** cancel a pending re-sync when moving to a new target ([d5be8ad](https://github.com/codinglombok/LombokCSS/commit/d5be8ad48a287a1a7ca8f6ccc500b3473e5a7194))
+* **carousel:** move to a tracked slide index instead of a scroll delta ([d14ba8c](https://github.com/codinglombok/LombokCSS/commit/d14ba8c70bb134ceb7a80d2417f8bc13c242e2d8))
+* **ci:** allow manual re-publish of a release to GitHub Packages ([cf6e3c8](https://github.com/codinglombok/LombokCSS/commit/cf6e3c8adea45ec3fcee8dd0d9d16602d0f50a5c))
+* **ci:** allow manual re-publish of a release to GitHub Packages ([9b9b117](https://github.com/codinglombok/LombokCSS/commit/9b9b117451d85f53bd3ff599a0b335a71dd03160))
+* **ci:** decouple npm publish from GitHub Packages; drop files re-added by an old-clone merge ([df7e473](https://github.com/codinglombok/LombokCSS/commit/df7e473d04a74077d67c5f3fcbede17b6f025d8c))
+* **ci:** let the GPR npm job publish a version package.json already has ([7138147](https://github.com/codinglombok/LombokCSS/commit/7138147e31150a91e76a92091f5b33dbf7dbec5c))
+* **ci:** publish to npmjs in its own job so GitHub Packages still ships ([bcf6596](https://github.com/codinglombok/LombokCSS/commit/bcf659652b4f2ec7a799baf14cd19e0ac6f1bda9))
+* **ci:** remove duplicate Pages workflow that deployed the repo root ([16a5398](https://github.com/codinglombok/LombokCSS/commit/16a53989a347cad03edcadf5699637ffe99d1622))
+* **ci:** remove duplicate Pages workflow that deployed the repo root ([6f0f4e4](https://github.com/codinglombok/LombokCSS/commit/6f0f4e497b71e912e4143f1a34092ef4178fbcb0))
+* **docs:** allow all five styles in switcher, derive allowlist from buttons ([b512950](https://github.com/codinglombok/LombokCSS/commit/b512950ec4d404bfbb5cb2239219b8129ddd04f8))
+* drop static.yml and CLAUDE.md re-added by a merge from an old clone ([8d0228c](https://github.com/codinglombok/LombokCSS/commit/8d0228c9ae166d587461a7d7085bce735f41eb4e))
+* **forms:** keep select options readable in dark and glass styles ([196862b](https://github.com/codinglombok/LombokCSS/commit/196862b3156b3c518410ef351186a98a22eaa924))
+* **forms:** keep select options readable in dark and glass styles ([b5fee83](https://github.com/codinglombok/LombokCSS/commit/b5fee839118db554e185dc60500db3d7e407fa30))
+* guard lombok.js against environments without a DOM ([40d77b4](https://github.com/codinglombok/LombokCSS/commit/40d77b478837f8df9483bcd0c35108e823c7973e))
+* **js:** drop unused catch binding in table-sort collator ([679f68b](https://github.com/codinglombok/LombokCSS/commit/679f68b54233fd32d9d97a00cd2e5c3e8321abe0))
+* **themes:** restore dark-mode status colors for neo-brutalism ([1591e55](https://github.com/codinglombok/LombokCSS/commit/1591e5581903f8197f77d9f63cec96cbbfc21770))
+
 ## [0.1.11](https://github.com/codinglombok/LombokCSS/compare/lombokcss-v0.1.10...lombokcss-v0.1.11) (2026-09-30)
 
 
